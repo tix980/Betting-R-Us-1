@@ -110,24 +110,25 @@ button {
     font-size: 18px;
 }
 
-ul {
+/* Add an idea to my header and footer list */
+#topNav ul, #bottom ul {
     list-style-type: none;
     float: right;
     margin-top: 50px;
 }
 
-ul li {
+#topNav ul li, #bottm ul li {
     display: inline;
     padding: 0 15px;
 }
 
-ul li a {
+#topNav ul li a, #bottomNav ul li a {
     font-size: 20px;
     color: #FFF;
     text-decoration: none;
 }
 
-ul li a:hover {
+#topNav ul li a:hover, #bottomNav ul li a:hover {
     color: #ECDD7B;
 }
 
@@ -144,7 +145,7 @@ footer {
     margin: 50px auto;
     padding: 100px;
     text-align: center;
-    border: 5px solid #BA1200;
+    border: 5px solid #ECDD7B;
 }
 
 .formFields {
