@@ -1,0 +1,78 @@
+html{
+  box-sizing: border-box;
+}
+
+*,*::before,*::after{
+  box-sizing: inherit;
+}
+
+body{
+  background:#031927 !important;
+  color:#ECDD7B !important;
+}
+
+.page-container{
+  max-width: 1200px;
+  margin:0 auto;
+}
+
+.flex-container{
+  display:flex;
+  flex-direction: row wrap;
+}
+
+#page-title h1{
+  font-size: 2.5rem;
+  margin-left: 8em;
+}
+
+#page-title h2{
+  font-size:1.5rem;
+  margin-left:15em;
+  margin-bottom: 2em;
+  color: white !important;
+}
+
+#movie-title{
+  margin-bottom:1em;
+}
+
+h2{
+  margin-bottom:1em !important;
+  color:red !important;
+}
+
+.movie-pic{
+  height:600px;
+  margin-bottom:3em;
+}
+
+#movie-detail {
+  margin-left: 5em;
+  line-height: 2.2em;
+}
+
+table{
+  margin-bottom:3em;
+}
+
+table:nth-child(2){
+  margin-left:1em;
+}
+
+table td, table th {
+  border: 1px solid white;
+  padding: 12px;
+  text-align: left;
+}
+
+#back-btn{
+  border:none;
+  color:red;
+  font-size:3em;
+  margin-bottom:5em;
+}
+
+#back-btn:hover{
+  color:white;
+}

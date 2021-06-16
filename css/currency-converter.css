@@ -1,0 +1,77 @@
+html{
+  box-sizing: border-box;
+}
+
+*,*::before,*::after{
+  box-sizing: inherit;
+}
+
+body{
+  background:#031927 !important;
+  color:#ECDD7B !important;
+}
+
+.page-container{
+  max-width: 1200px;
+  margin:0 auto;
+}
+
+.form-group{
+  border: 1px solid #ECDD7B;
+  margin-top: 12em;
+  margin-left: 10em;
+  padding: 1em 0 8em 13.1em;
+  width: 791px;
+  position:relative;
+  background:url("../images/coverter-picture.jpg");
+  background-size: 792px 505px;
+}
+
+.form-group h1{
+  padding-bottom:1em;
+}
+
+#exchange{
+  margin-left: 12em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#cad{
+  width: 77px;
+}
+
+#coin{
+  top: 14.3em;
+  left: 13.5em;
+  position:absolute;
+  width:60px;
+  height:60px;
+  background:url(../images/coin.png) left center;
+  animation:flip 0.5s steps(6) infinite;
+}
+
+@keyframes flip{
+  100%{
+    background-position:-120px;
+  }
+}
+
+#token-info label,input{
+  margin-left:5em;
+  margin-top:1em;
+}
+
+#token-info-2 {
+  margin-left:5em;
+  margin-bottom:1em;
+}
+
+#money-2{
+  margin-bottom:-2em;
+}
+
+#btn{
+  margin-left: 11em;
+  margin-top: 3em;
+}
