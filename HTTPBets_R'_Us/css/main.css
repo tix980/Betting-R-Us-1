@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color:#031927;
+    color: #FFF;
+    font-family: 'Lato';
+}
+
+#topNav {
+    height: 120px;
+    padding: 25px 15px;
+}
+
+#heroImg {
+    width: 100%;
+    height: 500px;
+}
+
+#bottomNav {
+    padding: 25px 15px;
+}
+
+.logo {
+    width: 140px;
+    float: left;
+}
+
+.btn {
+    float: right;
+}
+
+.profileBtn {
+    background-color: #ECDD7B;
+    color: #000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 4px;
+    padding: 3px 20px;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+.profileBtn:hover {
+    background-color: #000;
+    color: #ECDD7B;
+}
+
+.betBtn {
+    background-color: #BA1200;
+    color: #FFF;
+    border: 1px solid #FFF;
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.5);
+}
+
+.betBtn:hover {
+    background-color: #FFF;
+    color: #BA1200;
+}
+
+.listTitle {
+    margin-bottom: 15px;
+    padding: 15px 0;
+}
+
+.listImg {
+    width: 30px;
+}
+
+.listTxt {
+    display: inline;
+}
+
+.payoutList, .topUserList {
+    width: 350px;
+    background-color: #FFF;
+    color: #000;
+    margin: 25px;
+    padding: 25px;
+}
+
+.separator {
+    border-top: 2px solid #031927;
+    width: 250px;
+}
+
+header, footer {
+    width: 100%;
+    background-color: #BA1200;
+    color: #FFF;
+}
+
+h1 {
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #ECDD7B;
+    font-family: 'Roboto';
+}
+
+button {
+    border: none;
+    border-radius: 4px;
+    padding: 3px 20px;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+ul {
+    list-style-type: none;
+    float: right;
+    margin-top: 50px;
+}
+
+ul li {
+    display: inline;
+    padding: 0 15px;
+}
+
+ul li a {
+    font-size: 20px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    color: #ECDD7B;
+}
+
+footer {
+    height: 250px;
+    position: relative;
+    bottom: 0;
+}
+
+/***** Login and Sign Up ****/
+
+.forms {
+    width: 50%;
+    margin: 50px auto;
+    padding: 100px;
+    text-align: center;
+    border: 5px solid #BA1200;
+}
+
+.formFields {
+    margin-bottom: 15px;
+}
