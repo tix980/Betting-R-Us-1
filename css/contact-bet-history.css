@@ -1,0 +1,94 @@
+body{
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #ECDD7B;
+    background-color: #031927;
+    font-family: "Montserrat", "sans-serif";
+}
+
+.form-group,.input-group{
+    margin: 0.5em;
+}
+#contact{
+    position: relative;
+}
+
+.contact-us-form-section{
+    width: 45%;
+    /*position: relative;*/
+    /*left: 500px;*/
+    padding: 1em;
+    background-color: black;
+    border-radius: 10px;
+    float: right;
+    /*margin-top: 7em;*/
+}
+
+.btn{
+    background-color: gold;
+    color: #161616;
+    margin: 10px;
+}
+.contact-us-content{
+    float: left;
+    width: 55%;
+ }
+
+
+.contact-us-image, .contact-us-image img{
+    width: 50%;
+}
+
+span{
+    display: block;
+}
+
+.contact-no{
+    padding: 1.5em;
+}
+
+.contact-us-heading-div{
+    display: block;
+    text-align: center;
+
+}
+
+.contact-us-heading{
+    padding-top: 1em;
+}
+/*BETTING HISTORY SECTION*/
+.bet-hist-table-div{
+    margin: 2em;
+}
+
+ .bet-hist-table th,.bet-hist-table td{
+    border: 1px solid #ECDD7B;
+    padding: 1em;
+    color: #ECDD7B;
+}
+
+.bet-hist-form-div{
+    margin: 1em;
+}
+
+.bet-hist-heading,.bet-hist-table{
+    margin: 1em 0;
+}
+
+@media screen and (max-width: 768px){
+    .section-content{
+        width: 100%;
+    }
+
+    .contact-us-form-section{
+        width: 100%;
+        padding: 1em;
+        background-color: black;
+        border-radius: 10px;
+       margin: 0 auto;
+    }
+    .contact-us-heading{
+       padding: 0.5em;
+
+    }
+}

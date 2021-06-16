@@ -16,7 +16,7 @@
                 <a href="#">FAQ</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="contact-us.php">Contact</a>
             </li>
             <li>
                 <a href="#">Donate</a>
