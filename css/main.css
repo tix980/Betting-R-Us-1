@@ -110,25 +110,24 @@ button {
     font-size: 18px;
 }
 
-/* Add an idea to my header and footer list */
-#topNav ul, #bottom ul {
+ul {
     list-style-type: none;
     float: right;
     margin-top: 50px;
 }
 
-#topNav ul li, #bottm ul li {
+ul li {
     display: inline;
     padding: 0 15px;
 }
 
-#topNav ul li a, #bottomNav ul li a {
+ul li a {
     font-size: 20px;
     color: #FFF;
     text-decoration: none;
 }
 
-#topNav ul li a:hover, #bottomNav ul li a:hover {
+ul li a:hover {
     color: #ECDD7B;
 }
 
@@ -136,6 +135,7 @@ footer {
     height: 250px;
     position: relative;
     bottom: 0;
+    clear: both;
 }
 
 /***** Login and Sign Up ****/
@@ -145,7 +145,7 @@ footer {
     margin: 50px auto;
     padding: 100px;
     text-align: center;
-    border: 5px solid #ECDD7B;
+    border: 5px solid #BA1200;
 }
 
 .formFields {

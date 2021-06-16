@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-				<link href="css/main.css" rel="stylesheet" type="text/css" />
+        <link  rel="stylesheet" type="text/css" href="css/main.css">
         <title>Bets R' Us</title>
     </head>
     <body>
