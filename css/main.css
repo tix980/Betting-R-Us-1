@@ -135,6 +135,7 @@ footer {
     height: 250px;
     position: relative;
     bottom: 0;
+    clear: both;
 }
 
 /***** Login and Sign Up ****/

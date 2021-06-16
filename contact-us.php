@@ -33,7 +33,7 @@ require 'header.php';
    </div>
    </div>
     <div class="contact-us-form-section">
-        <div class="contact-us-form-container">
+        <div class="contact-us-form-container ">
             <form method="post" name="contact_us_form" >
                 <div class="form-line">
                     <div class="form-group">
@@ -65,13 +65,17 @@ require 'header.php';
                         <label for ="description"> Message</label>
                         <textarea  class="form-control" id="description" placeholder="Enter Your Message"></textarea>
                     </div>
+                    <div>
                      <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
                     </div>
 
               </form>
         </div>
-    </div>
+
+
 </section>
+
 <?php
 require 'footer.php';
 ?>
