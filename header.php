@@ -13,13 +13,13 @@
                 <a href="#">Bets</a>
             </li>
             <li>
-                <a href="#">FAQ</a>
+                <a href="faq.php">FAQ</a>
             </li>
             <li>
                 <a href="contact-us.php">Contact</a>
             </li>
             <li>
-                <a href="#">Donate</a>
+                <a href="donations.php">Donate</a>
             </li>
         </ul>
     </nav>
