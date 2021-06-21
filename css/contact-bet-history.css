@@ -37,7 +37,7 @@ body{
 
 
 .contact-us-image, .contact-us-image img{
-    width: 50%;
+    width: 80%;
 }
 
 span{
@@ -76,6 +76,69 @@ span{
     margin: 1em 0;
 }
 
+.bet-hist-form-date-input-btn {
+    padding: 0.2em 0.5em;
+    color: #333;
+    background-color: #EBDD7BFF;
+    border-radius: 5px;
+}
+.current-bet-heading{
+    margin: 2em;
+}
+
+
+/*CURRENT BETS SECTION*/
+.current-bet-container-flex{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+
+}
+
+.current-bet-container{
+    border: 1px solid #EBDD7BFF;
+    padding: 2em 1em;
+    margin: 1em;
+    height: 100%;
+    background-color: #161616;
+
+
+}
+.current-bet-links{
+    padding: 0.5em;
+}
+.current-bet-links a{
+    margin-left: 4em;
+    padding: 0.5em;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: #161616;
+}
+
+.current-bet-container h3{
+    margin-bottom: 0;
+   display: inline-block;
+}
+
+.current-bet-container p{
+    font-size: 0.8em;
+
+}
+.current-bet-dates{
+    display: block;
+    margin: 0.5em;
+}
+
+
+
+.bet-flop{
+    background-color: #ff0000;
+}
+.bet-hit{
+    background-color: green;
+}
+
 @media screen and (max-width: 768px){
     .contact-us-content{
         width: 100%;
@@ -84,7 +147,7 @@ span{
     .contact-us-form-section{
         width: 100%;
         padding: 1em;
-        background-color: black;
+        background-color: #3a3a3a;
         border-radius: 10px;
        margin: 0 auto;
     }
@@ -92,4 +155,6 @@ span{
        padding: 0.5em;
 
     }
+
+
 }

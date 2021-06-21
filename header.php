@@ -10,7 +10,7 @@
                 <a href="index.php">Home</a>
             </li>
             <li>
-                <a href="#">Bets</a>
+                <a href="current-bet.php">Bets</a>
             </li>
             <li>
                 <a href="faq.php">FAQ</a>
