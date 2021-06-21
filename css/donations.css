@@ -1,0 +1,64 @@
+/*body{*/
+/*    !*background-color: #031927;*!*/
+/*    font-family: 'Montserrat', sans-serif;*/
+/*}*/
+
+.container h1{
+    margin: 1em 0;
+    text-align: center;
+    color: #fff;
+
+}
+
+.container p{
+    color: #fff;
+    text-align: center;
+}
+
+.row{
+    margin: 20px 0;
+}
+
+.donation-form{
+    border: #ECDD7B 1px solid;
+    color: white;
+    margin-bottom: 7em;
+}
+
+.required-field{
+    color: red;
+}
+.credit-card-logo{
+    height: 2em;
+    width: 2em;
+    margin: 0 0.5em;
+}
+
+.donation-form button{
+    margin: 1em;
+}
+
+#donation-btn-submit{
+    background-color: whitesmoke;
+    float: none;
+}
+
+.donation-form h3{
+    font-size: 1em;
+    text-align: center;
+}
+
+ #payment-methods{
+    justify-content: center;
+    display: flex;
+     float: none;
+}
+
+ .payment-card{
+    list-style: none;
+    margin: 0 10px;
+}
+
+.payment-card i{
+    font-size: 2em;
+}

@@ -10,16 +10,16 @@
                 <a href="index.php">Home</a>
             </li>
             <li>
-                <a href="#">Bets</a>
+                <a href="current-bet.php">Bets</a>
             </li>
             <li>
-                <a href="#">FAQ</a>
+                <a href="faq.php">FAQ</a>
             </li>
             <li>
                 <a href="contact-us.php">Contact</a>
             </li>
             <li>
-                <a href="#">Donate</a>
+                <a href="donations.php">Donate</a>
             </li>
         </ul>
     </nav>
