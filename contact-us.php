@@ -66,7 +66,7 @@ require 'header.php';
                         <textarea  class="form-control" id="description" placeholder="Enter Your Message"></textarea>
                     </div>
                     <div>
-                     <button type="submit" class="btn btn-primary">Submit</button>
+                     <button type="submit" class="btn-bet btn-primary">Submit</button>
                 </div>
                     </div>
 
