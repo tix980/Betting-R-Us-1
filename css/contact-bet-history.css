@@ -1,8 +1,9 @@
 body{
-    /*margin: 0 auto;*/
+    max-width: 1200px;
+    margin: 0 auto;
     color: #ECDD7B;
     background-color: #031927;
-
+    font-family: "Montserrat", "sans-serif";
 }
 
 .form-group,.input-group{
@@ -10,9 +11,6 @@ body{
 }
 #contact-us-section{
     position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-
 }
 
 .contact-us-form-section{
@@ -27,7 +25,7 @@ body{
     margin-bottom: 100px;
 }
 
-.btn-bet{
+.btn{
     background-color: gold;
     color: #161616;
     margin: 10px;
@@ -60,11 +58,6 @@ span{
     padding-top: 1em;
 }
 /*BETTING HISTORY SECTION*/
-
-#current-bet{
-    max-width: 1200px;
-    margin: 0 auto;
-}
 .bet-hist-table-div{
     margin: 2em;
 }

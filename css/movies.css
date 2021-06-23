@@ -1,0 +1,36 @@
+.movielist{
+    list-style-type: none;
+    text-align: center;
+}
+.moviename{
+    display: inline-block;
+    padding: 20px;
+
+}
+.heading{
+    text-align: center;
+}
+.genre{
+    text-align: center;
+}
+.genre_buttons{
+    list-style-type: none;
+    text-align: center;
+}
+.genre_buttons li{
+    display: inline-block;
+    border:2px solid yellow;
+    border-radius: 20px;
+    padding:10px;
+}
+.movie_mainlist{
+    display: inline-block;
+    padding:20px;
+}
+
+#romance, #action, #kids{
+    display: none;
+}
+.main{
+    clear: both;
+}
