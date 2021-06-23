@@ -60,51 +60,17 @@
                     </button>
                 </div>
             </section>
-            <section id="lastMinBets" class="container">
-                <h2 class="text-center">Last Minute Bets</h2>
-                <div class="row">
-                    <div class="col">
-                        <div class="card bg-dark">
-                            <img class="card-img w-50" src="./images/movie_clapper.png" alt="Movie Clapper">
-                            <div class="card-img-overlay">
-                                <h3>Movie Title</h3>
-                                <button class="betBtn">Bet Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card bg-dark">
-                            <img class="card-img w-50" src="./images/movie_clapper.png" alt="Movie Clapper">
-                            <div class="card-img-overlay">
-                                <h3>Movie Title</h3>
-                                <button class="betBtn">Bet Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="card bg-dark">
-                            <img class="card-img w-50" src="./images/movie_clapper.png" alt="Movie Clapper">
-                            <div class="card-img-overlay">
-                                <h3>Movie Title</h3>
-                                <button class="betBtn">Bet Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card bg-dark">
-                            <img class="card-img w-50" src="./images/movie_clapper.png" alt="Movie Clapper">
-                            <div class="card-img-overlay">
-                                <h3>Movie Title</h3>
-                                <button class="betBtn">Bet Now!</button>
-                            </div>
-                        </div>
+            <section id="lastMinBets">
+                <div>
+                    <img src="" alt="">
+                    <div>
+                        <h3>Movie Title</h3>
+                        <button class="betBtn" type="button">Bet Now!</button>
                     </div>
                 </div>
             </section>
-            <section id="leaderBoard">
-                <div>
+            <section id="leaderBoard" class="row">
+                <div class="col">
                     <div class="payoutList">
                         <h3 class="listTitle">Highest Payouts</h3>
                         <ol>
@@ -156,14 +122,14 @@
                         </ol>
                     </div>
                 </div>
-                <div>
+                <div class="col">
                     <h2>Leadership Board</h2>
-                    <p></p>
+                    <p>Checkout the top five users with the highest amount of money and best betting average. You can also see the movies with the highest payouts.</p>
                 </div>
             </section>
             <section id="featuredMovies">
                 <h2>Featured Movies</h2>
-                <p>filler text</p>
+                <p class="text-center">Here are a few of the movies that we feature to bet on.</p>
                 <div>
                     <img src="./images/movie_clapper.png" alt="Movie poster image">
                     <img src="./images/movie_clapper.png" alt="Movie poster image">
@@ -175,20 +141,24 @@
                     <img src="./images/movie_clapper.png" alt="Movie poster image">
                 </div>
             </section>
-            <section id="testimonial">
-                <div>
+            <section id="testimonial" class="row">
+                <div class="col">
                     <h2>What others got to say about us!</h2>
                     <h4>John Doe</h4>
                     <p>Great website to use for your betting needs!</p>
                 </div>
-                <div>
+                <div class="col">
                     <img src="./images/user_profile.png" alt="user's image">
                 </div>
             </section>
-            <section id="membership">
-                <h2>What are you waiting for!</h2>
-                <button class="betBtn">Membership</button>
-                <button class="betBtn">FAQ</button>
+            <section id="membership" class="row">
+                <div class="col">
+                    <h2>What are you waiting for!</h2>
+                </div>
+                <div class="col">
+                    <button class="betBtn">Membership</button>
+                    <button class="betBtn">FAQ</button>
+                </div>
             </section>
         </main>
         <?php require_once "footer.php"; ?>

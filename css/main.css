@@ -10,18 +10,86 @@ html, body {
     font-family: 'Lato';
 }
 
+/***** Header and Footer *****/
 #topNav {
     height: 120px;
     padding: 25px 15px;
 }
 
 #bottomNav {
-    padding: 25px 15px;
+    padding: 15px;
+}
+
+#topNavLinks, #bottomNavLinks {
+    list-style-type: none;
+    float: right;
+    margin-top: 50px;
+}
+
+#topNavLinks li, #bottomNavLinks li, .socialLinks li {
+    display: inline;
+    padding: 0 15px;
+}
+
+#topNavLinks li a, #bottomNavLinks li a {
+    font-size: 20px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+#topNavLinks li a:hover, #bottomNavLinks li a:hover, .socialLinks li a:hover {
+    color: #ECDD7B;
 }
 
 .logo {
     width: 140px;
     float: left;
+}
+
+.separator {
+    margin: 0 auto;
+    border-top: 2px solid #031927;
+    max-width: 1200px;
+    padding: 15px 0;
+}
+
+.socialLinks {
+    list-style: none;
+}
+
+.socialLinks li a {
+    color: #FFF;
+    display: inline;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header, footer {
+    width: 100%;
+    background-color: #BA1200;
+    color: #FFF;
+    clear: both;
+}
+
+footer {
+    height: 250px;
+    position: relative;
+    bottom: 0;
+}
+
+.footerTxt {
+    display: inline;
+}
+
+/*--------------------------------------------------------*/
+#leaderBoard, #testimonial {
+    background-color: #BA1200;
+    padding: 50px;
+} 
+
+#membership {
+    padding: 50px;
+    height: 250px;
 }
 
 .carouselTxt {
@@ -83,17 +151,6 @@ html, body {
     padding: 25px;
 }
 
-.separator {
-    border-top: 2px solid #031927;
-    width: 250px;
-}
-
-header, footer {
-    width: 100%;
-    background-color: #BA1200;
-    color: #FFF;
-}
-
 h1 {
     margin-bottom: 25px;
 }
@@ -101,6 +158,7 @@ h1 {
 h2 {
     color: #ECDD7B;
     font-family: 'Roboto';
+    text-align: center;
 }
 
 button {
@@ -109,34 +167,6 @@ button {
     padding: 3px 20px;
     margin: 0 10px;
     font-size: 18px;
-}
-
-#topNavLinks, #bottomNavLinks {
-    list-style-type: none;
-    float: right;
-    margin-top: 50px;
-}
-
-#topNavLinks li, #bottomNavLinks li {
-    display: inline;
-    padding: 0 15px;
-}
-
-#topNavLinks li a, #bottomNavLinks li a {
-    font-size: 20px;
-    color: #FFF;
-    text-decoration: none;
-}
-
-#topNavLinks li a:hover, #bottomNavLinks li a:hover {
-    color: #ECDD7B;
-}
-
-footer {
-    height: 250px;
-    position: relative;
-    bottom: 0;
-    clear: both;
 }
 
 /***** Login and Sign Up ****/
