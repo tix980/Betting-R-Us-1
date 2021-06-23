@@ -2,38 +2,105 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link  rel="stylesheet" type="text/css" href="css/main.css">
         <title>Bets R' Us</title>
     </head>
     <body>
         <?php require_once "header.php"; ?>
         <main>
-            <section id="hero">
-                <div>
-                    <img id="heroImg" src="./images/hero.jpg" alt="">
-                </div>
-                <div>
-                    <h2>Safe Betting</h2>
-                    <button class="betBtn">Join Now!</button>
+            <section>
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="./images/bet_friends.jpg" class="d-block w-100" alt="Bet Safely">
+                            <div class="carousel-caption d-none d-md-block carouselTxt">
+                                <h1>Safe Betting</h1>
+                                <p>Feel at ease with our secure and safe betting.</p>
+                                <button class="betBtn" type="button" onclick="window.location.href='register.php'">Join Now!</button>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/bet_friends.jpg" class="d-block w-100" alt="new movies">
+                            <div class="carousel-caption d-none d-md-block carouselTxt">
+                                <h1>New Releases</h1>
+                                <p>Bet on upcoming box office releases.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/bet_friends.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block carouselTxt">
+                                <h1>Bet with Friends</h1>
+                                <p>Have a movie that you and your friends are interested in watching, why not bet to see if it will be abox office hit or flop.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./images/bet_friends.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block carouselTxt">
+                                <h1>Donate</h1>
+                                <p>It's always nice to give.</p>
+                                <button class="betBtn" type="button" onclick="window.location.href='donations.php'">Donate Today!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </section>
-            <section id="lastMinBets">
-                <h2>Last Minute Bets</h2>
-                <div>
-                    <h3></h3>
-                    <button class="betBtn">Bet Now!</button>
+            <section id="lastMinBets" class="container">
+                <h2 class="text-center">Last Minute Bets</h2>
+                <div class="row">
+                    <div class="col">
+                        <div class="card bg-dark">
+                            <img class="card-img w-50" src="./images/movie_clapper.png" alt="Movie Clapper">
+                            <div class="card-img-overlay">
+                                <h3>Movie Title</h3>
+                                <button class="betBtn">Bet Now!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card bg-dark">
+                            <img class="card-img w-50" src="./images/movie_clapper.png" alt="Movie Clapper">
+                            <div class="card-img-overlay">
+                                <h3>Movie Title</h3>
+                                <button class="betBtn">Bet Now!</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h3></h3>
-                    <button class="betBtn">Bet Now!</button>
-                </div>
-                <div>
-                    <h3></h3>
-                    <button class="betBtn">Bet Now!</button>
-                </div>
-                <div>
-                    <h3></h3>
-                    <button class="betBtn">Bet Now!</button>
+                <div class="row">
+                    <div class="col">
+                        <div class="card bg-dark">
+                            <img class="card-img w-50" src="./images/movie_clapper.png" alt="Movie Clapper">
+                            <div class="card-img-overlay">
+                                <h3>Movie Title</h3>
+                                <button class="betBtn">Bet Now!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card bg-dark">
+                            <img class="card-img w-50" src="./images/movie_clapper.png" alt="Movie Clapper">
+                            <div class="card-img-overlay">
+                                <h3>Movie Title</h3>
+                                <button class="betBtn">Bet Now!</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section id="leaderBoard">

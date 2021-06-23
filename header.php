@@ -5,7 +5,7 @@
             <a href="login.php" class="profileBtn" type="button">Login</a>
             <a href="register.php" class="profileBtn" type="button">Register</a>
         </div>
-        <ul>
+        <ul id="topNavLinks">
             <li>
                 <a href="index.php">Home</a>
             </li>
