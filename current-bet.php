@@ -13,7 +13,7 @@
 include 'header.php';
 ?>
 
-<section>
+<section id="current-bet">
     <div class="current-bet-heading">
         <h2>Current on-going Bets</h2>
     </div>
