@@ -1,0 +1,95 @@
+.member-form{
+    max-width: 700px;
+    margin:auto;
+    text-align: center;
+}
+.formgroup{
+    padding:20px;
+}
+.formcontrol{
+    width:50%;
+    height:30px;
+    text-align: justify;
+
+}
+.label{
+    margin-right: 30px;
+}
+.membercontainer{
+    background-color: #031927;
+    color:white;
+    min-height: 100vh;
+    text-align: center;
+}
+.membercontainer h1{
+    padding-top:50px;
+
+}
+.add-membercontainer{
+    background-color: #031927;
+    color:white;
+    min-height: 100vh;
+    text-align: center;
+    display:flex;
+}
+.add-membercontainer h1{
+    padding-top:50px;
+}
+.add-member-form{
+    max-width:700px;
+    flex:1 0 100%;
+}
+.membershipcard{
+    flex:1 0 0;
+}
+.membershipcard img{
+    padding:20px;
+}
+.addmember{
+    background-color: yellow;
+    border-radius: 20px;
+    color:#031927;
+    padding:15px;
+    text-decoration:none ;
+    font-size:20px;
+    float: right;
+    margin-right: 100px;
+}
+.memberbtn{
+    background-color:lightcoral;
+    border-radius: 20px;
+    color:#031927;
+    padding:15px;
+    text-decoration:none ;
+}
+.membertable{
+    margin:100px;
+}
+.membertable th{
+    border:1px solid yellow;
+    padding:20px;
+    font-size:20px;
+}
+.membertable td{
+    border:1px solid yellow;
+    padding:20px;
+
+}
+.bg{
+    background-color: #031927;
+    color:white;
+}
+/*.fieldset{
+
+
+}*/
+fieldset{
+    border:1px solid yellow;
+    max-width:500px;
+    margin: auto;
+}
+legend{
+    color:yellow;
+    font-size: 14px;
+    border-color: yellow;
+}
