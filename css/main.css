@@ -15,11 +15,6 @@ html, body {
     padding: 25px 15px;
 }
 
-#heroImg {
-    width: 100%;
-    height: 500px;
-}
-
 #bottomNav {
     padding: 25px 15px;
 }
@@ -27,6 +22,12 @@ html, body {
 .logo {
     width: 140px;
     float: left;
+}
+
+.carouselTxt {
+    background-color: #031927;
+    opacity: .95;
+    padding: 25px;
 }
 
 .btn {
@@ -110,24 +111,24 @@ button {
     font-size: 18px;
 }
 
-ul {
+#topNavLinks, #bottomNavLinks {
     list-style-type: none;
     float: right;
     margin-top: 50px;
 }
 
-ul li {
+#topNavLinks li, #bottomNavLinks li {
     display: inline;
     padding: 0 15px;
 }
 
-ul li a {
+#topNavLinks li a, #bottomNavLinks li a {
     font-size: 20px;
     color: #FFF;
     text-decoration: none;
 }
 
-ul li a:hover {
+#topNavLinks li a:hover, #bottomNavLinks li a:hover {
     color: #ECDD7B;
 }
 
