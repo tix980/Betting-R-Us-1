@@ -25,11 +25,8 @@ body{
     margin-bottom: 100px;
 }
 
-.btn{
-    background-color: gold;
-    color: #161616;
-    margin: 10px;
-}
+
+
 .contact-us-content{
     float: left;
     width: 55%;
@@ -154,6 +151,41 @@ span{
     .contact-us-heading{
        padding: 0.5em;
 
+    }
+
+
+}
+
+
+@media screen and (max-width: 492px){
+
+    .current-bet-container{
+        margin:0 auto;
+        margin-bottom: 1em;
+    }
+.current-bet-links a{
+
+    margin: 1em;
+    }
+
+
+
+
+}
+
+
+@media screen and (max-width: 382px){
+
+
+    .current-bet-links a{
+        padding: 0.2em;
+        margin: 1em auto;
+        display: block;
+        text-align: center;
+    }
+
+    .current-bet-container{
+        width: 100%;
     }
 
 
