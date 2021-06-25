@@ -13,7 +13,7 @@
                 <a href="current-bet.php">Bets</a>
             </li>
             <li>
-                <a href="faq.php">FAQ</a>
+                <a href="FAQ.php">FAQ</a>
             </li>
             <li>
                 <a href="contact-us.php">Contact</a>
