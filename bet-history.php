@@ -13,7 +13,7 @@
 <?php
 require 'header.php';
 ?>
-<section>
+<section id="bet-history">
 <h2 class="bet-hist-heading">Betting History</h2>
 <div class="bet-hist-form-div">
     <form class="bet-hist-form" method="get" name="form">
