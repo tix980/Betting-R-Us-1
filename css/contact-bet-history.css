@@ -112,6 +112,10 @@ span{
 
 
 }
+
+.bet-hist-table{
+   margin: 0 auto;
+}
 .current-bet-links{
     padding: 0.5em;
 }
