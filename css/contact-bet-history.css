@@ -63,6 +63,7 @@ span{
 }
 .bet-hist-table-div{
     margin: 2em;
+    overflow-x: auto;
 }
 
  .bet-hist-table th,.bet-hist-table td{
@@ -115,6 +116,7 @@ span{
 
 .bet-hist-table{
    margin: 0 auto;
+
 }
 .current-bet-links{
     padding: 0.5em;
