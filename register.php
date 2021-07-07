@@ -6,7 +6,7 @@
         <title>Register</title>
     </head>
     <body>
-        <?php require_once 'header.php' ?>
+        <?php require_once 'header.php'; ?>
         <main>
             <div class="forms">
                 <h1>Sign Up for a free Account!</h1>
@@ -27,6 +27,6 @@
                 </form>
             </div>
         </main>
-        <?php require_once 'footer.php' ?>
+        <?php require_once 'footer.php'; ?>
     </body>
 </html>
