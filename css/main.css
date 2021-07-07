@@ -36,7 +36,6 @@ html, body {
 
 .logo {
     width: 140px;
-    float: left;
 }
 
 .separator {
@@ -58,7 +57,6 @@ html, body {
 }
 
 header, footer {
-    width: 100%;
     background-color: #BA1200;
     color: #FFF;
     clear: both;
