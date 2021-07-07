@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <img class="logo" src="./images/BetsRUs_Logo.png" alt="Logo for bets r us">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleNav" aria-controls="toggleNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="toggleNav">
                 <ul id="topNavLinks" class="navbar-nav me-auto mb-2 mb-lg-0">
