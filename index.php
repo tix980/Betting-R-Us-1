@@ -208,7 +208,7 @@
                         <img class="col" src="./images/movie_clapper.png" alt="Movie poster image">
                     </div>
                     <div class="row">
-                        <a class="btn betBtn" href="add-bets.php">View All Movies</a>
+                        <a class="btn betBtn" href="list-movies.php">View All Movies</a>
                     </div>
                 </div>
             </section>
