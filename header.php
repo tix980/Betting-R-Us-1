@@ -1,7 +1,7 @@
 <header>
-    <nav id="topNav" class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <img class="logo" src="./images/BetsRUs_Logo.png" alt="Logo for bets r us">
+            <a href="index.php"><img class="logo" src="./images/BetsRUs_Logo.png" alt="Logo for bets r us"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleNav" aria-controls="toggleNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -12,6 +12,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="current-bet.php">Bets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="list-movies.php">Movies</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="faq.php">FAQ</a>
