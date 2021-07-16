@@ -1,0 +1,15 @@
+{
+    "name": "solaire/betting-r-us",
+    "autoload": {
+        "psr-4": {
+            "BettingRUs\\Models\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tingwei xie",
+            "email": "tix980@mail.usask.ca"
+        }
+    ],
+    "require": {}
+}
