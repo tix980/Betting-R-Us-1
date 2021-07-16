@@ -1,4 +1,4 @@
-body{
+#main {
     max-width: 1200px;
     margin: 0 auto;
     color: #ECDD7B;
@@ -11,6 +11,8 @@ body{
 }
 #contact-us-section{
     position: relative;
+    max-width: 1200px;
+   margin: 0 auto;
 }
 
 .contact-us-form-section{
@@ -26,7 +28,6 @@ body{
 }
 
 .btn{
-    background-color: gold;
     color: #161616;
     margin: 10px;
 }
@@ -58,8 +59,13 @@ span{
     padding-top: 1em;
 }
 /*BETTING HISTORY SECTION*/
+
+#bet-history{
+    margin: 0 auto;
+}
 .bet-hist-table-div{
     margin: 2em;
+    overflow-x: auto;
 }
 
  .bet-hist-table th,.bet-hist-table td{
@@ -88,11 +94,16 @@ span{
 
 
 /*CURRENT BETS SECTION*/
+#current-bet{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .current-bet-container-flex{
     display: flex;
     flex-flow: row wrap;
     align-content: center;
-
+    margin-left: 6em;
 }
 
 .current-bet-container{
@@ -102,6 +113,11 @@ span{
     height: 100%;
     background-color: #161616;
 
+
+}
+
+.bet-hist-table{
+   margin: 0 auto;
 
 }
 .current-bet-links{
@@ -155,6 +171,45 @@ span{
        padding: 0.5em;
 
     }
+
+
+}
+
+
+@media screen and (max-width: 492px){
+
+    .current-bet-container{
+        margin:0 auto;
+        margin-bottom: 1em;
+    }
+.current-bet-links a{
+
+    margin: 1em;
+    }
+
+
+
+
+}
+
+
+@media screen and (max-width: 382px){
+
+
+    .current-bet-links a{
+        padding: 0.2em;
+        margin: 1em auto;
+        display: block;
+        text-align: center;
+    }
+
+    .current-bet-container{
+        width: 100%;
+    }
+
+  #current-bet{
+      margin-left: 0;
+  }
 
 
 }
