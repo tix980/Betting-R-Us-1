@@ -4,7 +4,7 @@ namespace BettingRUs\Models;
 class Database{
 	private static $user ='tix980_notyolo';
 	private static $password = 'justfomo';
-	private static $dsn ='mysql:host=server310.web-hosting.com:2083;dbname=tix980_betting-r-us';
+	private static $dsn ='mysql:host=localhost:3306;dbname=tix980_betting-r-us';
 	private static $db;
 
 	private function __construct()
