@@ -2,7 +2,7 @@
     "name": "solaire/betting-r-us",
     "autoload": {
         "psr-4": {
-            "BettingRUs\\Models\\": "src/"
+            "BettingRUs\\Models\\": "Models/"
         }
     },
     "authors": [
