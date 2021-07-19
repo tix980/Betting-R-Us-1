@@ -1,9 +1,14 @@
 <?php
 use BettingRUs\Models\Database;
 
+$m = new MovieInfo();
+
+
+
 require_once "Models/Database.php";
 require_once "vendor/autoload.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

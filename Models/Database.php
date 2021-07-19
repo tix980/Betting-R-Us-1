@@ -4,7 +4,6 @@ namespace BettingRUs\Models;
 class Database{
 	private static $user ='root';
 	private static $password = '';
-    private static $dsn ='mysql:host=localhost;dbname=phpteam';
 	private static $db;
 
 	private function __construct()
