@@ -38,7 +38,7 @@ return $count;
 
     }
     public function getContactFeedbackById($id, $db){
-        $sql = "SELECT * FROM conctact_feedback where id = :id";
+        $sql = "SELECT * FROM contact_feedback where id = :id";
         $pst = $db->prepare($sql);
         $pst->bindParam(':id', $id);
         $pst->execute();
@@ -47,12 +47,12 @@ return $count;
 
 
     public function updateContactFeedback ($id, $firstname, $lastname,$email,$contactNumber,$enquiry,$message,$status, $db){
-        $sql = "Update contact_feedback
-                set firstname = :firstname,
-                lastname = :lastname,
+        $sql = "UPDATE contact_feedback
+                SET first_name = :firstname,
+                last_name = :lastname,
                 email = :email,
                 contact_number = :contactNumber,
-                enquiry = :enquiry,
+                enquiry_type = :enquiry,
                 message = :message,
                status = :status
                WHERE id = :id
@@ -67,7 +67,9 @@ return $count;
         $pst->bindParam(':contactNumber', $contactNumber);
         $pst->bindParam(':enquiry', $enquiry);
         $pst->bindParam(':message', $message);
-         $pst->bindParam(':status', $status);
+        $pst->bindParam(':status', $status);
+        $pst->bindParam(':id', $id);
+
 
         $count = $pst->execute();
 

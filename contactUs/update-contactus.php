@@ -1,10 +1,13 @@
 <?php
+error_reporting(E_ALL);
 use BettingRUs\Models\{Database, ContactFeedback};
 
-//require_once "../Models/Database.php";
-//require_once "../Models/ContactFeedback.php";
+require_once "../Models/Database.php";
+require_once "../Models/ContactFeedback.php";
 require_once "../vendor/autoload.php";
 var_dump($_POST);
+
+$firstname = $lastname = $email = $contactNumber= $enquiry = $message = $status ="";
 if(isset($_POST['updateContactFeedback'])){
     $id= $_POST['id'];
 
@@ -13,16 +16,18 @@ if(isset($_POST['updateContactFeedback'])){
     $s = new ContactFeedback();
     $contactInfo = $s->getContactFeedbackById($id, $db);
 
-    $firstname = $contactInfo->firstname;
-    $lastname = $contactInfo->lastname;
+//    $enquiryId = $contactInfo->id;
+    $firstname = $contactInfo->first_name;
+    $lastname = $contactInfo->last_name;
     $email =  $contactInfo->email;
     $contactNumber = $contactInfo->contact_number;
-    $enquiry = $contactInfo->enquiry;
+    $enquiry = $contactInfo->enquiry_type;
     $message = $contactInfo->message;
+    $status = $contactInfo->status;
 
 
 }
-if(isset($_POST['updCar'])) {
+if(isset($_POST['updContactFeedback'])) {
     $id = $_POST['id'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -30,27 +35,27 @@ if(isset($_POST['updCar'])) {
     $contactNumber = $_POST['telephone'];
     $enquiry = $_POST['enquiry'];
     $message = $_POST['message'];
-
-
+    $status = $_POST['status'];
 
     $db = Database::getDb();
     $s = new ContactFeedback();
-    $count = $s->updateContactFeedback($firstname, $lastname,$email,$contactNumber,$enquiry,$message, $db);
+    $count = $s->updateContactFeedback($id,$firstname, $lastname,$email,$contactNumber,$enquiry,$message,$status, $db);
 
     if($count){
-        header("Location: contactUs/list_contactus.php");
+        echo "success";
     } else {
-        echo "problem updating a car";
+        echo "problem updating the form info";
     }
 }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <title>Update ContactUs</title>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -59,13 +64,11 @@ if(isset($_POST['updCar'])) {
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-<?php
-//require '../header.php';
-//?>
+
 <section>
 <div class="contact-us-form-section">
     <div class="contact-us-form-container ">
-        <form method="post" name="contact_us_form" action="">
+        <form method="post"  action="">
             <input type="hidden" name="id" value="<?= $id; ?>" />
             <div class="form-line">
                 <div class="form-group">
@@ -94,14 +97,26 @@ if(isset($_POST['updCar'])) {
                     }
                     echo "<select class='form-select' name = 'enquiry'> $enquiryList </select>"
                     ?>
-                    <span><?= isset($enquiryErr) ? $enquiryErr: ""; ?></span>
-                </div>
+             </div>
                 <div class="form-group">
                     <label for ="description"> Message</label>
                     <textarea  class="form-control" name="description" id="description" placeholder="Enter Your Message" ><?= $message; ?></textarea>
+               </div>
+                <div class="form-group" >
+                <label  for="status">Status</label>
+                    <?php
+                    $statusType =  array('unresolved','resolved');
+                    $statusList = '';
+                    foreach($statusType as $key => $value){
+                        $statusList .= "<option value= '$value'>" . $value . "</option>";
+                    }
+                    echo "<select class='form-select' name = 'status'> $statusList </select>"
+                    ?>
+
                 </div>
+                <a href="list_contactus.php" id="btn_back" class="btn btn-success float-left">Back</a>
                 <div>
-                    <button type="submit" class="btn-bet btn-primary" id="updateContactFeedback ">Update</button>
+                    <button type="submit" class="btn-bet btn-primary" name="updContactFeedback" id="btn-submit">Update</button>
                 </div>
             </div>
 
@@ -109,9 +124,6 @@ if(isset($_POST['updCar'])) {
     </div>
 </div>
 </section>
-<?php
-//require '../footer.php';
-//?>
 
 </body>
 </html>
