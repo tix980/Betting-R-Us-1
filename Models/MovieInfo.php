@@ -20,8 +20,18 @@ class MovieInfo{
 
     return $m;
   }
+
+	public function listMovies($db){
+		$sql = "SELECT title, id, genre FROM movies";
+		$pdostm = $db ->prepare($sql);
+		$pdostm->execute();
+		$m = $pdostm ->fetch(\PDO::FETCH_OBJ);
+
+		return $m;
+	}
+
 	public function movieInfoFunction($db,$id){
-		$sql = "SELECT movies.title as movieTitle, actors.actor_fname, actors.actor_lname FROM movie_actor join movies on movie.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
+		$sql = "SELECT movies.title as movieTitle, actors.actor_fname as actorFname, actors.actor_lname as actorLname FROM movie_actor join movies on movie.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':id',$id);
 		$pdostm->execute();

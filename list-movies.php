@@ -1,8 +1,21 @@
 <?php
-use BettingRUs\Models\Database;
+use BettingRUs\Models\{Database, MovieInfo};
 
-require_once "Models/Database.php";
+
 require_once "vendor/autoload.php";
+
+$db = Database::getDb();
+
+$m = new MovieInfo();
+$movies = $m->listMovies($db);
+
+
+if ($m) {
+	echo "success";
+} else {
+	echo "problem adding a Request";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -35,30 +48,12 @@ require_once "vendor/autoload.php";
             </ul>
         </div>
         <section class="movie" id="movie">
-            <ul>
-                <li class="movie_mainlist"><img src="images/movie2.jpg" alt ="a movie poster on movie cindrella" height="150"  width="100"/>
-                    <div><a href="movie-info.php" >Cindrella</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie1.jpg" alt ="a movie poster on movie endless love" height="150" width="100"/>
-                    <div><a href="movie-info.php" >Endless Love</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie_clapper.png" alt ="a movie poster on movie avengers" height="150" width="100"/>
-                    <div><a href="movie-info.php" >Avengers</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie1.jpg" alt ="a movie poster on movie x man " height="150" width="100"/>
-                    <div><a href="" >X Men</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie2.jpg" alt ="a movie poster on movie spider man" height="150" width="100"/>
-                    <div><a href="" >Spider man</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie2.jpg" alt ="a movie poster on movie cindrella" height="150" width="100"/>
-                    <div><a href="" >Romeo & Juliet</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie_clapper.png" alt ="a movie poster on movie Titanic" height="150" width="100"/>
-                    <div><a href="" >Titanic</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie_clapper.png" alt ="a movie poster on movie frozen" height="150" width="100"/>
-                    <div><a href="" >Frozen</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie1.jpg" alt ="a movie poster on movie lion king" height="150" width="100"/>
-                    <div><a href="" >lion king</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie2.jpg" alt ="a movie poster on movie Moana" height="150" width="100"/><div>
-                        <a href="" >Moana</a></div></li>
-                <li class="movie_mainlist"><img src="images/movie2.jpg" alt ="a movie poster on movie Jumbo" height="150" width="100"/><div>
-                        <a href="" >Jumbo</a></div></li>
-            </ul>
+					<ul>
+						<?php foreach ($movies as $movie){
+							'<li class="movie_mainlist" <img src="images/movie2.jpg" alt ="a movie poster on movie cindrella" height="150"  width="100"/> <div><a href="movie-info.php" >'. $movie->title . '</a></div></li>';
+						}
+						?>
+					</ul>
         </section>
         <section id="romance" class="romance">
             <h2 class="genre">Romance</h2>
