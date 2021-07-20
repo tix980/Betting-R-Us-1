@@ -22,16 +22,16 @@ class MovieInfo{
   }
 
 	public function listMovies($db){
-		$sql = "SELECT title, id, genre FROM movies";
+		$sql = "SELECT title, id FROM movies";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->execute();
-		$m = $pdostm ->fetch(\PDO::FETCH_OBJ);
+		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
 
 		return $m;
 	}
 
 	public function movieInfoFunction($db,$id){
-		$sql = "SELECT movies.title as movieTitle, actors.actor_fname as actorFname, actors.actor_lname as actorLname FROM movie_actor join movies on movie.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
+		$sql = "SELECT movies.title as movieTitle, actors.actor_fname as actorFname, actors.actor_lname as actorLname FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':id',$id);
 		$pdostm->execute();
@@ -40,15 +40,16 @@ class MovieInfo{
 		return $m;
 	}
 
-  public function addMovie($movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$db){
-		$sql = "INSERT INTO movies(title,budget,gross,release_date,rating,summary) VALUES(:title,:budget,:gross,:release_date,:rating,:summary)";
+  public function addMovie($movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$db){
+		$sql = "INSERT INTO movies(title,budget,gross,release_date,rating,summary,genre) VALUES(:title,:budget,:gross,:release_date,:rating,:summary,:genre)";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':title',$movieTitle);
 		$pdostm->bindParam(':budget',$movieBudget);
-		$pdostm->bindParam(':gross',$$movieGross);
-		$pdostm->bindParam(':movieReleaseDate',$movieReleaseDate);
+		$pdostm->bindParam(':gross',$movieGross);
+		$pdostm->bindParam(':release_date',$movieReleaseDate);
 		$pdostm->bindParam(':rating',$rating);
 		$pdostm->bindParam(':summary',$summary);
+		$pdostm->bindParam(':genre',$genre);
 
 		$count = $pdostm ->execute();
 		return $count;

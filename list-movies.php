@@ -3,6 +3,8 @@ use BettingRUs\Models\{Database, MovieInfo};
 
 
 require_once "vendor/autoload.php";
+require_once "Models/Database.php";
+require_once "Models/MovieInfo.php";
 
 $db = Database::getDb();
 
@@ -35,6 +37,9 @@ if ($m) {
         <?php
         require_once 'header.php';
         ?>
+			<div id="button">
+				<a href="./admin-add-movie.php" class="btn btn-primary">Add</a>
+			</div>
         <main class="main">
         <h2 class="heading">Movies</h2>
         <div class="row">
@@ -49,10 +54,12 @@ if ($m) {
         </div>
         <section class="movie" id="movie">
 					<ul>
+						<li class="movie_mainlist" <img src="images/movie2.jpg" alt ="a movie poster on movie cindrella" height="150"  width="100"/>
 						<?php foreach ($movies as $movie){
-							'<li class="movie_mainlist" <img src="images/movie2.jpg" alt ="a movie poster on movie cindrella" height="150"  width="100"/> <div><a href="movie-info.php" >'. $movie->title . '</a></div></li>';
+							echo '<div><a name="selectMovie" href="movie-info.php?id ="' . $movie->id . '">'. $movie->title . '</a></div>';
 						}
 						?>
+						</li>
 					</ul>
         </section>
         <section id="romance" class="romance">
