@@ -1,12 +1,28 @@
 <?php
-use BettingRUs\Models\Database;
+use BettingRUs\Models\{Database, MovieInfo};
 
-$m = new MovieInfo();
-
-
-
-require_once "Models/Database.php";
 require_once "vendor/autoload.php";
+require_once "Models/Database.php";
+require_once "Models/MovieInfo.php";
+
+$actorFname=$actorLname=$title="";
+$m = new MovieInfo();
+if(isset($_POST['selectMovie'])){
+	$id=$_POST['id'];
+	$db = Database::getDb();
+
+	$m = new MovieInfo();
+	$selectMovie = $m->movieInfoFunction($db,$id);
+
+	$actorFname = $selectMovie->actorFname;
+	$actorLname = $selectMovie->actorLname;
+	$title = $selectMovie->movieTitle;
+
+}
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +43,11 @@ require_once "vendor/autoload.php";
  				<div id="buttons">
 					<a href="#" class="btn btn-danger float-left">Go back</a>
 					<a href="#" class="btn btn-primary">Box Office</a>
+					<a href="#" class="btn btn-danger">delete</a>
+					<a href="#" class="btn btn-secondary">update</a>
 				</div>
-        <h1 id="movie-title">STAR WARS IV:
-					A NEW HOPE</h1>
+
+        <h1 id="movie-title"><?php echo $title ?></h1>
 				<div id="release-date">
 					<h3>Release Date</h3>
 					<p>1977-05-25</p>
