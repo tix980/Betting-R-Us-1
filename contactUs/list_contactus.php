@@ -1,8 +1,8 @@
 <?php
 use BettingRUs\Models\{Database, ContactFeedback};
 
-//require_once "../Models/Database.php";
-//require_once "../Models/ContactFeedback.php";
+require_once "../Models/Database.php";
+require_once "../Models/ContactFeedback.php";
 require_once "../vendor/autoload.php";
 
 $c = new ContactFeedback();
@@ -24,14 +24,14 @@ if($contactInfo){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link  rel="stylesheet" type="text/css" href="css/contact-bet-history.css">
-    <link  rel="stylesheet" type="text/css" href="css/main.css">
+    <link  rel="stylesheet" type="text/css" href="../css/contact-bet-history.css">
+    <link  rel="stylesheet" type="text/css" href="../css/main.css">
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
 <?php
-require '../header.php';
-?>
+//include '../header.php';
+//?>
 <p class="h1 text-center">FeedBacks and Enquiries</p>
 <div class="m-1">
     <!--    Displaying Data in Table-->
@@ -55,20 +55,20 @@ require '../header.php';
                 <td><?= $info->first_name ?></td>
                 <td><?= $info->last_name ?></td>
                 <td><?= $info->email ?></td>
-                <td><?= $info->contact_numnber ?></td>
+                <td><?= $info->contact_number ?></td>
                 <td><?= $info->enquiry_type ?></td>
                 <td><?= $info->message ?></td>
                 <td><?= $info->status ?></td>
                 <td>
-                    <form action="" method="post">
+                    <form action="update-contactus.php" method="post">
                         <input type="hidden" name="id" value="<?= $info->id ?>"/>
-                        <input type="submit" class="button btn btn-primary" name="updateCar" value="Update"/>
+                        <input type="submit" class="button btn btn-primary" name="updateContactFeedback" value="Update"/>
                     </form>
                 </td>
                 <td>
                     <form action="delete_contactus.php" method="post">
                         <input type="hidden" name="id" value="<?= $info->id ?>"/>
-                        <input type="submit" class="button btn btn-danger" name="deleteCar" value="Delete"/>
+                        <input type="submit" class="button btn btn-danger" name="deleteContactFeedback" value="Delete"/>
                     </form>
                 </td>
             </tr>
@@ -78,8 +78,8 @@ require '../header.php';
 
 </div>
 <?php
-require '../footer.php';
-?>
+//include '../footer.php';
+//?>
 </body>
 </html>
 

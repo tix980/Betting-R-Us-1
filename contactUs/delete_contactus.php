@@ -1,8 +1,8 @@
 <?php
 use BettingRUs\Models\{Database, ContactFeedback};
 
-//require_once "../Models/Database.php";
-//require_once "../Models/ContactFeedback.php";
+require_once "../Models/Database.php";
+require_once "../Models/ContactFeedback.php";
 require_once "../vendor/autoload.php";
 
 if(isset($_POST['id'])){

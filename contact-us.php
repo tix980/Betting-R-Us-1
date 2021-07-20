@@ -1,12 +1,12 @@
 <?php
 use BettingRUs\Models\{Database, ContactFeedback};
 
-//require_once "Models/Database.php";
-//require_once "Models/ContactFeedback.php";
+require_once "Models/Database.php";
+require_once "Models/ContactFeedback.php";
 require_once "vendor/autoload.php";
 
 var_dump($_POST);
-if(isset($_POST['btnContactFeedback'])) {
+if(isset($_POST['addContactFeedback'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -100,7 +100,7 @@ require 'header.php';
                     <textarea  class="form-control" name="description" id="description" placeholder="Enter Your Message"></textarea>
                 </div>
                 <div>
-                 <button type="submit" class="btn-bet btn-primary " id="btnContactFeedback  ">Submit</button>
+                 <button type="submit" class="btn-bet btn-primary" name="addContactFeedback" id="btn-submit">Submit</button>
             </div>
                 </div>
 

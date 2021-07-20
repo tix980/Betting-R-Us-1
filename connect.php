@@ -1,10 +1,9 @@
 <?php
 
-$dbname = "tix980_betting-r-us";
-$user = 'tix980_notyolo';
-$password = 'justfomo';
 
-$dsn = "mysql:host=localhost:3306;dbname=$dbname";
+$user = 'root';
+$password = '';
+$dsn ='mysql:host=localhost;dbname=phpteam';
 
 $dbcon = new PDO($dsn, $user, $password);
 $dbcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,4 +17,3 @@ echo "Connected";
 foreach ($pdostm as $car) {
     echo "<li>" . $car->first_name . "</li>";
 }
-?>
