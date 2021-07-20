@@ -1,14 +1,13 @@
 <?php
 use BettingRUs\Models\{Database, Faq};
-
-//require_once "Models/Database.php";
-require_once "vendor/autoload.php";
+require_once "../vendor/autoload.php";
 
 $db = Database::getDb();
 $f = new Faq();
 $faqs = $f->getAllFaqs(Database::getDb());
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,54 +20,47 @@ $faqs = $f->getAllFaqs(Database::getDb());
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/faq.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <title>FAQ</title>
+    <link rel="stylesheet" href="../css/faq.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <title>List Faq</title>
 </head>
-<body>
-<?php require_once "header.php"; ?>
-
-<div class="container-md faq-page">
-    <h1>FAQ</h1>
-
-    <div class="accordion faq-section" id="accordionExample">
-
-        <div class="faq-search-container">
-            <h2>Frequently Asked Questions</h2>
-            <form method="post">
-                <input type="text" name="search">
-                <input type="submit" name="submit" value="Search">
-            </form>
-
-        </div>
+<div class="faq-page">
+    <h1>List of Faqs</h1>
+    <table class="table table-bordered tbl">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Question</th>
+            <th scope="col">Answer</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
         <?php foreach ($faqs as $faq) { ?>
-            <div class="card">
-                <div class="card-header" id="<?= $faq['id']; ?>">
-                    <h5 class="mb-0">
-                        <button class="question-header btn-link" type="button" data-toggle="collapse" data-target="#collapse<?= $faq['id']; ?>" aria-expanded="true" aria-controls="collapse<?= $faq['id']; ?>">
-                            <?= $faq['question']; ?>
-                        </button>
-                    </h5>
-                </div>
+            <tr>
+                <th><?= $faq['id']; ?></th>
+                <td><?= $faq['question']; ?></td>
+                <td><?= $faq['answer']; ?></td>
+                <td>
+                    <form action="./update_faq.php" method="post">
+                        <input type="hidden" name="id" value="<?= $faq['id']; ?>"/>
+                        <input type="submit" class="button btn btn-primary" name="updateFaq" value="Update"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="./delete_faq.php" method="post">
+                        <input type="hidden" name="id" value="<?= $faq['id']; ?>"/>
+                        <input type="submit" class="button btn btn-danger" name="deleteFaq" value="Delete"/>
+                    </form>
+                </td>
+            </tr>
 
-                <div id="collapse<?= $faq['id']; ?>" class="collapse" aria-labelledby="<?= $faq['id']; ?>" data-parent="#accordionExample">
-                    <div class="card-body question-answer">
-                        <?= $faq['answer']; ?>
-                    </div>
-                </div>
-            </div>
+
         <?php } ?>
+        </tbody>
+    </table>
+    <a href="./add_faq.php" id="btn_addFaq" class="btn btn-success btn-lg float-right">Add Faq</a>
 
-    </div>
 </div>
 
-
-
-
-<footer><?php require_once "footer.php"; ?></footer>
-
-</body>
-
-
-
-</html>

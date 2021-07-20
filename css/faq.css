@@ -47,6 +47,18 @@ body{
     color: black;
 }
 
+.btn-link{
+    text-decoration: none;
+}
+
+.btn-link:focus{
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: none;
+}
+
 
 
 .card{
@@ -61,12 +73,20 @@ body{
     color: #000;
 }
 
+th,td{
+    color: white;
+}
+
+table{
+    margin-top: 2em;
+}
+
 /*Media Queries*/
 
 @media screen and (max-width: 780px){
-  .faq-page{
-      max-width: 600px;
-  }
+    .faq-page{
+        max-width: 600px;
+    }
 
 }
 
