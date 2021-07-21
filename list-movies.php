@@ -56,7 +56,7 @@ if ($m) {
 					<ul>
 						<li class="movie_mainlist" <img src="images/movie2.jpg" alt ="a movie poster on movie cindrella" height="150"  width="100"/>
 						<?php foreach ($movies as $movie){
-							echo '<div><a name="selectMovie" href="movie-info.php?id ="' . $movie->id . '">'. $movie->title . '</a></div>';
+							echo '<div><a name="selectMovie" href="movie-info.php?id='.  $movie->id . '">'. $movie->title . '</a></div>';
 						}
 						?>
 						</li>
