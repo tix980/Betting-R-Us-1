@@ -20,6 +20,7 @@ if(isset($_GET['id'])){
 	$actorLname = $selectMovie->actorLname;
 	$title = $selectMovie->movieTitle;
 	$releaseDate = $selectMovie->releaseDate;
+	$movieBackGround = $selectMovie->movieBackGround;
 
 }
 
@@ -49,16 +50,16 @@ if ($m) {
 		<?php require_once "header.php"; ?>
 	</header>
     <main>
-      <div class="page-container">
+      <div class="page-container" style="background:url('<?= $movieBackGround ?>') !important; background-position: center !important; background-repeat: no-repeat !important; background-size: 1200px 801px !important;">
  				<div id="buttons">
-					<a href="#" class="btn btn-danger float-left">Go back</a>
+					<a href="./list-movies.php" class="btn btn-danger float-left">Go back</a>
 					<a href="#" class="btn btn-primary">Box Office</a>
 <!--					<form action="./admin-update-movie.php" method="POST">-->
-<!--						<input type="hidden" name="id" value="--><?//= $id;?><!--"-->
+<!--						<input type="hidden" name="id" value="--><!--"-->
 <!--						<input type="submit" class="btn btn-secondary" name="updateMovie" value="Update" />-->
 <!--					</form>-->
 
-					<form action="./admin-delete-movie.php" method="POST">
+					<form action="admin-delete-movie.php" method="POST" style="position:absolute;">
 						<input type="hidden" name="id" value="<?= $id;?>"
 						<input type="submit" class="button btn btn-danger" name="deleteMovie" value="Delete" />
 					</form>

@@ -49,7 +49,7 @@ class MovieInfo{
 	}
 
 	public function movieInfoFunction($db,$id){
-		$sql = "SELECT movies.title as movieTitle, movies.release_date as releaseDate, actors.actor_fname as actorFname, actors.actor_lname as actorLname FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
+		$sql = "SELECT movies.title as movieTitle, movies.release_date as releaseDate, movies.movie_background as movieBackGround, actors.actor_fname as actorFname, actors.actor_lname as actorLname FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':id',$id);
 		$pdostm->execute();
