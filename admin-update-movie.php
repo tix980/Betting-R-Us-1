@@ -22,6 +22,8 @@ if(isset($_POST['updateMovie'])){
 	$rating = $movie->rating;
 	$summary = $movie->summary;
 	$genre = $movie->genre;
+	$poster = $movie->poster;
+	$background= $movie->movie_background;
 }
 
 if(isset($_POST['updMovie'])){
@@ -32,8 +34,10 @@ if(isset($_POST['updMovie'])){
 	$rating = $_POST['rating'];
 	$summary = $_POST['summary'];
 	$genre = $_POST['genre'];
+	$poster = $_POST['poster'];
+	$background = $_POST['background'];
 
-	$count = $m->updateMovie($movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$db);
+	$count = $m->updateMovie($id,$movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$poster,$background,$db);
 	if($count){
 		header("Location: list-movies.php");
 	}else{
@@ -97,6 +101,14 @@ if(isset($_POST['updMovie'])){
 			<div class="formgroup">
 				<label class="label" for="genre">genre :</label>
 				<input type="text" id="genre" name="genre" value="<?= $genre ?>" placeholder="Enter a movie genre info" class="formcontrol" />
+			</div>
+			<div class="formgroup">
+				<label class="label" for="poster">Movie Poster URL :</label>
+				<input type="text" id="poster" name="poster" value="<?= $poster ?>" placeholder="Enter a movie poster URL info" class="formcontrol" />
+			</div>
+			<div class="formgroup">
+				<label class="label" for="background">Movie Background URL :</label>
+				<input type="text" id="background" name="background" value="<?= $background ?>" placeholder="Enter a movie background URL info" class="formcontrol" />
 			</div>
 			<a href="./list-movies.php" id="btn_back" class="btn btn-success float-left">Back</a>
 			<button type="submit" name="updMovie"
