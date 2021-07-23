@@ -22,9 +22,9 @@ if(isset($_GET['id'])){
 	$releaseDate = $selectMovie->releaseDate;
 	$movieBackGround = $selectMovie->movieBackGround;
 
-}
+	$actors = $m->selectActorByMovieId($db,$id);
 
-$actors = $m->listActors($db);
+}
 
 if ($m) {
 	echo "success";
@@ -54,14 +54,13 @@ if ($m) {
  				<div id="buttons">
 					<a href="./list-movies.php" class="btn btn-danger float-left">Go back</a>
 					<a href="#" class="btn btn-primary">Box Office</a>
-<!--					<form action="./admin-update-movie.php" method="POST">-->
-<!--						<input type="hidden" name="id" value="--><!--"-->
-<!--						<input type="submit" class="btn btn-secondary" name="updateMovie" value="Update" />-->
-<!--					</form>-->
-
-					<form action="admin-delete-movie.php" method="POST" style="position:absolute;">
-						<input type="hidden" name="id" value="<?= $id;?>"
-						<input type="submit" class="button btn btn-danger" name="deleteMovie" value="Delete" />
+					<form action="./admin-update-movie.php" method="POST">
+						<input type="hidden" name="id" value="<?= $id;?>" />
+						<input type="submit" class="btn btn-secondary" name="updateMovie" value="Update" />
+					</form>
+					<form  action="admin-delete-movie.php" method="POST">
+						<input type="hidden" name="id" value="<?= $id;?>" />
+						<input type="submit" style="" class="button btn btn-danger" name="deleteMovie" value="Delete" />
 					</form>
 				</div>
 
@@ -71,12 +70,12 @@ if ($m) {
 					<p><?php echo $releaseDate; ?></p>
 				</div>
 				<div class="flex-container">
+					<?php foreach ($actors as $actor){?>
 					<div class="actor-name">
-						<?php foreach ($actors as $actor){?>
 						<div class="first-name"><a href="#"><?php echo $actor-> actor_fname ?></a></div>
 						<div class="last-name"><a href="#"><?php echo $actor-> actor_lname ?></a></div>
-					<?php }; ?>
 					</div>
+					<?php }; ?>
 <!--					<div class="actor-name">-->
 <!--						<div class="first-name"><a href="#">Harrison</a></div>-->
 <!--						<div class="last-name"><a href="#">Ford</a></div>-->
