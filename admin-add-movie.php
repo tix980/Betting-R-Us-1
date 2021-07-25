@@ -18,8 +18,10 @@ if(isset($_POST['addMovie'])){
 	$rating = $_POST['rating'];
 	$summary = $_POST['summary'];
 	$genre = $_POST['genre'];
+	$poster = $_POST['poster'];
+	$background = $_POST['background'];
 
-	$count = $m->addMovie($movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$db);
+	$count = $m->addMovie($movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$poster,$background,$db);
 
 	if($count){
 		echo $movieTitle . "  been added to the list";
@@ -75,6 +77,14 @@ if(isset($_POST['addMovie'])){
 			<div class="formgroup">
 				<label class="label" for="genre">genre :</label>
 				<input type="text" id="genre" name="genre" value="" placeholder="Enter a movie genre info" class="formcontrol" />
+			</div>
+			<div class="formgroup">
+				<label class="label" for="poster">Poster picture URL :</label>
+				<input type="text" id="poster" name="poster" value="" placeholder="Enter a poster picture URL" class="formcontrol" />
+			</div>
+			<div class="formgroup">
+				<label class="label" for="background">movie background picture URL :</label>
+				<input type="text" id="background" name="background" value="" placeholder="Enter a movie background picture URL" class="formcontrol" />
 			</div>
 			<a href="./list-movies.php" id="btn_back" class="btn btn-success float-left">Back</a>
 			<button type="submit" name="addMovie"

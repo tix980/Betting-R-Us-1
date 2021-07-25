@@ -13,11 +13,11 @@ body{
 .page-container{
   max-width: 1200px;
   margin: 7em auto;
-  background:url("../images/starwars.jpg") !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: 1200px 801px !important;
-  color:#ECDD7B !important;
+  /*background:url("../images/starwars.jpg") !important;*/
+  /*background-position: center !important;*/
+  /*background-repeat: no-repeat !important;*/
+  /*background-size: 1200px 801px !important;*/
+  color:black !important;
   padding-left:2em;
 }
 

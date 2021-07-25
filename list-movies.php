@@ -54,12 +54,11 @@ if ($m) {
         </div>
         <section class="movie" id="movie">
 					<ul>
-						<li class="movie_mainlist" <img src="images/movie2.jpg" alt ="a movie poster on movie cindrella" height="150"  width="100"/>
-						<?php foreach ($movies as $movie){
-							echo '<div><a name="selectMovie" href="movie-info.php?id ="' . $movie->id . '">'. $movie->title . '</a></div>';
-						}
-						?>
+						<?php foreach ($movies as $movie){ ?>
+						<li class="movie_mainlist"> <img src="<?= $movie->poster ?>" alt ="a movie poster on movie cindrella" height="150"  width="100"/>
+							<?php echo '<div><a name="selectMovie" href="movie-info.php?id='.  $movie->id . '">'. $movie->title . '</a></div>' ?>
 						</li>
+						<?php };?>
 					</ul>
         </section>
         <section id="romance" class="romance">

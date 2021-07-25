@@ -2,11 +2,11 @@
 namespace BettingRUs\Models;
 class MovieInfo{
 	Public function selectActorByMovieId($db,$id){
-		$sql = "SELECT * FROM movie_actor join movies on movie.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
+		$sql = "SELECT actors.actor_fname as actor_fname, actors.actor_lname  as actor_lname FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':id',$id);
 		$pdostm->execute();
-		$m = $pdostm ->fetch(\PDO::FETCH_OBJ);
+		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
 
     return $m;
   }
@@ -22,7 +22,7 @@ class MovieInfo{
   }
 
 	public function listMovies($db){
-		$sql = "SELECT title, id FROM movies";
+		$sql = "SELECT title, id, poster FROM movies";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->execute();
 		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
@@ -30,8 +30,26 @@ class MovieInfo{
 		return $m;
 	}
 
+	public function listActors($db){
+		$sql = "SELECT actor_fname, actor_lname FROM actors";
+		$pdostm = $db ->prepare($sql);
+		$pdostm->execute();
+		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
+
+		return $m;
+	}
+
+	public function selectedMovie($id,$db){
+		$sql="SELECT * FROM movies";
+		$pdostm = $db->prepare($sql);
+		$pdostm->bindParam(':id',$id);
+		$pdostm->execute();
+		$selectedMovie = $pdostm->fetch(\PDO::FETCH_OBJ);
+		return $selectedMovie;
+	}
+
 	public function movieInfoFunction($db,$id){
-		$sql = "SELECT movies.title as movieTitle, actors.actor_fname as actorFname, actors.actor_lname as actorLname FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
+		$sql = "SELECT movies.title as movieTitle, movies.release_date as releaseDate, movies.movie_background as movieBackGround, actors.actor_fname as actorFname, actors.actor_lname as actorLname FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':id',$id);
 		$pdostm->execute();
@@ -40,8 +58,8 @@ class MovieInfo{
 		return $m;
 	}
 
-  public function addMovie($movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$db){
-		$sql = "INSERT INTO movies(title,budget,gross,release_date,rating,summary,genre) VALUES(:title,:budget,:gross,:release_date,:rating,:summary,:genre)";
+  public function addMovie($movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$poster,$background,$db){
+		$sql = "INSERT INTO movies(title,budget,gross,release_date,rating,summary,genre,poster,movie_background) VALUES(:title,:budget,:gross,:release_date,:rating,:summary,:genre,:poster,:background)";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':title',$movieTitle);
 		$pdostm->bindParam(':budget',$movieBudget);
@@ -50,6 +68,8 @@ class MovieInfo{
 		$pdostm->bindParam(':rating',$rating);
 		$pdostm->bindParam(':summary',$summary);
 		$pdostm->bindParam(':genre',$genre);
+		$pdostm->bindParam(':poster',$poster);
+		$pdostm->bindParam(':background',$background);
 
 		$count = $pdostm ->execute();
 		return $count;
@@ -81,8 +101,8 @@ class MovieInfo{
 		return $count;
 	}
 
-	public function updateMovie($id,$movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$db){
-		$sql = "UPDATE movies SET title = :title, budget = :budget, gross = :gross, release_date = :movieReleaseDate, rating = :rating, summary = :summary WHERE id = :id ";
+	public function updateMovie($id,$movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$poster,$background,$db){
+		$sql = "UPDATE movies SET title = :title, budget = :budget, gross = :gross, release_date = :movieReleaseDate, rating = :rating, summary = :summary, genre= :genre, poster = :poster, movie_background = :background WHERE id = :id ";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':title',$movieTitle);
 		$pdostm->bindParam(':budget',$movieBudget);
@@ -90,6 +110,10 @@ class MovieInfo{
 		$pdostm->bindParam(':movieReleaseDate',$movieReleaseDate);
 		$pdostm->bindParam(':rating',$rating);
 		$pdostm->bindParam(':summary',$summary);
+		$pdostm->bindParam(':genre',$genre);
+		$pdostm->bindParam(':poster',$poster);
+		$pdostm->bindParam(':genre',$genre);
+		$pdostm->bindParam(':background',$background);
 		$pdostm->bindParam(':id',$id);
 
 		$count = $pdostm ->execute();
