@@ -18,6 +18,8 @@ $count = $pst->execute();
 return $count;
 }
 
+
+
     public function getAllContactFeedback($dbcon){
     $sql = "SELECT * FROM contact_feedbacks";
         $pdostm = $dbcon->prepare($sql);

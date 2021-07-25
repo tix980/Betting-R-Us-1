@@ -4,7 +4,7 @@ use BettingRUs\Models\{Database, ContactFeedback};
 require_once "Models/Database.php";
 require_once "Models/ContactFeedback.php";
 require_once "vendor/autoload.php";
-
+require_once 'contactUs/contactFunction.php';
 var_dump($_POST);
 if(isset($_POST['addContactFeedback'])) {
     $firstname = $_POST['firstname'];
@@ -13,7 +13,6 @@ if(isset($_POST['addContactFeedback'])) {
     $contactNumber = $_POST['telephone'];
     $enquiry = $_POST['enquiry'];
     $message = $_POST['description'];
-
     $db = Database::getDb();
     $s = new ContactFeedback();
     $r = $s->addContactFeedback($firstname, $lastname, $email, $contactNumber, $enquiry, $message, $db);
@@ -23,8 +22,16 @@ if(isset($_POST['addContactFeedback'])) {
     } else {
         echo "problem adding a Request";
     }
-}
 
+//    $errors = validateContactForm($firstname,$lastname,$email, $contactNumber, $enquiry, $message);
+//
+//
+//    if (empty($errors)) {
+//        $errors = "Your form has been submitted";
+//
+//    }
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -85,15 +92,12 @@ require 'header.php';
                 </div>
                 <div class="form-group" >
                     <label  for="enquiry">Enquiry Type</label>
+                    <select id="enquiry" name="enquiry" class="form-control">
                     <?php
-                    $enquiryType =  array('Select one','FeedBack','Marketing','Finance Related','General');
-                    $enquiryList = '';
-                    foreach($enquiryType as $key => $value){
-                        $enquiryList .= "<option value='$value'> " . $value . "</option>";
-                    }
-                    echo "<select class='form-select' name = 'enquiry'> $enquiryList </select>"
-                    ?>
-                    <span><?= isset($enquiryErr) ? $enquiryErr: ""; ?></span>
+                    $enquiryType =  ['select'=>'Select one','feedback'=>'FeedBack','marketing'=>'Marketing','finance'=>'Finance Related','general'=>'General'];
+                echo populateDropdown($enquiryType);
+            ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for ="description"> Message</label>
@@ -107,6 +111,7 @@ require 'header.php';
           </form>
     </div>
 </div>
+    <a class="btn btn-primary" href="contactUs/list_contactus.php" role="button">Admin List</a>
 
 </section>
 </main>

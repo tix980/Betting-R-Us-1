@@ -30,12 +30,13 @@ if($contactInfo){
 </head>
 <body>
 <?php
-include '../header.php';
-?>
+//include '../header.php';
+//?>
+<a class="btn btn-primary" href="../contact-us.php" role="button">User Contact form</a>
 <p class="h1 text-center">FeedBacks and Enquiries</p>
-<div class="m-1">
+<div class="m-1" >
     <!--    Displaying Data in Table-->
-    <table class="table table-bordered tbl">
+    <table class="table table-bordered tbl" style="color: white;">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -78,8 +79,8 @@ include '../header.php';
 
 </div>
 <?php
-include '../footer.php';
-?>
+//include '../footer.php';
+//?>
 </body>
 </html>
 
