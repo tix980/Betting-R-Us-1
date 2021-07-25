@@ -3,7 +3,7 @@ namespace BettingRUs\Models;
 class ContactFeedback {
 public function addContactFeedback($firstname, $lastname,$email,$contactNumber,$enquiry,$message, $db)
 {
-$sql = "INSERT INTO contact_feedback (first_name, last_name,email,contact_number,enquiry_type,message)
+$sql = "INSERT INTO contact_feedbacks (first_name, last_name,email,contact_number,enquiry_type,message)
 VALUES (:firstname, :lastname, :email,:contactNumber,:enquiry,:message) ";
 $pst = $db->prepare($sql);
 
@@ -19,7 +19,7 @@ return $count;
 }
 
     public function getAllContactFeedback($dbcon){
-    $sql = "SELECT * FROM contact_feedback";
+    $sql = "SELECT * FROM contact_feedbacks";
         $pdostm = $dbcon->prepare($sql);
         $pdostm->execute();
 
@@ -29,7 +29,7 @@ return $count;
 
 
     public function deleteContactFeedback($id, $db){
-        $sql = "DELETE FROM contact_feedback WHERE id = :id";
+        $sql = "DELETE FROM contact_feedbacks WHERE id = :id";
 
         $pst = $db->prepare($sql);
         $pst->bindParam(':id', $id);
@@ -38,7 +38,7 @@ return $count;
 
     }
     public function getContactFeedbackById($id, $db){
-        $sql = "SELECT * FROM contact_feedback where id = :id";
+        $sql = "SELECT * FROM contact_feedbacks where id = :id";
         $pst = $db->prepare($sql);
         $pst->bindParam(':id', $id);
         $pst->execute();
@@ -47,7 +47,7 @@ return $count;
 
 
     public function updateContactFeedback ($id, $firstname, $lastname,$email,$contactNumber,$enquiry,$message,$status, $db){
-        $sql = "UPDATE contact_feedback
+        $sql = "UPDATE contact_feedbacks
                 SET first_name = :firstname,
                 last_name = :lastname,
                 email = :email,

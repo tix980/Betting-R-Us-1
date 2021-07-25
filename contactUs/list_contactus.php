@@ -30,8 +30,8 @@ if($contactInfo){
 </head>
 <body>
 <?php
-//include '../header.php';
-//?>
+include '../header.php';
+?>
 <p class="h1 text-center">FeedBacks and Enquiries</p>
 <div class="m-1">
     <!--    Displaying Data in Table-->
@@ -78,8 +78,8 @@ if($contactInfo){
 
 </div>
 <?php
-//include '../footer.php';
-//?>
+include '../footer.php';
+?>
 </body>
 </html>
 

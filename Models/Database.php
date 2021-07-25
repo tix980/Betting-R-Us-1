@@ -2,9 +2,9 @@
 
 namespace BettingRUs\Models;
 class Database{
-	private static $user ='sSvxnR4pIY';
-	private static $password = 'X6pf4eYSUa';
-	private static $dsn ='mysql:host=remotemysql.com:3306;dbname=sSvxnR4pIY';
+	private static $user ='root';
+	private static $password = '';
+	private static $dsn ='mysql:host=localhost;dbname=phpteam';
 	private static $db;
 
 	private function __construct()

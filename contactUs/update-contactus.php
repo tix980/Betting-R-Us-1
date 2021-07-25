@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+
 use BettingRUs\Models\{Database, ContactFeedback};
 
 require_once "../Models/Database.php";
@@ -34,7 +34,7 @@ if(isset($_POST['updContactFeedback'])) {
     $email = $_POST['email'];
     $contactNumber = $_POST['telephone'];
     $enquiry = $_POST['enquiry'];
-    $message = $_POST['message'];
+    $message = $_POST['description'];
     $status = $_POST['status'];
 
     $db = Database::getDb();
@@ -42,7 +42,7 @@ if(isset($_POST['updContactFeedback'])) {
     $count = $s->updateContactFeedback($id,$firstname, $lastname,$email,$contactNumber,$enquiry,$message,$status, $db);
 
     if($count){
-        echo "success";
+
     } else {
         echo "problem updating the form info";
     }
