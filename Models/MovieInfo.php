@@ -31,7 +31,7 @@ class MovieInfo{
 	}
 
 	public function listActors($db){
-		$sql = "SELECT actor_fname, actor_lname FROM actors";
+		$sql = "SELECT id,actor_fname, actor_lname,poster FROM actors";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->execute();
 		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
@@ -40,7 +40,7 @@ class MovieInfo{
 	}
 
 	public function selectedMovie($id,$db){
-		$sql="SELECT * FROM movies";
+		$sql="SELECT * FROM movies WHERE id = :id";
 		$pdostm = $db->prepare($sql);
 		$pdostm->bindParam(':id',$id);
 		$pdostm->execute();
@@ -104,19 +104,18 @@ class MovieInfo{
 	public function updateMovie($id,$movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$poster,$background,$db){
 		$sql = "UPDATE movies SET title = :title, budget = :budget, gross = :gross, release_date = :movieReleaseDate, rating = :rating, summary = :summary, genre= :genre, poster = :poster, movie_background = :background WHERE id = :id ";
 		$pdostm = $db ->prepare($sql);
+		$pdostm->bindParam(':id',$id);
 		$pdostm->bindParam(':title',$movieTitle);
 		$pdostm->bindParam(':budget',$movieBudget);
-		$pdostm->bindParam(':gross',$$movieGross);
+		$pdostm->bindParam(':gross',$movieGross);
 		$pdostm->bindParam(':movieReleaseDate',$movieReleaseDate);
 		$pdostm->bindParam(':rating',$rating);
 		$pdostm->bindParam(':summary',$summary);
 		$pdostm->bindParam(':genre',$genre);
 		$pdostm->bindParam(':poster',$poster);
-		$pdostm->bindParam(':genre',$genre);
 		$pdostm->bindParam(':background',$background);
-		$pdostm->bindParam(':id',$id);
 
-		$count = $pdostm ->execute();
+		$count = $pdostm->execute();
 		return $count;
 	}
 
@@ -137,7 +136,7 @@ class MovieInfo{
 	public function updateDirector($id,$directorFirstName, $directorLastName,$birthDate,$birthCity,$biography,$db){
 		$sql = "UPDATE directors SET director_fname = :directorFirstName, director_lname = :directorLastName, date_of_birth = :birthDate, birth_city = :birthCity, biography = :biography, WHERE id = :id ";
 		$pdostm = $db ->prepare($sql);
-		$pdostm->bindParam('::directorFirstName',$directorFirstName);
+		$pdostm->bindParam(':directorFirstName',$directorFirstName);
 		$pdostm->bindParam(':directorLastName',$directorLastName);
 		$pdostm->bindParam(':birthDate',$birthDate);
 		$pdostm->bindParam(':birthCity',$birthCity);
