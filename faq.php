@@ -8,6 +8,8 @@ $db = Database::getDb();
 $f = new Faq();
 $faqs = $f->getAllFaqs(Database::getDb());
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

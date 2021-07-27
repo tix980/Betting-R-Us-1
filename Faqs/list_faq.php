@@ -60,6 +60,7 @@ $faqs = $f->getAllFaqs(Database::getDb());
         <?php } ?>
         </tbody>
     </table>
+    <a href="../faq.php" class="btn btn-secondary btn-lg float-left">Back to main</a>
     <a href="./add_faq.php" id="btn_addFaq" class="btn btn-success btn-lg float-right">Add Faq</a>
 
 </div>
