@@ -11,6 +11,26 @@ class MovieInfo{
     return $m;
   }
 
+	Public function selectMovieByActorId($db,$id){
+		$sql = "SELECT actors.actor_fname as actorFname, actors.actor_lname as actorLname, movies.title as movieTitle, actors.poster as poster, actors.date_of_birth as birthdate, actors.birth_city as birthcity, actors.biography as biography FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE actors.id =:id";
+		$pdostm = $db ->prepare($sql);
+		$pdostm->bindParam(':id',$id);
+		$pdostm->execute();
+		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
+
+		return $m;
+	}
+
+	Public function actorInfoFunction($db,$id){
+		$sql = "SELECT movies.title as movieTitle, movies.poster as poster FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE actors.id =:id";
+		$pdostm = $db ->prepare($sql);
+		$pdostm->bindParam(':id',$id);
+		$pdostm->execute();
+		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
+
+		return $m;
+	}
+
 	public function selectDirectorByMovieId($db,$id){
 		$sql = "SELECT * FROM movie_director join movies on movies.id = movie_actor.movie_id join directors on director.id = movie_director.director_id WHERE movie.id = :id";
 		$pdostm = $db ->prepare($sql);

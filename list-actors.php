@@ -46,7 +46,7 @@ if ($m) {
 			<ul>
 				<?php foreach ($actors as $actor){ ?>
 					<li class="movie_mainlist"> <img src="<?= $actor->poster ?>" alt ="actor poster" height="150"  width="100"/>
-						<?php echo '<div><a name="selectMovie" href="movie-info.php?id='.  $actor->id . '">'. $actor->actor_fname . ' '. $actor->actor_lname . '</a></div>' ?>
+						<?php echo '<div><a name="selectMovie" href="actor-info.php?id='.  $actor->id . '">'. $actor->actor_fname . ' '. $actor->actor_lname . '</a></div>' ?>
 					</li>
 				<?php };?>
 			</ul>
