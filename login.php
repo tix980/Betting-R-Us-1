@@ -1,8 +1,8 @@
 <?php
 use BettingRUs\Models\Database;
 
-require_once "Models/Database.php";
-require_once "vendor/autoload.php";
+// require_once "Models/Database.php";
+// require_once "vendor/autoload.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ require_once "vendor/autoload.php";
         <title>Log In</title>
     </head>
     <body>
-        <?php include 'header.php' ?>
+        <?php include 'Views/header.php' ?>
         <main>
             <div class="forms">
                 <h1>Login to Start Betting!</h1>
@@ -33,6 +33,6 @@ require_once "vendor/autoload.php";
                 </form>
             </div>
         </main>
-        <?php include 'footer.php' ?>
+        <?php include 'Views/footer.php' ?>
     </body>
 </html>
