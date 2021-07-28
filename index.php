@@ -1,3 +1,25 @@
+<?php
+use BettingRUs\Models\{Database, MovieInfo};
+
+
+require_once "vendor/autoload.php";
+require_once "Models/Database.php";
+require_once "Models/MovieInfo.php";
+
+$db = Database::getDb();
+
+
+$m = new MovieInfo();
+$movies = $m->listMovies($db);
+
+
+if ($m) {
+	echo "success";
+} else {
+	echo "problem adding a Request";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -65,62 +87,17 @@
             <section id="lastMinBets">
                 <h2>Last Minute Bets</h2>
                 <div class="row">
+									<?php foreach ($movies as $movie){ ?>
                     <div class="col">
                         <div class="card betsCard bg-transparent">
-                            <img class="card-img-top" src="./images/movie2.jpg" alt="">
+                            <img class="card-img-top" src="<?= $movie->movie_background ?>" alt ="movie poster" height="150"  width="100"/>
                             <div class="card-img-overlay text-center lastBetsTxt">
-                                <h3>Movie Title</h3>
+                                <h3><?= $movie->title ?></h3>
                                 <button class="betBtn" type="button">Bet Now!</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card betsCard bg-transparent">
-                            <img class="card-img-top" src="./images/movie2.jpg" alt="">
-                            <div class="card-img-overlay text-center lastBetsTxt">
-                                <h3>Movie Title</h3>
-                                <button class="betBtn" type="button">Bet Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card betsCard bg-transparent">
-                            <img class="card-img-top" src="./images/movie2.jpg" alt="">
-                            <div class="card-img-overlay text-center lastBetsTxt">
-                                <h3>Movie Title</h3>
-                                <button class="betBtn" type="button">Bet Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="card betsCard bg-transparent">
-                            <img class="card-img-top" src="./images/movie2.jpg" alt="">
-                            <div class="card-img-overlay text-center lastBetsTxt">
-                                <h3>Movie Title</h3>
-                                <button class="betBtn" type="button">Bet Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card betsCard bg-transparent">
-                            <img class="card-img-top" src="./images/movie2.jpg" alt="">
-                            <div class="card-img-overlay text-center lastBetsTxt">
-                                <h3>Movie Title</h3>
-                                <button class="betBtn" type="button">Bet Now!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card betsCard bg-transparent">
-                            <img class="card-img-top" src="./images/movie2.jpg" alt="">
-                            <div class="card-img-overlay text-center lastBetsTxt">
-                                <h3>Movie Title</h3>
-                                <button class="betBtn" type="button">Bet Now!</button>
-                            </div>
-                        </div>
-                    </div>
+									<?php };?>
                 </div>
             </section>
             <section id="leaderBoard" class="row">
@@ -198,14 +175,9 @@
                 <p class="text-center">Here are a few of the movies that we feature to bet on.</p>
                 <div class="container-fluid">
                     <div class="row">
-                        <img class="col" src="./images/movie_clapper.png" alt="Movie poster image">
-                        <img class="col" src="./images/movie_clapper.png" alt="Movie poster image">
-                        <img class="col" src="./images/movie_clapper.png" alt="Movie poster image">
-                    </div>
-                    <div class="row">
-                        <img class="col" src="./images/movie_clapper.png" alt="Movie poster image">
-                        <img class="col" src="./images/movie_clapper.png" alt="Movie poster image">
-                        <img class="col" src="./images/movie_clapper.png" alt="Movie poster image">
+											<?php foreach ($movies as $m){ ?>
+                        <img class="col" src="<?= $m->movie_background ?>" alt ="movie poster" height="350"  width="100"/>
+											<?php };?>
                     </div>
                     <div class="row">
                         <a class="btn betBtn" href="list-movies.php">View All Movies</a>
