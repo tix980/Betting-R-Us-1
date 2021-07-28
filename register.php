@@ -1,10 +1,7 @@
 <?php
-    use BettingRUs\Models\Database;
+    use BettingRUs\Models\{Database, User};
 
-    require_once "../Models/Database.php";
-    require_once "../Models/User.php";
-
-    // require_once "../vendor/autoload.php";
+    require_once "vendor/autoload.php";
 
     if(isset($_POST['register'])) {
         $username = $_POST['username'];
@@ -17,12 +14,13 @@
 
         $db = Database::getDb();
         $userObj = new User();
-        $count = $userObj->addUser($username, $firstname, $lastname, $email, $password, $dob, $user_since, $db);
+        $count = $userObj->addUser($username, $firstname, $lastname, $email, $password, $dob, $db);
 
         if($count) {
-            echo "Success!";
+            header("Location: Users/list_users.php");
+
         } else {
-            echo "Something went wrong";
+            echo "<p>User was not added to database! </p>";
         }
     }
 ?>
@@ -57,7 +55,7 @@
                     </div>
                     <div class="formFields">
                         <label for="dob">Date of Birth:</label>
-                        <input id="dob" type="date" name="dob" />
+                        <input id="dob" type="date" name="date_of_birth" />
                     </div>
                     <div class="formFields">
                         <label for="email">Email:</label>
@@ -65,9 +63,9 @@
                     </div>
                     <div class="formFields">
                         <label for="password">Password</label>
-                        <input id="password" type="password" name="password" />
+                        <input id="password" type="password" name="user_password" />
                     </div>
-                    <button class="profileBtn" type="submit" name="register">Register</button>
+                    <button class="profileBtn" type="submit" name="addUser">Register</button>
                 </form>
             </div>
         </main>

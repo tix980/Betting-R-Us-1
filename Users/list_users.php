@@ -1,9 +1,7 @@
 <?php 
     use BettingRUs\Models\{Database, User};
 
-    require_once "../Models/Database.php";
-    require_once "../Models/User.php";
-    // require_once "../vendor/autoload.php";
+    require_once "../vendor/autoload.php";
 
     $db = Database::getDb();
     $userObj = new User();
@@ -23,7 +21,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link  rel="stylesheet" type="text/css" href="../css/main.css">
-        <title>Bets R' Us</title>
+        <title>List of User</title>
     </head>
     <body>
         <main>
@@ -53,13 +51,13 @@
                         <td><?= $bet_user->user_since ?></td>
                         <td><?= $bet_user->membership ?></td>
                         <td>
-                                    <form action="./Users/update_user.php" method="POST">
+                                    <form action="update_user.php" method="POST">
                                         <input type="hidden" name="id" value="<?= $users->id; ?>" />
                                         <input class="button btn btn-primary" type="submit" name="updateUser" value="Update" />
                                     </form>
                                 </td>
                                 <td>
-                                    <form action="./Users/delete.php" method="POST">
+                                    <form action="delete_user.php" method="POST">
                                         <input type="hidden" name="id" value="<?= $users->id; ?>" />
                                         <input class="button btn btn-danger" type="submit" name="deleteUser" value="Delete" />
                                     </form>
