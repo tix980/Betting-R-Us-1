@@ -42,13 +42,13 @@ if(isset($_POST['addMovie'])){
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/members.css">
-	<title>Add Member</title>
+	<title>Add Movie</title>
 </head>
 <body>
 <div class="container-fluid">
 
 	<div class="membercontainer">
-		<h1>Add Rule</h1>
+		<h1>Add Movie</h1>
 		<form action="" method="post">
 			<div class="formgroup">
 				<label class="label" for="title">title :</label>
