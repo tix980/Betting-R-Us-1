@@ -1,11 +1,13 @@
 <?php
-error_reporting(E_ALL);
+
 use BettingRUs\Models\{Database, ContactFeedback};
 
 require_once "../Models/Database.php";
 require_once "../Models/ContactFeedback.php";
 require_once "../vendor/autoload.php";
+require_once 'contactFunction.php';
 var_dump($_POST);
+
 
 $firstname = $lastname = $email = $contactNumber= $enquiry = $message = $status ="";
 if(isset($_POST['updateContactFeedback'])){
@@ -34,7 +36,7 @@ if(isset($_POST['updContactFeedback'])) {
     $email = $_POST['email'];
     $contactNumber = $_POST['telephone'];
     $enquiry = $_POST['enquiry'];
-    $message = $_POST['message'];
+    $message = $_POST['description'];
     $status = $_POST['status'];
 
     $db = Database::getDb();
@@ -42,11 +44,12 @@ if(isset($_POST['updContactFeedback'])) {
     $count = $s->updateContactFeedback($id,$firstname, $lastname,$email,$contactNumber,$enquiry,$message,$status, $db);
 
     if($count){
-        echo "success";
+        header("Location: list_contactus.php");
     } else {
         echo "problem updating the form info";
     }
 }
+
 
 ?>
 
@@ -65,15 +68,15 @@ if(isset($_POST['updContactFeedback'])) {
 </head>
 <body>
 
-<section>
-<div class="contact-us-form-section">
+<section >
+<div class="contact-us-form-section" >
     <div class="contact-us-form-container ">
         <form method="post"  action="">
             <input type="hidden" name="id" value="<?= $id; ?>" />
             <div class="form-line">
                 <div class="form-group">
                     <label for="firstname">First Name</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder=" Enter First Name" value="<?= $firstname; ?>">
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder=" Enter First Name" value="<?= $firstname; ?>" >
                 </div>
                 <div class="form-group">
                     <label for="lastname">Last Name</label>
@@ -85,18 +88,17 @@ if(isset($_POST['updContactFeedback'])) {
                 </div>
                 <div class="form-group">
                     <label for="telephone">Contact No</label>
-                    <input  type="text" class="form-control" name="telephone" id="telephone" placeholder=" Enter 10-digit mobile no." value="<?= $contactNumber; ?>">
+                    <input  type="text" class="form-control" name="telephone" id="telephone" placeholder=" Enter 10-digit mobile no." value="<?= $contactNumber; ?>" >
                 </div>
                 <div class="form-group" >
                     <label  for="enquiry">Enquiry Type</label>
-                    <?php
-                    $enquiryType =  array('Select one','FeedBack','Marketing','Finance Related','General');
-                    $enquiryList = '';
-                    foreach($enquiryType as $key => $value){
-                        $enquiryList .= "<option value='$value'> " . $value . "</option>";
-                    }
-                    echo "<select class='form-select' name = 'enquiry'> $enquiryList </select>"
-                    ?>
+                    <select name="enquiry" class="form-control">
+                        <?php
+                        $enquiryType =  ['select'=>'Select one','feedback'=>'FeedBack','marketing'=>'Marketing','finance'=>'Finance Related','general'=>'General'];
+                        echo populateDropdown($enquiryType, $enquiry);
+                        ?>
+                    </select>
+                    <span><?= $enquiry; ?></span>
              </div>
                 <div class="form-group">
                     <label for ="description"> Message</label>
@@ -105,7 +107,7 @@ if(isset($_POST['updContactFeedback'])) {
                 <div class="form-group" >
                 <label  for="status">Status</label>
                     <?php
-                    $statusType =  array('unresolved','resolved');
+                    $statusType =  array('unresolved','replied','resolved');
                     $statusList = '';
                     foreach($statusType as $key => $value){
                         $statusList .= "<option value= '$value'>" . $value . "</option>";
