@@ -1,0 +1,29 @@
+.helper{
+    max-width:1200px;
+    margin:auto;
+    background-color: whitesmoke;
+    color:black;
+    font-weight: normal;
+    border:2px solid lightgoldenrodyellow;
+    font-family: "Book Antiqua";
+    padding: 15px;
+    margin-top:25px;
+    box-shadow: 2px 2px 5px darkblue;
+}
+.helperheading{
+    color:lightcoral;
+}
+.helper ul{
+    list-style-type: none;
+    text-align: justify-all;
+}
+table, th, td {
+    border:1px solid navy;
+}
+th{
+    padding:5px;
+    text-align: center;
+}
+td{
+    padding:10px;
+}
