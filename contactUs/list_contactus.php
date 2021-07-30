@@ -40,6 +40,7 @@ if($contactInfo){
         <thead>
         <tr>
             <th scope="col">ID</th>
+            <th scope="col">Message Date</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
@@ -53,6 +54,7 @@ if($contactInfo){
         <?php foreach ($contactInfo as $info) { ?>
             <tr>
                 <td><?= $info->id ?></td>
+                <td><?= $info->post_time ?></td>
                 <td><?= $info->first_name ?></td>
                 <td><?= $info->last_name ?></td>
                 <td><?= $info->email ?></td>
