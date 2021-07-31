@@ -28,21 +28,22 @@ $faqs = $f->getAllFaqs(Database::getDb());
     <title>FAQ</title>
 </head>
 <body>
-<?php require_once "header.php"; ?>
+<?php include 'Views/header.php' ?>
 
 <div class="container-md faq-page">
     <h1>FAQ</h1>
 
     <div class="accordion faq-section" id="accordionExample">
 
-        <div class="faq-search-container">
-            <h2>Frequently Asked Questions</h2>
-            <form method="post">
-                <input type="text" name="search">
-                <input type="submit" name="submit" value="Search">
-            </form>
-
-        </div>
+<!--        <div class="faq-search-container">-->
+<!--            <h2>Frequently Asked Questions</h2>-->
+<!--            <form method="post">-->
+<!--                <input type="text" name="search">-->
+<!--                <input type="submit" name="submit" value="Search">-->
+<!--            </form>-->
+<!---->
+<!--        </div>-->
+        <h2>Frequently Asked Questions</h2>
         <?php foreach ($faqs as $faq) { ?>
             <div class="card">
                 <div class="card-header" id="<?= $faq['id']; ?>">
@@ -67,7 +68,7 @@ $faqs = $f->getAllFaqs(Database::getDb());
 
 
 
-<footer><?php require_once "footer.php"; ?></footer>
+<footer><?php include 'Views/footer.php' ?></footer>
 
 </body>
 
