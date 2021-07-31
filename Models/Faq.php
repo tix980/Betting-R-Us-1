@@ -62,8 +62,9 @@ class Faq{
         $sql = "SELECT * FROM faqs WHERE question = :str";
         $pdostm = $db->prepare($sql);
         $pdostm->bindParam(':str', $str);
-        $count = $pdostm->execute();
+        $faqs = $pdostm->setFetchMode(\PDO::FETCH_OBJ);
+        $pdostm->execute();
 
-        return $count;
+        return $faqs;
     }
 }
