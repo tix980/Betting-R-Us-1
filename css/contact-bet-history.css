@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #main {
     max-width: 1200px;
     margin: 0 auto;
@@ -219,4 +220,220 @@ span{
   }
 
 
+=======
+#main {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #ECDD7B;
+    background-color: #031927;
+    font-family: "Montserrat", "sans-serif";
+}
+
+.form-group,.input-group{
+    margin: 0.5em;
+}
+#contact-us-section{
+    position: relative;
+    max-width: 1200px;
+   margin: 0 auto;
+}
+
+.contact-us-form-section{
+    width: 45%;
+    /*position: relative;*/
+    /*left: 600px;*/
+    padding: 1em;
+    background-color: black;
+    border-radius: 10px;
+    float: right;
+    /*margin-top: 7em;*/
+    margin-bottom: 100px;
+}
+
+.btn{
+    color: #161616;
+    margin: 10px;
+}
+.contact-us-content{
+    float: left;
+    width: 55%;
+ }
+
+
+.contact-us-image, .contact-us-image img{
+    width: 80%;
+}
+
+span{
+    display: block;
+}
+
+.contact-no{
+    padding: 1.5em;
+}
+
+.contact-us-heading-div{
+    display: block;
+    text-align: center;
+
+}
+
+.contact-us-heading{
+    padding-top: 1em;
+}
+/*BETTING HISTORY SECTION*/
+
+#bet-history{
+    margin: 0 auto;
+}
+.bet-hist-table-div{
+    margin: 2em;
+    overflow-x: auto;
+}
+
+ .bet-hist-table th,.bet-hist-table td{
+    border: 1px solid #ECDD7B;
+    padding: 1em;
+    color: #ECDD7B;
+}
+
+.bet-hist-form-div{
+    margin: 1em;
+}
+
+.bet-hist-heading,.bet-hist-table{
+    margin: 1em 0;
+}
+
+.bet-hist-form-date-input-btn {
+    padding: 0.2em 0.5em;
+    color: #333;
+    background-color: #EBDD7BFF;
+    border-radius: 5px;
+}
+.current-bet-heading{
+    margin: 2em;
+}
+
+
+/*CURRENT BETS SECTION*/
+#current-bet{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.current-bet-container-flex{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    margin-left: 6em;
+}
+
+.current-bet-container{
+    border: 1px solid #EBDD7BFF;
+    padding: 2em 1em;
+    margin: 1em;
+    height: 100%;
+    background-color: #161616;
+
+
+}
+
+.bet-hist-table{
+   margin: 0 auto;
+
+}
+.current-bet-links{
+    padding: 0.5em;
+}
+.current-bet-links a{
+    margin-left: 4em;
+    padding: 0.5em;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: #161616;
+}
+
+.current-bet-container h3{
+    margin-bottom: 0;
+   display: inline-block;
+}
+
+.current-bet-container p{
+    font-size: 0.8em;
+
+}
+.current-bet-dates{
+    display: block;
+    margin: 0.5em;
+}
+
+
+
+.bet-flop{
+    background-color: #ff0000;
+}
+.bet-hit{
+    background-color: green;
+}
+
+@media screen and (max-width: 768px){
+    .contact-us-content{
+        width: 100%;
+    }
+
+    .contact-us-form-section{
+        width: 100%;
+        padding: 1em;
+        background-color: #3a3a3a;
+        border-radius: 10px;
+       margin: 0 auto;
+    }
+    .contact-us-heading{
+       padding: 0.5em;
+
+    }
+
+
+}
+
+
+@media screen and (max-width: 492px){
+
+    .current-bet-container{
+        margin:0 auto;
+        margin-bottom: 1em;
+    }
+.current-bet-links a{
+
+    margin: 1em;
+    }
+
+
+
+
+}
+
+
+@media screen and (max-width: 382px){
+
+
+    .current-bet-links a{
+        padding: 0.2em;
+        margin: 1em auto;
+        display: block;
+        text-align: center;
+    }
+
+    .current-bet-container{
+        width: 100%;
+    }
+
+  #current-bet{
+      margin-left: 0;
+  }
+
+
+>>>>>>> 9435d7ebca92ac319065e3aea5db2ef9d8b54e84
 }

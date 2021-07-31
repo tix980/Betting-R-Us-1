@@ -34,7 +34,7 @@ if ($m) {
         <title>Bets R' Us</title>
     </head>
     <body>
-        <?php require_once "header.php"; ?>
+        <?php require_once "Views/header.php"; ?>
         <main>
             <section id="carousel">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -231,6 +231,6 @@ if ($m) {
                 </div>
             </section>
         </main>
-        <?php require_once "footer.php"; ?>
+        <?php require_once "Views/footer.php"; ?>
     </body>
 </html>
