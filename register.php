@@ -3,7 +3,7 @@
 
     require_once "vendor/autoload.php";
 
-    if(isset($_POST['register'])) {
+    if(isset($_POST['addUser'])) {
         $username = $_POST['username'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
@@ -17,7 +17,7 @@
         $count = $userObj->addUser($username, $firstname, $lastname, $email, $password, $dob, $db);
 
         if($count) {
-            header("Location: Users/list_users.php");
+            header("Location: list_users.php");
 
         } else {
             echo "<p>User was not added to database! </p>";
