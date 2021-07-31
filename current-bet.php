@@ -17,7 +17,7 @@ require_once "vendor/autoload.php";
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php include 'Views/header.php'; ?>
 
 <main id="main">
 <section id="current-bet">
@@ -77,5 +77,5 @@ require_once "vendor/autoload.php";
 
 
 <?php
-include 'footer.php';
+include 'Views/footer.php';
 ?>

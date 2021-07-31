@@ -1,7 +1,7 @@
 <?php
 use BettingRUs\Models\Database;
 
-require_once "Models/Database.php";
+// require_once "Models/Database.php";
 require_once "vendor/autoload.php";
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ require_once "vendor/autoload.php";
     <title>Donation's page</title>
   </head>
   <body>
-    <?php require_once "header.php"; ?>
+    <?php require_once "Views/header.php"; ?>
 
     <div class="container">
       <h1>Donations</h1>
@@ -137,7 +137,7 @@ require_once "vendor/autoload.php";
     </div>
 
 
-  <footer><?php require_once "footer.php"; ?></footer>
+  <footer><?php require_once "Views/footer.php"; ?></footer>
 
   </body>
 

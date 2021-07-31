@@ -3,8 +3,8 @@ use BettingRUs\Models\{Database, MovieInfo};
 
 
 require_once "vendor/autoload.php";
-require_once "Models/Database.php";
-require_once "Models/MovieInfo.php";
+// require_once "Models/Database.php";
+// require_once "Models/MovieInfo.php";
 
 $db = Database::getDb();
 
@@ -14,7 +14,7 @@ $movies = $m->listMovies($db);
 
 
 if ($m) {
-	echo "success";
+	// echo "success";
 } else {
 	echo "problem adding a Request";
 }
@@ -36,7 +36,7 @@ if ($m) {
 <body>
     <div class="container-fluid">
         <?php
-        require_once 'header.php';
+        require_once 'Views/header.php';
         ?>
 			<div id="button">
 				<a href="./admin-add-movie.php" class="btn btn-primary">Add</a>
@@ -101,7 +101,7 @@ if ($m) {
         </section>
         </main>
         <?php
-        require_once 'footer.php';
+        require_once 'Views/footer.php';
         ?>
 
     </div>
