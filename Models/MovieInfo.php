@@ -22,7 +22,7 @@ class MovieInfo{
   }
 
 	public function listMovies($db){
-		$sql = "SELECT title, id, poster FROM movies";
+		$sql = "SELECT title, id, poster,movie_background FROM movies";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->execute();
 		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
