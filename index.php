@@ -14,7 +14,7 @@ $movies = $m->listMovies($db);
 
 
 if ($m) {
-	echo "success";
+//	echo "success";
 } else {
 	echo "problem adding a Request";
 }

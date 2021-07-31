@@ -3,7 +3,7 @@ use BettingRUs\Models\{Database, ContactFeedback};
 
 require_once "Models/Database.php";
 require_once "Models/ContactFeedback.php";
-require_once "vendor/autoload.php";
+//require_once "vendor/autoload.php";
 require_once 'contactUs/contactFunction.php';
 $formSentMessage = "";
 //var_dump($_POST);
@@ -19,7 +19,7 @@ if(isset($_POST['addContactFeedback'])) {
     $r = $s->addContactFeedback($firstname, $lastname, $email, $contactNumber, $enquiry, $message, $db);
 
     if ($r) {
-       $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname Your form has been successfully submitted";
+       $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname, your form has been successfully submitted";
     } else {
         $formSentMessage = "Problem adding your request";
     }
