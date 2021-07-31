@@ -193,3 +193,25 @@ button {
 .formFields {
     margin-bottom: 15px;
 }
+
+/***** user feedback carousal ****/
+
+#testimonials {
+    background-color:#BA1200;
+    text-align: center;
+    color: #fff;
+
+}
+
+.carousel-item {
+    /*padding: 20%;*/
+}
+
+.testimonial-image {
+    /*width: 10%;*/
+    border-radius: 100%;
+    /*margin: 10%*/
+}
+.feedback-slider-page{
+    padding: 5%;
+}

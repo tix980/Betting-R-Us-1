@@ -28,6 +28,8 @@ if ($m) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <title>Bets R' Us</title>
     </head>
@@ -184,16 +186,41 @@ if ($m) {
                     </div>
                 </div>
             </section>
-            <section id="testimonial" class="row">
-                <div class="col">
-                    <h2>What others got to say about us!</h2>
-                    <h4>John Doe</h4>
-                    <p>Great website to use for your betting needs!</p>
-                </div>
-                <div class="col">
-                    <img src="./images/user_profile.png" alt="user's image">
+            <section id="testimonials">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="6000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active feedback-slider-page">
+                            <h2>Great website to use for your betting needs!.</h2>
+                            <img class="testimonial-image" src="images/user_profile.png" alt="user testimonial">
+                            <em>John Doe, Toronto</em>
+                        </div>
+                        <div class="carousel-item feedback-slider-page">
+                            <h2 class="testimonial-text">Love the odds and the simplicity of this website as the whole experience was seamless</h2>
+                            <img class="testimonial-image" src="images/user_profile.png" alt="user testimonial">
+                            <em>Cathrina Elizabeth, Ottawa</em>
+                        </div>
+
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </section>
+<!--            <section id="testimonial" class="row">-->
+<!--                <div class="col">-->
+<!--                    <h2>What others got to say about us!</h2>-->
+<!--                    <h4>John Doe</h4>-->
+<!--                    <p>Great website to use for your betting needs!</p>-->
+<!--                </div>-->
+<!--                <div class="col">-->
+<!--                    <img src="./images/user_profile.png" alt="user's image">-->
+<!--                </div>-->
+<!--            </section>-->
             <section id="membership" class="row">
                 <div class="col">
                     <h2>What are you waiting for!</h2>

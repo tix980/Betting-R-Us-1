@@ -55,6 +55,13 @@ span{
 
 }
 
+.successMessage{
+    background: #ECDD7B;
+    color: #161616;
+    padding: 1em;
+    font-size: 1.2em;
+}
+
 .contact-us-heading{
     padding-top: 1em;
 }

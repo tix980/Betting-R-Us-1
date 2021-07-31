@@ -5,7 +5,8 @@ require_once "Models/Database.php";
 require_once "Models/ContactFeedback.php";
 require_once "vendor/autoload.php";
 require_once 'contactUs/contactFunction.php';
-var_dump($_POST);
+$formSentMessage = "";
+//var_dump($_POST);
 if(isset($_POST['addContactFeedback'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -18,9 +19,9 @@ if(isset($_POST['addContactFeedback'])) {
     $r = $s->addContactFeedback($firstname, $lastname, $email, $contactNumber, $enquiry, $message, $db);
 
     if ($r) {
-        echo "success";
+       $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname Your form has been successfully submitted";
     } else {
-        echo "problem adding a Request";
+        $formSentMessage = "Problem adding your request";
     }
 
 //    $errors = validateContactForm($firstname,$lastname,$email, $contactNumber, $enquiry, $message);
@@ -55,6 +56,7 @@ require 'header.php';
 <div class= "contact-us-heading-div">
         <h1 class="contact-us-heading">Get in Touch with us</span></h1>
         <p>Please fill in the form in order for us to contact you</p>
+    <p class="successMessage"><?= $formSentMessage; ?></p>
     </div>
 <div class="contact-us-content">
     <div class="contact-no">
