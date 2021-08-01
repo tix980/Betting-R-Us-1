@@ -197,15 +197,12 @@ button {
 /***** user feedback carousal ****/
 
 #testimonials {
-    background-color:#BA1200;
+    background:#BA1200;
     text-align: center;
     color: #fff;
 
 }
 
-.carousel-item {
-    /*padding: 20%;*/
-}
 
 .testimonial-image {
     /*width: 10%;*/
