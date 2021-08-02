@@ -2,8 +2,8 @@
 
 use BettingRUs\Models\{Database, ContactFeedback};
 
-require_once "../Models/Database.php";
-require_once "../Models/ContactFeedback.php";
+//require_once "../Models/Database.php";
+//require_once "../Models/ContactFeedback.php";
 require_once "../vendor/autoload.php";
 require_once 'contactFunction.php';
 //var_dump($_POST);

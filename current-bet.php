@@ -1,8 +1,12 @@
 <?php
-use BettingRUs\Models\Database;
+use BettingRUs\Models\{Database, CurrentBet};
 
 require_once "Models/Database.php";
+require_once  "Models/CurrentBets.php";
 require_once "vendor/autoload.php";
+
+$c = new CurrentBet();
+$currentBets = $c->getAllCurrentBets(Database::getDb());
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,45 +29,59 @@ require_once "vendor/autoload.php";
         <h2>Current on-going Bets</h2>
     </div>
 
-
+    <a href="add-currentBets.php" id="btn_addCar" class="btn btn-success btn-lg float-right">Add a Current Bet</a>
     <div class=" container current-bet-container-flex">
+
+        <?php foreach ($currentBets as $currentBet) { ?>
+
         <div class="current-bet-container">
-        <h3>Harry Potter</h3>
-        <p class="current-bet-dates">Release Date:14th August 2021</p>
-        <p class="current-bet-dates bet-closing">Bet Close Date:13th August 2021</p>
+            <div><img src="<?= $currentBet->movie_background ?>" alt ="movie poster" height="200"  width="100%"/></div>
+        <h3><?= $currentBet->title ?></h3>
+        <p class="current-bet-dates">Release Date:<?= $currentBet->release_date ?></p>
+        <p class="current-bet-dates bet-closing">Bet Close Date:<?= $currentBet->bet_close_date ?></p>
+            <p class="current-bet-dates bet-status">Betting Status:<?= $currentBet->bet_status ?></p>
         <div class="current-bet-links">
         <a class="bet-hit" href="#">Box-Office Hit</a>
         <a class="bet-flop" href="#">Box Office Flop</a>
         </div>
+            <form action="update-car.php" method="post">
+                <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
+                <input type="submit" class="button btn btn-primary" name="updateCar" value="Update"/>
+            </form>
+            <form action="delete-car.php" method="post">
+                <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
+                <input type="submit" class="button btn btn-danger" name="deleteCar" value="Delete"/>
+            </form>
         </div>
+        <?php } ?>
 
-        <div class="current-bet-container">
-            <h3>Savage Monkey</h3>
-            <p class="current-bet-dates">Release Date:10th July 2021</p>
-            <p class="current-bet-dates bet-closing">Bet Close Date:9th July 2021</p>
-            <div class="current-bet-links">
-                <a class="bet-hit" href="#">Box-Office Hit</a>
-                <a class="bet-flop" href="#">Box Office Flop</a>
-            </div>
-        </div>
-        <div class="current-bet-container">
-            <h3>Athens Tomorrow</h3>
-            <p class="current-bet-dates">Release Date:20th July 2021</p>
-            <p class="current-bet-dates bet-closing">Bet Close Date:19th July 2021</p>
-            <div class="current-bet-links">
-                <a class="bet-hit" href="#">Box-Office Hit</a>
-                <a  class="bet-flop" class="bet-flop" href="#">Box Office Flop</a>
-            </div>
-        </div>
-        <div class="current-bet-container">
-            <h3>Tropic Thunder Again!</h3>
-            <p class="current-bet-dates">Release Date:29th August 2021</p>
-            <p class="current-bet-dates bet-closing">Bet Close Date:28th August 2021</p>
-            <div class="current-bet-links">
-                <a class="bet-hit" href="#">Box-Office Hit</a>
-                <a class="bet-flop" href="#">Box Office Flop</a>
-            </div>
-        </div>
+<!--        <div class="current-bet-container">-->
+<!--            <h3>Savage Monkey</h3>-->
+<!--            <p class="current-bet-dates">Release Date:10th July 2021</p>-->
+<!--            <p class="current-bet-dates bet-closing">Bet Close Date:9th July 2021</p>-->
+<!--            <div class="current-bet-links">-->
+<!--                <a class="bet-hit" href="#">Box-Office Hit</a>-->
+<!--                <a class="bet-flop" href="#">Box Office Flop</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="current-bet-container">-->
+<!--            <h3>Athens Tomorrow</h3>-->
+<!--            <p class="current-bet-dates">Release Date:20th July 2021</p>-->
+<!--            <p class="current-bet-dates bet-closing">Bet Close Date:19th July 2021</p>-->
+<!--            <div class="current-bet-links">-->
+<!--                <a class="bet-hit" href="#">Box-Office Hit</a>-->
+<!--                <a  class="bet-flop" class="bet-flop" href="#">Box Office Flop</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="current-bet-container">-->
+<!--            <h3>Tropic Thunder Again!</h3>-->
+<!--            <p class="current-bet-dates">Release Date:29th August 2021</p>-->
+<!--            <p class="current-bet-dates bet-closing">Bet Close Date:28th August 2021</p>-->
+<!--            <div class="current-bet-links">-->
+<!--                <a class="bet-hit" href="#">Box-Office Hit</a>-->
+<!--                <a class="bet-flop" href="#">Box Office Flop</a>-->
+<!--            </div>-->
+<!--        </div>-->
     </div>
 
 

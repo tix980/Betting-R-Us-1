@@ -2,8 +2,8 @@
 use BettingRUs\Models\{Database, MovieInfo};
 
 require_once "vendor/autoload.php";
-require_once "Models/Database.php";
-require_once "Models/MovieInfo.php";
+//require_once "Models/Database.php";
+//require_once "Models/MovieInfo.php";
 
 $actorFname=$actorLname=$title="";
 $m = new MovieInfo();
@@ -47,7 +47,7 @@ if ($m) {
   </head>
   <body>
 	<header>
-		<?php require_once "header.php"; ?>
+		<?php require_once "Views/header.php"; ?>
 	</header>
     <main>
       <div class="page-container" style="background:url('<?= $movieBackGround ?>') !important; background-position: center !important; background-repeat: no-repeat !important; background-size: 1200px 801px !important;">
@@ -92,6 +92,6 @@ if ($m) {
 				</div>
       </div>
     </main>
-		<footer><?php require_once "footer.php"; ?></footer>
+		<footer><?php require_once "Views/footer.php"; ?></footer>
   </body>
 </html>
