@@ -14,7 +14,7 @@ if(isset($_GET['id'])){
 	$m = new MovieInfo();
 	$selectMovie = $m->movieInfoFunction($db,$id);
 
-	var_dump($selectMovie);
+//	var_dump($selectMovie);
 
 	$actorFname = $selectMovie->actorFname;
 	$actorLname = $selectMovie->actorLname;
@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
 }
 
 if ($m) {
-	echo "success";
+//	echo "success";
 } else {
 	echo "problem adding a Request";
 }
