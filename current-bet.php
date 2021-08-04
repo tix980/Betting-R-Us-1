@@ -26,16 +26,16 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
 <main id="main">
 <section id="current-bet">
     <div class="current-bet-heading">
-        <h2>Current on-going Bets</h2>
+        <h2>Current on-going Bet</h2>
     </div>
 
-    <a href="add-currentBets.php" id="btn_addCar" class="btn btn-success btn-lg float-right">Add a Current Bet</a>
+    <a href="current_bets/add_current_bets.php" id="btn_addCar" class="btn btn-success btn-lg float-right">Add a Current Bet</a>
     <div class=" container current-bet-container-flex">
 
         <?php foreach ($currentBets as $currentBet) { ?>
 
         <div class="current-bet-container">
-            <div><img src="<?= $currentBet->movie_background ?>" alt ="movie poster" height="200"  width="100%"/></div>
+            <div><a name="selectMovie" href="movie-info.php?id=<?= $currentBet->movie_id ?>"><img src="<?= $currentBet->movie_background ?>" alt ="movie poster" height="200"  width="100%"/></a></div>
         <h3><?= $currentBet->title ?></h3>
         <p class="current-bet-dates">Release Date:<?= $currentBet->release_date ?></p>
         <p class="current-bet-dates bet-closing">Bet Close Date:<?= $currentBet->bet_close_date ?></p>
@@ -44,13 +44,13 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
         <a class="bet-hit" href="#">Box-Office Hit</a>
         <a class="bet-flop" href="#">Box Office Flop</a>
         </div>
-            <form action="update-car.php" method="post">
+            <form action="current_bets/update_current_bets.php" method="post">
                 <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
-                <input type="submit" class="button btn btn-primary" name="updateCar" value="Update"/>
+                <input type="submit" class="button btn btn-primary" name="updateCurrentBet" value="Update"/>
             </form>
-            <form action="delete-car.php" method="post">
+            <form action="current_bets/delete_current_bets.php" method="post">
                 <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
-                <input type="submit" class="button btn btn-danger" name="deleteCar" value="Delete"/>
+                <input type="submit" class="button btn btn-danger" name="deleteCurrentBet" value="Delete"/>
             </form>
         </div>
         <?php } ?>
