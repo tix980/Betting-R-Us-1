@@ -1,11 +1,13 @@
 <?php
-    use BettingRUs\Models\{Database, User};
+   use BettingRUs\Models\{Database, User};
 
-    require_once "../vendor/autoload.php";
+    require_once "vendor/autoload.php";
 
     if(isset($_POST['id'])) {
         
         $id = $_POST['id'];
+
+        echo $id;
 
         $db = Database::getDb();
 

@@ -9,7 +9,7 @@
         $lastname = $_POST['lastname'];
         $dob = $_POST['dob'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = $_POST['user_password'];
         $user_since = date("Y-m-d");
 
         $db = Database::getDb();
@@ -17,7 +17,7 @@
         $count = $userObj->addUser($username, $firstname, $lastname, $email, $password, $dob, $db);
 
         if($count) {
-            header("Location: list_users.php");
+            header("Location: Users/list_users.php");
 
         } else {
             echo "<p>User was not added to database! </p>";
