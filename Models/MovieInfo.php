@@ -40,7 +40,7 @@ class MovieInfo{
 	}
 
 	public function selectedMovie($id,$db){
-		$sql="SELECT * FROM movies";
+		$sql="SELECT * FROM movies WHERE id = :id";
 		$pdostm = $db->prepare($sql);
 		$pdostm->bindParam(':id',$id);
 		$pdostm->execute();
