@@ -14,7 +14,7 @@ require_once "vendor/autoload.php";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-		<header><?php require_once "header.php"; ?></header>
+		<header><?php require_once "Views/header.php"; ?></header>
     <main>
       <div class="page-container">
         <div id="page-title">
@@ -166,6 +166,6 @@ require_once "vendor/autoload.php";
         </div>
       </div>
     </main>
-		<footer><?php require_once "footer.php"; ?></footer>
+		<footer><?php require_once "Views/footer.php"; ?></footer>
   </body>
 </html>

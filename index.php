@@ -228,7 +228,7 @@ if ($m) {
                 </div>
                 <div class="col">
                     <button class="betBtn">Membership</button>
-                    <button class="betBtn">FAQ</button>
+                    <button class="betBtn" onclick="window.location.href='faq.php'">FAQ</button>
                 </div>
             </section>
         </main>
