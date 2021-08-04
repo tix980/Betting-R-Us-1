@@ -25,8 +25,8 @@
         }
 
         // Add a User to the database
-        public function addUser($username, $firstname, $lastname, $email, $password, $dob, $user_since, $db) {
-            $query = "INSERT INTO users (username, firstname, lastname, email, user_password, date_of_birth, user_since) VALUES (:username, :firstname, :lastname, :email, :user_password, :dob, :user_since)";
+        public function addUser($username, $firstname, $lastname, $email, $password, $membership, $dob, $db) {
+            $query = "INSERT INTO users (username, firstname, lastname, email, user_password, membership, date_of_birth, user_since) VALUES (:username, :firstname, :lastname, :email, :user_password, :membership, :dob, NOW())";
             $pdostm = $db->prepare($query);
 
             $pdostm->bindParam(':username', $username);
@@ -34,8 +34,8 @@
             $pdostm->bindParam(':lastname', $lastname);
             $pdostm->bindParam(':email', $email);
             $pdostm->bindParam(':user_password', $password);
+            $pdostm->bindParam(':membership', $membership);
             $pdostm->bindParam(':dob', $dob);
-            $pdostm->bindParam(':user_since', $user_since);
 
             $count = $pdostm->execute();
 
@@ -65,7 +65,7 @@
             $query = "DELETE FROM users WHERE id = :id";
 
             $pdostm = $db->prepare($query);
-            $pdostm->bindParam(':id', $id);
+            $pdostm->bindParam(":id", $id);
 
             $count = $pdostm->execute();
 

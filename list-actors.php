@@ -34,9 +34,7 @@ if ($m) {
 </head>
 <body>
 <div class="container-fluid">
-	<?php
-	require_once 'header.php';
-	?>
+	<?php require_once "Views/header.php"; ?>
 	<div id="button">
 		<a href="./admin-add-movie.php" class="btn btn-primary">Add</a>
 	</div>
@@ -52,9 +50,7 @@ if ($m) {
 			</ul>
 		</section>
 	</main>
-	<?php
-	require_once 'footer.php';
-	?>
+	<?php require_once "Views/footer.php"; ?>
 
 </div>
 <script src="js/jquery.min.js"></script>

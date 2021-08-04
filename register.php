@@ -7,17 +7,17 @@
         $username = $_POST['username'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $dob = $_POST['dob'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
-        $user_since = date("Y-m-d");
+        $password = $_POST['user_password'];
+        $membership = $_POST['membership'];
+        $dob = $_POST['date_of_birth'];
 
         $db = Database::getDb();
         $userObj = new User();
-        $count = $userObj->addUser($username, $firstname, $lastname, $email, $password, $dob, $db);
+        $count = $userObj->addUser($username, $firstname, $lastname, $email, $password, $membership, $dob, $db);
 
         if($count) {
-            header("Location: list_users.php");
+            header("Location: Users/list_users.php");
 
         } else {
             echo "<p>User was not added to database! </p>";
@@ -54,10 +54,6 @@
                         <input id="lastname" type="text" name="lastname" />
                     </div>
                     <div class="formFields">
-                        <label for="dob">Date of Birth:</label>
-                        <input id="dob" type="date" name="date_of_birth" />
-                    </div>
-                    <div class="formFields">
                         <label for="email">Email:</label>
                         <input id="email" type="email" name="email" />
                     </div>
@@ -65,6 +61,18 @@
                         <label for="password">Password</label>
                         <input id="password" type="password" name="user_password" />
                     </div>
+                    <div class="formFields">
+                        <label for="user_membership">Membership:</label>
+                        <input id="user_membership" type="text" name="membership" />
+                    </div>
+                    <div class="formFields">
+                        <label for="dob">Date of Birth:</label>
+                        <input id="dob" type="date" name="date_of_birth" />
+                    </div>
+                    <!-- <div class="formFields">
+                        <label for="userSince">User Since:</label>
+                        <input id="userSince" type="date" name="user_since" />
+                    </div> -->
                     <button class="profileBtn" type="submit" name="addUser">Register</button>
                 </form>
             </div>

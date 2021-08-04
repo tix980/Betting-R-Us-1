@@ -7,11 +7,11 @@
     $userObj = new User();
     $users = $userObj->getAllUsers(Database::getDb());
 
-    // if($users) {
-    //     echo "Success!";
-    // } else {
-    //     echo "Something went wrong";
-    // }
+    if($users) {
+        echo "Success!";
+    } else {
+        echo "Something went wrong";
+    }
 ?>
 <html>
     <head>
@@ -42,26 +42,26 @@
                 <tbody>
                     <?php foreach($users as $bet_user) { ?>
                         <tr>
-                        <td><?= $bet_user->username ?></td>
-                        <td><?= $bet_user->firstname ?></td>
-                        <td><?= $bet_user->lastname ?></td>
-                        <td><?= $bet_user->date_of_birth ?></td>
-                        <td><?= $bet_user->email ?></td>
-                        <td><?= $bet_user->password ?></td>
-                        <td><?= $bet_user->user_since ?></td>
-                        <td><?= $bet_user->membership ?></td>
-                        <td>
-                                    <form action="update_user.php" method="POST">
-                                        <input type="hidden" name="id" value="<?= $users->id; ?>" />
-                                        <input class="button btn btn-primary" type="submit" name="updateUser" value="Update" />
-                                    </form>
-                                </td>
-                                <td>
-                                    <form action="delete_user.php" method="POST">
-                                        <input type="hidden" name="id" value="<?= $users->id; ?>" />
-                                        <input class="button btn btn-danger" type="submit" name="deleteUser" value="Delete" />
-                                    </form>
-                                </td>
+                            <td><?= $bet_user->username ?></td>
+                            <td><?= $bet_user->firstname ?></td>
+                            <td><?= $bet_user->lastname ?></td>
+                            <td><?= $bet_user->date_of_birth ?></td>
+                            <td><?= $bet_user->email ?></td>
+                            <td><?= $bet_user->user_password ?></td>
+                            <td><?= $bet_user->user_since ?></td>
+                            <td><?= $bet_user->membership ?></td>
+                            <td>
+                                <form action="update_user.php" method="POST">
+                                    <input type="hidden" name="id" value="<?= $bet_user->id; ?>" />
+                                    <input class="button btn btn-primary" type="submit" name="updateUser" value="Update" />
+                                </form>
+                            </td>
+                            <td>
+                                <form action="delete_user.php" method="POST">
+                                    <input type="hidden" name="id" value="<?= $bet_user->id; ?>" />
+                                    <input class="button btn btn-danger" type="submit" name="deleteUser" value="Delete" />
+                                </form>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
