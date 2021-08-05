@@ -46,6 +46,7 @@ if(isset($_GET['id'])){
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
       <link rel="stylesheet" href="css/previous-movie-data.css" type="text/css">
       <link rel="stylesheet" type="text/css" href="css/main.css">
+      <title>Previous Movie Data</title>
   </head>
   <body>
 		<header><?php require_once "Views/header.php"; ?></header>
