@@ -28,6 +28,17 @@ body{
 
 }
 
+
+table, th, td {
+  color: #ECDD7B;
+}
+
+.table-bordered{
+  border: 2px solid #ECDD7B;
+}
+
+
+
 .movie-img-container{
   margin-right: 1em;
 }
