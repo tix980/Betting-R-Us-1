@@ -56,7 +56,8 @@ if(isset($_GET['id'])){
             <div class="back-btn-container">
                 <a href="movie-info.php?id=<?=$id; ?>" class="btn-danger">Back to movie info</a>
             </div>
-            <h1><?= $title . '(' . date("Y", $releaseDate) . ')' ?></h1>
+
+            <h1><?= $title ?></h1>
             <div class="flex-container">
                 <div class="movie-img-container">
                     <img src="<?=  $movieBackGround; ?>" style="width: 500px">
