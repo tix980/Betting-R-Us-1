@@ -1,6 +1,5 @@
 <?php
 use BettingRUs\Models\{Database, ContactFeedback};
-//wnzmkpmmncuqenxa
 // require_once "Models/Database.php";
 // require_once "Models/ContactFeedback.php";
 require_once "vendor/autoload.php";
