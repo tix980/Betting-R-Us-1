@@ -1,37 +1,40 @@
 <?php
 use BettingRUs\Models\{Database, ContactFeedback};
-
+//wnzmkpmmncuqenxa
 // require_once "Models/Database.php";
 // require_once "Models/ContactFeedback.php";
 require_once "vendor/autoload.php";
 require_once 'contactUs/contactFunction.php';
+require_once'contactUs/contactValidation.php';
 $formSentMessage = "";
+$errors = "";
+
 //var_dump($_POST);
 if(isset($_POST['addContactFeedback'])) {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $contactNumber = $_POST['telephone'];
-    $enquiry = $_POST['enquiry'];
-    $message = $_POST['description'];
-    $db = Database::getDb();
-    $s = new ContactFeedback();
-    $r = $s->addContactFeedback($firstname, $lastname, $email, $contactNumber, $enquiry, $message, $db);
+    $firstname = isset($_POST['firstname']) ? $_POST['firstname'] : "";
+    $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : "";
+    $email = isset($_POST['email']) ? $_POST['email'] : "";
+    $contactNumber = isset($_POST['telephone']) ? $_POST['telephone'] : "";
+    $enquiry = isset($_POST['enquiry']) ? $_POST['enquiry'] : "";
+    $message = isset($_POST['description']) ? $_POST['description'] : "";
 
-    if ($r) {
-       $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname, your form has been successfully submitted";
-    } else {
-        $formSentMessage = "Problem adding your request";
+    //STORE THE VALIDATE FUNCTION TO THE VARIABLE
+    $errors = validateContactForm($firstname,$lastname,$email, $contactNumber, $enquiry, $message,$errors);
+
+    //IF THE ERROR MESSAGE IS EMPTY ,THEN EXECUTE THE CLASS TO STORE THE INFORMATION TO THE DATABASE AND ALSO SENT AN EMAIL
+    if (empty($errors)) {
+        $db = Database::getDb();
+        $s = new ContactFeedback();
+        $r = $s->addContactFeedback($firstname, $lastname, $email, $contactNumber, $enquiry, $message, $db);
+
+        //IF IF THE INFORMATION STORED TO THE DATABASE IS SUCCESSFUL, THEN SEND IT TO THE EMAIL
+        if ($r) {
+            $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname, your form has been successfully submitted";
+            require_once 'contactUs/message.php';
+        } else {
+            $formSentMessage = "Problem adding your request";
+        }
     }
-
-//    $errors = validateContactForm($firstname,$lastname,$email, $contactNumber, $enquiry, $message);
-//
-//
-//    if (empty($errors)) {
-//        $errors = "Your form has been submitted";
-//
-//    }
-
 }
 ?>
 <!DOCTYPE html>
@@ -57,6 +60,7 @@ require 'Views/header.php';
         <h1 class="contact-us-heading">Get in Touch with us</span></h1>
         <p>Please fill in the form in order for us to contact you</p>
     <p class="successMessage"><?= $formSentMessage; ?></p>
+    <p class="successMessage"><?= $errors; ?></p>
     </div>
 <div class="contact-us-content">
     <div class="contact-no">
@@ -82,15 +86,15 @@ require 'Views/header.php';
                 </div>
                 <div class="form-group">
                     <label for="lastname">Last Name</label>
-                    <input type="text" class="form-control" id="lastname"  name="lastname" placeholder=" Enter Last Name">
+                    <input type="text" class="form-control" id="lastname"  name="lastname" placeholder=" Enter Last Name" >
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="text" class="form-control" name="email" id="email" placeholder=" Enter Email id">
+                    <input type="text" class="form-control" name="email" id="email" placeholder=" Enter Email id" >
                 </div>
                 <div class="form-group">
                     <label for="telephone">Contact No</label>
-                    <input  type="text" class="form-control" name="telephone" id="telephone" placeholder=" Enter 10-digit mobile no.">
+                    <input  type="text" class="form-control" name="telephone" id="telephone" placeholder=" Enter 10-digit mobile no NNN-NNN-NNNN." >
                 </div>
                 <div class="form-group" >
                     <label  for="enquiry">Enquiry Type</label>

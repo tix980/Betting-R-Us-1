@@ -18,7 +18,7 @@ $count = $pst->execute();
 return $count;
 }
 
-
+//iuutfavpghiuppcr
 
     public function getAllContactFeedback($dbcon){
     $sql = "SELECT * FROM contact_feedbacks";

@@ -11,5 +11,7 @@
             "email": "tix980@mail.usask.ca"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
 }
