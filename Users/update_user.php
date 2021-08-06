@@ -11,6 +11,7 @@
 
     if(isset($_POST['updateUser'])) {
         $id = $_POST['id'];
+        
         $db = Database::getDb();
         $userObj = new User();
 
@@ -77,7 +78,7 @@
                     </div>
                     <div class="formFields">
                         <label for="dob">Date of Birth:</label>
-                        <input id="dob" type="date" name="date_of_birth" value="<?= $dob; ?>" />
+                        <input type="date" name="date_of_birth" id="dob" value="<?= $dob;  ?>" />
                     </div>
                     <div class="formFields">
                         <label for="email">Email:</label>

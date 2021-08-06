@@ -9,12 +9,11 @@
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
         $password = $_POST['user_password'];
-        $membership = $_POST['membership'];
         $dob = $_POST['date_of_birth'];
 
         $db = Database::getDb();
         $userObj = new User();
-        $count = $userObj->addUser($username, $firstname, $lastname, $email, $password, $membership, $dob, $db);
+        $count = $userObj->addUser($username, $firstname, $lastname, $email, $password, $dob, $db);
 
         if($count) {
             header("Location: Users/list_users.php");
@@ -62,17 +61,9 @@
                         <input id="password" type="password" name="user_password" />
                     </div>
                     <div class="formFields">
-                        <label for="user_membership">Membership:</label>
-                        <input id="user_membership" type="text" name="membership" />
-                    </div>
-                    <div class="formFields">
                         <label for="dob">Date of Birth:</label>
                         <input id="dob" type="date" name="date_of_birth" />
                     </div>
-                    <!-- <div class="formFields">
-                        <label for="userSince">User Since:</label>
-                        <input id="userSince" type="date" name="user_since" />
-                    </div> -->
                     <button class="profileBtn" type="submit" name="addUser">Register</button>
                 </form>
             </div>

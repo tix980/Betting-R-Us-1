@@ -25,8 +25,8 @@
         }
 
         // Add a User to the database
-        public function addUser($username, $firstname, $lastname, $email, $password, $membership, $dob, $db) {
-            $query = "INSERT INTO users (username, firstname, lastname, email, user_password, membership, date_of_birth, user_since) VALUES (:username, :firstname, :lastname, :email, :user_password, :membership, :dob, NOW())";
+        public function addUser($username, $firstname, $lastname, $email, $password, $dob, $db) {
+            $query = "INSERT INTO users (username, firstname, lastname, email, user_password, date_of_birth, user_since) VALUES (:username, :firstname, :lastname, :email, :user_password, :dob, NOW())";
             $pdostm = $db->prepare($query);
 
             $pdostm->bindParam(':username', $username);
@@ -34,7 +34,6 @@
             $pdostm->bindParam(':lastname', $lastname);
             $pdostm->bindParam(':email', $email);
             $pdostm->bindParam(':user_password', $password);
-            $pdostm->bindParam(':membership', $membership);
             $pdostm->bindParam(':dob', $dob);
 
             $count = $pdostm->execute();
@@ -44,7 +43,13 @@
 
         // Update a User within the database
         public function updateUser($id, $username, $firstname, $lastname, $email, $password, $dob, $db) {
-            $query = "UPDATE users SET username = :username, firstname = :firstname, lastname = :lastname, email = :email, user_password = :user_password, date_of_birth = :dob WHERE id = :id";
+            $query = "UPDATE users SET
+                        $username = :username,
+                        $firstname = :firstname,
+                        $lastname = :lastname,
+                        $email = :email,
+                        $password = :user_password,
+                        $dob = :dob WHERE $id = :id";
 
             $pdostm = $db->prepare($query);
 
@@ -52,9 +57,8 @@
             $pdostm->bindParam(':firstname', $firstname);
             $pdostm->bindParam(':lastname', $lastname);
             $pdostm->bindParam(':email', $email);
-            $pdostm->bindParam(':user_password', $password);
-            $pdostm->bindPara(':dob', $dob);
-            $pdostm->bindParam(':id', $id);
+            $pdostm->bindParam(':password', $password);
+            $pdostm->bindParam(':dob', $dob);
 
             $count = $pdostm->execute();
             return $count;
