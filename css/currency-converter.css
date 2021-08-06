@@ -17,6 +17,19 @@ body{
   margin-bottom: 13em;
 }
 
+.flex-container{
+  display:flex;
+  margin-top: -3em;
+  margin-left: 6em;
+  padding-bottom: 1em;
+}
+
+.flex-container2{
+  display:flex;
+  margin-top: -2em;
+  padding-bottom: 1em;
+}
+
 .form-group{
   border: 1px solid #ECDD7B;
   margin-top: 12em;
@@ -33,7 +46,7 @@ body{
 }
 
 #exchange{
-  margin-left: 12em;
+  margin-left: 10em;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -43,13 +56,28 @@ body{
 }
 
 #coin{
-  top: 14.3em;
+  top: 19.3em;
   left: 13.5em;
   position:absolute;
   width:60px;
   height:60px;
   background:url(../images/coin.png) left center;
   animation:flip 0.5s steps(6) infinite;
+  margin:0;
+}
+
+#coin2{
+  top: 10.3em;
+  left: 13.5em;
+  position:absolute;
+  width:60px;
+  height:60px;
+  background:url(../images/coin.png) left center;
+  animation:flip 0.5s steps(6) infinite;
+}
+
+#selected-cad{
+  margin-left:1em;
 }
 
 @keyframes flip{

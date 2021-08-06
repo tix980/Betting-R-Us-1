@@ -1,10 +1,15 @@
 <?php
+
+session_start();
+
 use BettingRUs\Models\{Database, MovieInfo};
 
-
 require_once "vendor/autoload.php";
-require_once "Models/Database.php";
-require_once "Models/MovieInfo.php";
+
+$userID = $_SESSION['userid'];
+$username = $_SESSION['username'];
+$userType = $_SESSION['accounttype'];
+$userFullName = $_SESSION['userrealname'];
 
 
 $db = Database::getDb();
@@ -13,12 +18,12 @@ $db = Database::getDb();
 $m = new MovieInfo();
 $movies = $m->listMovies($db);
 
-
-if ($m) {
-//	echo "success";
-} else {
-	echo "problem adding a Request";
+if(isset($userID)){
+	'<script>
+		document.getElementById("login").innerHTML =' . $userFullName .';
+	</script>';
 }
+
 
 ?>
 <!DOCTYPE html>

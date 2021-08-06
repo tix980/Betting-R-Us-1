@@ -18,15 +18,15 @@ function pageLoaded(){
       hiddenCad.style.display = "block";
       tokenInfo.style.display = "none";
       hiddenTokenInfo.style.display = "block";
-      coinIcon.style.top = "7.3em";
       status = true;
     }else if(status === true){
       cad.style.display= "block";
       hiddenCad.style.display = "none";
       tokenInfo.style.display = "block";
       hiddenTokenInfo.style.display = "none";
-      coinIcon.style.top = "14.3em;";
+      // coinIcon.style.top = "14.3em;";
       status = false;
+      coinIcon.style.margin = "12em 0 0 0";
     }
 
     audio("http://commondatastorage.googleapis.com/codeskulptor-assets/week7-brrring.m4a");

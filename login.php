@@ -1,8 +1,48 @@
 <?php
-use BettingRUs\Models\Database;
+session_start();
 
-// require_once "Models/Database.php";
-// require_once "vendor/autoload.php";
+use BettingRUs\Models\{Database, User};
+
+require_once "vendor/autoload.php";
+
+$password=$username=$userType=$userID="";
+
+if(isset($_POST['button'])){
+	$localUsername= $_POST['username'];
+	$LocalPassword= $_POST['password'];
+
+	$db = Database::getDb();
+	$u = new User();
+	$users = $u->getAllUsers($db);
+
+	foreach($users as $user){
+		$username = $user->username;
+		$userFullName = $user->firstname . ' ' . $user->lastname;
+		$password = $user->user_password;
+		$userType = $user->accountType;
+		$userID = $user->id;
+		echo $username;
+
+		if($localUsername == $username && $LocalPassword == $password){
+			$_SESSION['userid'] = (string)$userID;
+			$_SESSION['username'] =(string)$username;
+			$_SESSION['accounttype'] = (string)$userType;
+			$_SESSION['userrealname'] = $userFullName;
+
+			header('location:index.php');
+			echo $_SESSION['userid'];
+		}else{
+			echo "Invalid credentials";
+		}
+
+	}
+
+
+}
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +69,7 @@ use BettingRUs\Models\Database;
                         <label for="password">Password</label>
                         <input id="password" type="password" name="password">
                     </div>
-                    <button class="profileBtn" type="submit">Login</button>
+                    <button class="profileBtn" name="button" type="submit">Login</button>
                 </form>
             </div>
         </main>

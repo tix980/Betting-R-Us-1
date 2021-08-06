@@ -27,7 +27,7 @@
                     </li>
                 </ul>
                 <div class="btn">
-                    <a href="login.php" class="profileBtn" type="button">Login</a>
+                    <a href="login.php" id="login" class="profileBtn" type="button">Login</a>
                     <a href="register.php" class="profileBtn" type="button">Register</a>
                 </div>
             </div>
