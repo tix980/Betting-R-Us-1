@@ -4,9 +4,11 @@ use BettingRUs\Models\{Database, CurrentBet};
 require_once "Models/Database.php";
 require_once  "Models/CurrentBets.php";
 require_once "vendor/autoload.php";
-
+$hitFlopBtnDisplay ="";
 $c = new CurrentBet();
 $currentBets = $c->getAllCurrentBets(Database::getDb());
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -32,7 +34,15 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
     <a href="current_bets/add_current_bets.php" id="btn_addCar" class="btn btn-success btn-lg float-right">Add a Current Bet</a>
     <div class=" container current-bet-container-flex">
 
-        <?php foreach ($currentBets as $currentBet) { ?>
+        <?php foreach ($currentBets as $currentBet) {
+
+            if($currentBet->bet_status == 'Open'){
+                $hitFlopBtnDisplay = "style = 'display:block;'";
+
+            }elseif($currentBet->bet_status =='Closed'){
+                $hitFlopBtnDisplay = "style = 'display:none;'";
+
+            }?>
 
         <div class="current-bet-container">
             <div><a name="selectMovie" href="movie-info.php?id=<?= $currentBet->movie_id ?>"><img src="<?= $currentBet->movie_background ?>" alt ="movie poster" height="200"  width="100%"/></a></div>
@@ -40,6 +50,7 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
         <p class="current-bet-dates">Release Date:<?= $currentBet->release_date ?></p>
         <p class="current-bet-dates bet-closing">Bet Close Date:<?= $currentBet->bet_close_date ?></p>
             <p class="current-bet-dates bet-status">Betting Status:<?= $currentBet->bet_status ?></p>
+            <div <?= $hitFlopBtnDisplay ?> >
             <form action="Place_bet.php" method="post">
                 <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
                 <input type="submit" class="bet-hit button btn btn-danger" name="hit" value="Box Office Hit"/>
@@ -48,7 +59,7 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
                 <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
                 <input type="submit" class="bet-flop button btn btn-primary" name="flop" value="Box Office Flop"/>
             </form>
-
+            </div>
             <form action="current_bets/update_current_bets.php" method="post">
                 <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
                 <input type="submit" class="button btn btn-primary" name="updateCurrentBet" value="Update"/>
@@ -58,7 +69,9 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
                 <input type="submit" class="button btn btn-danger" name="deleteCurrentBet" value="Delete"/>
             </form>
         </div>
-        <?php } ?>
+        <?php
+
+        } ?>
 
 <!--        <div class="current-bet-container">-->
 <!--            <h3>Savage Monkey</h3>-->
