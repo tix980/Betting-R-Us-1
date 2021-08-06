@@ -21,6 +21,18 @@ class MovieInfo{
     return $m;
   }
 
+  public function getMovieWithId($id, $db) {
+	    $sql = "SELECT * FROM movies where id = :id";
+
+      $pdostm = $db->prepare($sql);
+      $pdostm->bindParam(':id', $id);
+      $pdostm->execute();
+
+      $movies = $pdostm->fetch(\PDO::FETCH_OBJ);
+      return $movies;
+
+  }
+
 	public function listMovies($db){
 		$sql = "SELECT title, id, poster,movie_background FROM movies";
 		$pdostm = $db ->prepare($sql);
@@ -57,6 +69,16 @@ class MovieInfo{
 
 		return $m;
 	}
+
+    public function previousMovieInfoFunction($db,$id){
+        $sql = "SELECT movies.title as movieTitle, movies.release_date as releaseDate, movies.movie_background as movieBackGround, movies.summary as movieSummary, budget, gross, rating, actors.actor_fname as actorFname, actors.actor_lname as actorLname FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
+        $pdostm = $db ->prepare($sql);
+        $pdostm->bindParam(':id',$id);
+        $pdostm->execute();
+        $m = $pdostm ->fetch(\PDO::FETCH_OBJ);
+
+        return $m;
+    }
 
   public function addMovie($movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$poster,$background,$db){
 		$sql = "INSERT INTO movies(title,budget,gross,release_date,rating,summary,genre,poster,movie_background) VALUES(:title,:budget,:gross,:release_date,:rating,:summary,:genre,:poster,:background)";

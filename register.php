@@ -7,10 +7,9 @@
         $username = $_POST['username'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $dob = $_POST['dob'];
         $email = $_POST['email'];
         $password = $_POST['user_password'];
-        $user_since = date("Y-m-d");
+        $dob = $_POST['date_of_birth'];
 
         $db = Database::getDb();
         $userObj = new User();
@@ -54,16 +53,16 @@
                         <input id="lastname" type="text" name="lastname" />
                     </div>
                     <div class="formFields">
-                        <label for="dob">Date of Birth:</label>
-                        <input id="dob" type="date" name="date_of_birth" />
-                    </div>
-                    <div class="formFields">
                         <label for="email">Email:</label>
                         <input id="email" type="email" name="email" />
                     </div>
                     <div class="formFields">
                         <label for="password">Password</label>
                         <input id="password" type="password" name="user_password" />
+                    </div>
+                    <div class="formFields">
+                        <label for="dob">Date of Birth:</label>
+                        <input id="dob" type="date" name="date_of_birth" />
                     </div>
                     <button class="profileBtn" type="submit" name="addUser">Register</button>
                 </form>

@@ -2,49 +2,48 @@
     use BettingRUs\Models\{Database, User};
     require_once "../vendor/autoload.php";
 
-    $username = "";
-    $firstname = "";
-    $lastname = "";
-    $dob = "";
-    $email = "";
-    $password = "";
+    $username = "";  
+    $firstname = ""; 
+    $lastname = "";  
+    $email = "";  
+    $password = ""; 
+    $dob = ""; 
 
     if(isset($_POST['updateUser'])) {
         $id = $_POST['id'];
-
+        
         $db = Database::getDb();
-
         $userObj = new User();
+
         $users = $userObj->getUserID($id, $db);
 
-        $username = $users->username;
-        $firstname = $users->firstname;
-        $lastname = $users->lastname;
-        $dob = $users->date_of_birth;
-        $email - $users->email;
-        $password = $users->user_password;
+        $username = $users->username;  
+        $firstname = $users->firstname; 
+        $lastname = $users->lastname;  
+        $email = $users->email;  
+        $password = $users->user_password; 
+        $dob = $users->date_of_birth; 
     }
 
     if(isset($_POST['upUser'])) {
-        $id = $_POST['id'];
+        $id = $_POST['user_id'];
         $username = $_POST['username'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $dob = $_POST['date_of_birth'];
         $email = $_POST['email'];
         $password = $_POST['user_password'];
+        $dob = $_POST['date_of_birth'];
 
         $db = Database::getDb();
-
         $userObj = new User();
+
         $count = $userObj->updateUser($id, $username, $firstname, $lastname, $email, $password, $dob, $db);
 
         if($count) {
-            header('Location: list_user.php');
+            header('Location: list_users.php');
         } else {
-            echo "<p>User was not updated</p>";
+            echo "<p>User was not updated!</p>";
         }
-        
     }
 ?>
 
@@ -60,12 +59,11 @@
         <title>Update User</title>
     </head>
     <body>
-        <?php require_once 'Views/header.php'; ?>
         <main>
             <div class="forms">
                 <h1>Update User</h1>
                 <form action="" method="POST">
-                    <input type="hidden" name="id" value="<?= $id; ?>" />
+                    <input type="hidden" name="user_id" value="<?= $id; ?>" />
                     <div class="formFields">
                         <label for="username">Username:</label>
                         <input id="username" type="text" name="username" value="<?= $username; ?>" />
@@ -80,7 +78,7 @@
                     </div>
                     <div class="formFields">
                         <label for="dob">Date of Birth:</label>
-                        <input id="dob" type="date" name="date_of_birth" value="<?= $dob; ?>" />
+                        <input type="date" name="date_of_birth" id="dob" value="<?= $dob;  ?>" />
                     </div>
                     <div class="formFields">
                         <label for="email">Email:</label>
@@ -94,6 +92,5 @@
                 </form>
             </div>
         </main>
-        <?php require_once 'Views/footer.php'; ?>
     </body>
 </html>

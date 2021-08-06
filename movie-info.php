@@ -53,7 +53,7 @@ if ($m) {
       <div class="page-container" style="background:url('<?= $movieBackGround ?>') !important; background-position: center !important; background-repeat: no-repeat !important; background-size: 1200px 801px !important;">
  				<div id="buttons">
 					<a href="./list-movies.php" class="btn btn-danger float-left">Go back</a>
-					<a href="#" class="btn btn-primary">Box Office</a>
+					<a href="./previous-movie-data.php?id=<?= $id; ?>" class="btn btn-primary">Box Office</a>
 					<form action="./admin-update-movie.php" method="POST">
 						<input type="hidden" name="id" value="<?= $id;?>" />
 						<input type="submit" class="btn btn-secondary" name="updateMovie" value="Update" />
