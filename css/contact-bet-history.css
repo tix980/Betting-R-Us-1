@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #main {
     max-width: 1200px;
     margin: 0 auto;
@@ -118,9 +117,9 @@ span{
     border: 1px solid #EBDD7BFF;
     padding: 2em 1em;
     margin: 1em;
-    height: 100%;
+    /*height: 100%;*/
     background-color: #161616;
-
+   width: 35%;
 
 }
 
@@ -131,17 +130,11 @@ span{
 .current-bet-links{
     padding: 0.5em;
 }
-.current-bet-links a{
-    margin-left: 4em;
-    padding: 0.5em;
-    text-decoration: none;
-    border: 1px solid white;
-    border-radius: 5px;
-    color: #161616;
-}
+
 
 .current-bet-container h3{
     margin-bottom: 0;
+    padding-top: 0.3em;
    display: inline-block;
 }
 
@@ -158,9 +151,23 @@ span{
 
 .bet-flop{
     background-color: #ff0000;
+    margin-left: 4em;
+    padding: 0.2em;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: #161616;
+    display: inline-block;
 }
 .bet-hit{
     background-color: green;
+    margin-left: 4em;
+    padding: 0.2em;
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: #161616;
+    display: inline-block;
 }
 
 @media screen and (max-width: 768px){
@@ -201,26 +208,25 @@ span{
 }
 
 
-@media screen and (max-width: 382px){
+@media screen and (max-width: 382px) {
 
 
-    .current-bet-links a{
+    .current-bet-links a {
         padding: 0.2em;
         margin: 1em auto;
         display: block;
         text-align: center;
     }
 
-    .current-bet-container{
+    .current-bet-container {
         width: 100%;
     }
 
-  #current-bet{
-      margin-left: 0;
-  }
+    #current-bet {
+        margin-left: 0;
+    }
 
-
-=======
+}
 #main {
     max-width: 1200px;
     margin: 0 auto;
@@ -416,24 +422,22 @@ span{
 }
 
 
-@media screen and (max-width: 382px){
+@media screen and (max-width: 382px) {
 
 
-    .current-bet-links a{
+    .current-bet-links a {
         padding: 0.2em;
         margin: 1em auto;
         display: block;
         text-align: center;
     }
 
-    .current-bet-container{
+    .current-bet-container {
         width: 100%;
     }
 
-  #current-bet{
-      margin-left: 0;
-  }
+    #current-bet {
+        margin-left: 0;
+    }
 
-
->>>>>>> 9435d7ebca92ac319065e3aea5db2ef9d8b54e84
 }

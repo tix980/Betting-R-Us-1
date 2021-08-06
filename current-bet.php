@@ -40,10 +40,15 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
         <p class="current-bet-dates">Release Date:<?= $currentBet->release_date ?></p>
         <p class="current-bet-dates bet-closing">Bet Close Date:<?= $currentBet->bet_close_date ?></p>
             <p class="current-bet-dates bet-status">Betting Status:<?= $currentBet->bet_status ?></p>
-        <div class="current-bet-links">
-        <a class="bet-hit" href="#">Box-Office Hit</a>
-        <a class="bet-flop" href="#">Box Office Flop</a>
-        </div>
+            <form action="Place_bet.php" method="post">
+                <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
+                <input type="submit" class="bet-hit button btn btn-danger" name="hit" value="Box Office Hit"/>
+            </form>
+            <form action="Place_bet.php" method="post">
+                <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
+                <input type="submit" class="bet-flop button btn btn-primary" name="flop" value="Box Office Flop"/>
+            </form>
+
             <form action="current_bets/update_current_bets.php" method="post">
                 <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
                 <input type="submit" class="button btn btn-primary" name="updateCurrentBet" value="Update"/>
