@@ -1,16 +1,24 @@
 <?php
+
+session_start();
+
 use BettingRUs\Models\{Database, Currency};
 
 require_once "Models/Database.php";
 require_once "vendor/autoload.php";
 require_once "Models/Currency.php";
 
+$userID = $_SESSION['userid'];
+$username = $_SESSION['username'];
+$userType = $_SESSION['accounttype'];
+$userFullName = $_SESSION['userrealname'];
+
 $money=$targetToken=$token=$targetMoney='';
 
 $c = new Currency();
 $db = Database::getDb();
 
-$id='2';
+$id=$userID;
 
 $wallet = $c->selectedWallet($id,$db);
 
@@ -18,26 +26,26 @@ $token = $wallet->token;
 $cad = $wallet->canadian_dollars;
 
 if(isset($_POST['convert'])){
+		$money = (int)$cad - (int)$_POST['target_token'] ;
+		$targetToken = (int)$token + (int)$_POST['target_token'];
+		var_dump($targetToken);
 
-	$money = (int)$cad - (int)$_POST['target_token'] ;
-	$targetToken = (int)$token + (int)$_POST['target_token'];
-	var_dump($targetToken);
-//	$token = $selectedToken - $_POST['target_money'] ;
-//	$targetMoney = $selectedMoney + $_POST['target_money'];
+		$count = $c->updateWallet($id,$money,$targetToken,$db);
+		if($count){
+			echo "Token :" .$token . ' , ' . "CAD :" . $cad ;
+		}else{
+			echo "something is wrong!";
+		}
 
-	$count = $c->updateWallet($id,$money,$targetToken,$db);
-	if($count){
-		echo "Token :" .$token . ' , ' . "CAD :" . $cad ;
-	}else{
-		echo "something is wrong!";
-	}
+		$token = (int)$token - (int)$_POST['target_money'] ;
+		$targetMoney = (int)$cad + (int)$_POST['target_money'];
 
-//	$count2 = $c->updateWallet($id,$targetMoney,$token,$db);
-//	if($count2){
-//		echo "Token :" .$selectedToken . ' , ' . "CAD :" . $selectedMoney  ;
-//	}else{
-//		echo "something is wrong!";
-//	}
+		$count = $c->updateWalletReverse($id,$targetMoney,$token ,$db);
+		if($count){
+			echo "Token :" .$token . ' , ' . "CAD :" . $cad ;
+		}else{
+			echo "something is wrong!";
+		}
 
 }
 ?>
@@ -64,24 +72,28 @@ if(isset($_POST['convert'])){
 					<h1>Currency Converter</h1>
           <div id="money">
             <img src="images/cad.png" id="cad" alt="canada currency">
-            <label for="real-money">CAD</label>
-            <input type="text" id="real-money" name="money" value="">
+						<div class="flex-container">
+							<div>CAD</div>
+							<div id="selected-cad"><?php echo $cad; ?></div>
+						</div>
           </div>
           <div id="token-info-2" style="display: none;">
-            <div id="coin"></div>
-            <label for="token">Token</label>
-            <input type="text" id="token" name="token" value="">
+            <div id="coin2"></div>
+						<div class="flex-container2">
+							<div>Token</div>
+							<div id="selected-cad"><?php echo $token; ?></div>
+						</div>
           </div>
           <button type="button" id="exchange"><i class="fas fa-exchange-alt"></i></button>
           <div id="token-info">
             <div id="coin"></div>
             <label for="token">Token</label>
-            <input type="text" id="token" name="target_token" value="<?= $token; ?>">
+            <input type="text" id="token" name="target_token" value="">
           </div>
           <div id="money-2" style="display: none;">
             <img src="images/cad.png" id="cad" alt="canada currency">
             <label for="real-money">CAD</label>
-            <input type="text" id="real-money" name="target_money" value="<?= $cad; ?>">
+            <input type="text" id="real-money" name="target_money" value="">
           </div>
           <button type="submit" id="btn" name="convert">Convert!!</button>
         </form>

@@ -12,6 +12,17 @@ class Currency{
 		return $count;
 	}
 
+	public function updateWalletReverse($id,$targetMoney, $token ,$db){
+		$sql = "UPDATE wallet SET token = :token , canadian_dollars = :targetMoney WHERE id = :id ";
+		$pdostm = $db ->prepare($sql);
+		$pdostm->bindParam(':token',$token);
+		$pdostm->bindParam(':targetMoney',$targetMoney);
+		$pdostm->bindParam(':id',$id);
+
+		$count = $pdostm ->execute();
+		return $count;
+	}
+
 	public function selectedWallet($id,$db){
 		$sql="SELECT token, canadian_dollars FROM wallet WHERE id = :id";
 		$pdostm = $db->prepare($sql);
