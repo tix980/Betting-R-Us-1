@@ -1,48 +1,47 @@
 <?php
-session_start();
+    session_start();
 
-use BettingRUs\Models\{Database, User};
+    use BettingRUs\Models\{Database, User};
+    require_once "vendor/autoload.php";
 
-require_once "vendor/autoload.php";
+    $password=$username=$userType=$userID="";
 
-$password=$username=$userType=$userID="";
+    if(isset($_POST['loginBtn'])){
+        $localUsername = $_POST['username'];
+        $LocalPassword = $_POST['password'];
 
-if(isset($_POST['button'])){
-	$localUsername= $_POST['username'];
-	$LocalPassword= $_POST['password'];
+        $db = Database::getDb();
+        $u = new User();
+        $users = $u->getAllUsers($db);
 
-	$db = Database::getDb();
-	$u = new User();
-	$users = $u->getAllUsers($db);
+        foreach($users as $user){
+            $userID = $user->id;
+            $username = $user->username;
+            $userFullName = $user->firstname . ' ' . $user->lastname;
+            $useremail = $user->email;
+            $password = $user->user_password;
+            $userType = $user->accountType;
+            $userdob = $user->date_of_birth;
+            $accountage = $user->user_since;
+            echo $username;
 
-	foreach($users as $user){
-		$username = $user->username;
-		$userFullName = $user->firstname . ' ' . $user->lastname;
-		$password = $user->user_password;
-		$userType = $user->accountType;
-		$userID = $user->id;
-		echo $username;
+            if($localUsername == $username && $LocalPassword == $password){
+                $_SESSION['userid'] = (string)$userID;
+                $_SESSION['username'] = (string)$username;
+                $_SESSION['accounttype'] = (string)$userType;
+                $_SESSION['userrealname'] = $userFullName;
+                $_SESSION['useremail'] = $useremail;
+                $_SESSION['userdob'] = $userdob;
+                $_SESSION['accountage'] = $accountage;
 
-		if($localUsername == $username && $LocalPassword == $password){
-			$_SESSION['userid'] = (string)$userID;
-			$_SESSION['username'] =(string)$username;
-			$_SESSION['accounttype'] = (string)$userType;
-			$_SESSION['userrealname'] = $userFullName;
+                header('Location: user_profile.php');
+                // echo $_SESSION['userid'];
+            } else {
+                echo "Invalid credentials";
+            }
 
-			header('location:index.php');
-			echo $_SESSION['userid'];
-		}else{
-			echo "Invalid credentials";
-		}
-
-	}
-
-
-}
-
-
-
-
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +68,7 @@ if(isset($_POST['button'])){
                         <label for="password">Password</label>
                         <input id="password" type="password" name="password">
                     </div>
-                    <button class="profileBtn" name="button" type="submit">Login</button>
+                    <button class="profileBtn" name="loginBtn" type="submit">Login</button>
                 </form>
             </div>
         </main>
