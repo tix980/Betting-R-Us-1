@@ -1,4 +1,5 @@
 <?php
+session_start();
 use BettingRUs\Models\{Database, CurrentBet};
 
 require_once "Models/Database.php";
