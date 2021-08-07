@@ -1,30 +1,26 @@
 <?php
+    session_start();
 
-session_start();
+    use BettingRUs\Models\{Database, MovieInfo};
+    require_once "vendor/autoload.php";
 
-use BettingRUs\Models\{Database, MovieInfo};
-
-require_once "vendor/autoload.php";
-
-$userID = $_SESSION['userid'];
-$username = $_SESSION['username'];
-$userType = $_SESSION['accounttype'];
-$userFullName = $_SESSION['userrealname'];
+    $userID = $_SESSION['userid'];
+    $username = $_SESSION['username'];
+    $userType = $_SESSION['accounttype'];
+    $userFullName = $_SESSION['userrealname'];
 
 
-$db = Database::getDb();
+    $db = Database::getDb();
 
 
-$m = new MovieInfo();
-$movies = $m->listMovies($db);
+    $m = new MovieInfo();
+    $movies = $m->listMovies($db);
 
-if(isset($userID)){
-	'<script>
-		document.getElementById("login").innerHTML =' . $userFullName .';
-	</script>';
-}
-
-
+    if(isset($userID)){
+        '<script>
+            document.getElementById("login").innerHTML =' . $userFullName .';
+        </script>';
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +91,7 @@ if(isset($userID)){
             <section id="lastMinBets">
                 <h2>Last Minute Bets</h2>
                 <div class="row">
-									<?php foreach ($movies as $movie){ ?>
+					<?php foreach ($movies as $movie){ ?>
                     <div class="col">
                         <div class="card betsCard bg-transparent">
                             <img class="card-img-top" src="<?= $movie->movie_background ?>" alt ="movie poster" height="150"  width="100"/>
@@ -105,7 +101,7 @@ if(isset($userID)){
                             </div>
                         </div>
                     </div>
-									<?php };?>
+					<?php };?>
                 </div>
             </section>
             <section id="leaderBoard" class="row">
@@ -183,9 +179,9 @@ if(isset($userID)){
                 <p class="text-center">Here are a few of the movies that we feature to bet on.</p>
                 <div class="container-fluid">
                     <div class="row">
-											<?php foreach ($movies as $m){ ?>
+						<?php foreach ($movies as $m){ ?>
                         <img class="col" src="<?= $m->movie_background ?>" alt ="movie poster" height="350"  width="100"/>
-											<?php };?>
+						<?php };?>
                     </div>
                     <div class="row">
                         <a class="btn betBtn" href="list-movies.php">View All Movies</a>
@@ -205,7 +201,6 @@ if(isset($userID)){
                             <img class="testimonial-image" src="images/user_profile.png" alt="user testimonial">
                             <em>Cathrina Elizabeth, Ottawa</em>
                         </div>
-
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -217,16 +212,6 @@ if(isset($userID)){
                     </a>
                 </div>
             </section>
-<!--            <section id="testimonial" class="row">-->
-<!--                <div class="col">-->
-<!--                    <h2>What others got to say about us!</h2>-->
-<!--                    <h4>John Doe</h4>-->
-<!--                    <p>Great website to use for your betting needs!</p>-->
-<!--                </div>-->
-<!--                <div class="col">-->
-<!--                    <img src="./images/user_profile.png" alt="user's image">-->
-<!--                </div>-->
-<!--            </section>-->
             <section id="membership" class="row">
                 <div class="col">
                     <h2>What are you waiting for!</h2>

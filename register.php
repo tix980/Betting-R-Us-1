@@ -9,17 +9,18 @@
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
         $password = $_POST['user_password'];
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
         $dob = $_POST['date_of_birth'];
 
         $db = Database::getDb();
         $userObj = new User();
-        $count = $userObj->addUser($username, $firstname, $lastname, $email, $password, $dob, $db);
+        $count = $userObj->addUser($username, $firstname, $lastname, $email, $passwordHash, $dob, $db);
 
         if($count) {
             header("Location: Users/list_users.php");
 
         } else {
-            echo "<p>User was not added to database! </p>";
+            echo "<p>User was not added to database!</p>";
         }
     }
 ?>
