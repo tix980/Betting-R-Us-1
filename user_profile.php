@@ -13,12 +13,6 @@
     $accountage = $_SESSION['accountage'];
 
     $db = Database::getDb();
-
-    if(isset($userID)){
-        '<script>
-            document.getElementById("login").innerHTML =' . $userFullName .';
-        </script>';
-    }
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +57,9 @@
                         <li class="nav-item" role="presentation">
                             <button id="historyTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">Betting History</button>
                         </li>
+                        <li class="nav-item" role="presentation">
+                            <button id="membershipTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#usermembership" type="button" role="tab" aria-controls="usermembership" aria-selected="false">Membership</button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -84,12 +81,19 @@
                         <h2>Add content here!!</h2>
                     </div>
                 </div>
+                <!-- DIV for User's Betting History -->
+                <div id="history" class="tab-pane fade" role="tabpanel" aria-labelledby="historyTab">
+                    <div class="card">
+                        <!-- Add content here!! -->
+                        <h2>Add content here!!</h2>
+                    </div>
+                </div>
                 <!-- DIV for User's Friend List -->
                 <div id="friends" class="tab-pane fade" role="tabpanel" aria-labelledby="friendListTab">
                     <!-- Add content here!! -->
                 </div>
-                <!-- DIV for User's Betting History -->
-                <div id="history" class="tab-pane fade" role="tabpanel" aria-labelledby="historyTab">
+                <!-- DIV for User's Membership -->
+                <div id="usermembership" class="tab-pane fade" role="tabpanel" aria-labelledby="membershipTab">
                     <div class="card">
                         <!-- Add content here!! -->
                         <h2>Add content here!!</h2>

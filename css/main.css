@@ -38,6 +38,15 @@ html, body {
     width: 140px;
 }
 
+.username {
+    color: #ECDD7B;
+    font-size: 20px;
+}
+
+.username:hover {
+    color: #031927;
+}
+
 .separator {
     margin: 0 auto;
     border-top: 2px solid #031927;

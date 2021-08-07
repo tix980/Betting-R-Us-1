@@ -15,12 +15,6 @@
 
     $m = new MovieInfo();
     $movies = $m->listMovies($db);
-
-    if(isset($userID)){
-        '<script>
-            document.getElementById("login").innerHTML =' . $userFullName .';
-        </script>';
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

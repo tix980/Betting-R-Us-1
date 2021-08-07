@@ -43,13 +43,7 @@
 
         // Update a User within the database
         public function updateUser($id, $username, $firstname, $lastname, $email, $password, $dob, $db) {
-            $query = "UPDATE users SET
-                        $username = :username,
-                        $firstname = :firstname,
-                        $lastname = :lastname,
-                        $email = :email,
-                        $password = :user_password,
-                        $dob = :dob WHERE $id = :id";
+            $query = "UPDATE users SET $username = :username, $firstname = :firstname, $lastname = :lastname, $email = :email, $password = :user_password, $dob = :dob WHERE $id = :id";
 
             $pdostm = $db->prepare($query);
 
