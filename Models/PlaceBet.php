@@ -22,7 +22,7 @@ class PlaceBet
     }
     public function getBetsInCurrentBet($db, $currentbet){
 
-        $query = "SELECT movies.title as bet_movie ,users.username as username , current_bets.bet_status, place_bets.amount, place_bets.bet_type, place_bets.id FROM movies INNER JOIN current_bets ON movies.id = current_bets.movie_id inner join place_bets on current_bets.id = place_bets.current_bet_id inner join users on users.id = place_bets.user_id WHERE current_bet_id = :currentbet";
+        $query = "SELECT movies.title as bet_movie ,users.username as username , current_bets.bet_status,place_bets.result,place_bets.earning_loss,place_bets.bet_won_lost,place_bets.result_status,place_bets.date, place_bets.amount, place_bets.bet_type, place_bets.id FROM movies INNER JOIN current_bets ON movies.id = current_bets.movie_id inner join place_bets on current_bets.id = place_bets.current_bet_id inner join users on users.id = place_bets.user_id WHERE current_bet_id = :currentbet";
 
         $pdostm = $db->prepare($query);
         $pdostm->bindValue(':currentbet', $currentbet, \PDO::PARAM_STR);
