@@ -6,18 +6,16 @@ require_once "Models/PlaceBet.php";
 require_once "vendor/autoload.php";
 
 
-//if(isset($_POST['historyTab'])) {
-
-var_dump($_SESSION['userid']);
+//var_dump($_SESSION['userid']);
     $dbcon = Database::getDb();
     $b = new PlaceBet();
     $ongoingBets = $b->getPlaceBetsOngoingStatusByUserId($userID, $dbcon);
 
-    $db = Database::getDb();
+    $dbme = Database::getDb();
     $d = new PlaceBet();
 
-    $completedBets = $d->getPlaceBetsCompletedStatusByUserId($userID, $db);
-//}
+    $completedBets = $d->getPlaceBetsCompletedStatusByUserId($userID, $dbme);
+
 ?>
 <section id="bet-history">
 
@@ -38,6 +36,7 @@ var_dump($_SESSION['userid']);
         <th>Bet Movie Name</th>
         <th>Betting Amount</th>
             <th>Bet Type</th>
+            <th>Box Office Status</th>
         <th>Earning/Loss</th>
         <th>Bet Won/Lost</th>
             <th>Bet Status</th>
@@ -50,6 +49,7 @@ var_dump($_SESSION['userid']);
             <td><?= $userOngoingBet->bet_movie; ?></td>
             <td><?= $userOngoingBet->amount; ?></td>
             <td><?= $userOngoingBet->bet_type; ?></td>
+            <td><?= $userOngoingBet->result; ?></td>
             <td><?= $userOngoingBet->earning_loss; ?></td>
             <td><?= $userOngoingBet->bet_won_lost; ?></td>
             <td><?= $userOngoingBet->result_status; ?></td>
@@ -58,9 +58,6 @@ var_dump($_SESSION['userid']);
         </tbody>
     </table>
 </div>
-
-
-
 
 </section>
 <section id="bet-history">
@@ -74,6 +71,7 @@ var_dump($_SESSION['userid']);
                 <th>Bet Name</th>
                 <th>Betting Amount</th>
                 <th>Bet Type</th>
+                <th>Box Office Status</th>
                 <th>Earning/Loss</th>
                 <th>Bet Won/Lost</th>
                 <th>Bet Status</th>
@@ -86,6 +84,7 @@ var_dump($_SESSION['userid']);
                     <td><?= $userCompletedBet->bet_movie; ?></td>
                     <td><?= $userCompletedBet->amount; ?></td>
                     <td><?= $userCompletedBet->bet_type; ?></td>
+                    <td><?= $userCompletedBet->result; ?></td>
                     <td><?= $userCompletedBet->earning_loss; ?></td>
                     <td><?= $userCompletedBet->bet_won_lost; ?></td>
                     <td><?= $userCompletedBet->result_status; ?></td>
