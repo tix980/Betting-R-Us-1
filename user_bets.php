@@ -65,7 +65,7 @@ require_once "vendor/autoload.php";
             <thead>
             <tr>
                 <th>Date</th>
-                <th>Bet Name</th>
+                <th>Bet Movie Name</th>
                 <th>Betting Amount</th>
                 <th>Bet Type</th>
                 <th>Box Office Status</th>
