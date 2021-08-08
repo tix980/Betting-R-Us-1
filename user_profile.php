@@ -52,7 +52,7 @@
                             <button id="walletTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#wallet" type="button" role="tab" aria-controls="wallet" aria-selected="false">Wallet</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button id="friendListTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#friends" type="button" role="tab" aria-controls="friends" aria-selected="false">Friend's List</buttton>
+                            <button id="friendListTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#friends" type="button" role="tab" aria-controls="friends" aria-selected="false">Friend's List</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button id="historyTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">Betting History</button>
@@ -84,7 +84,8 @@
                 <!-- DIV for User's Betting History -->
                 <div id="history" class="tab-pane fade" role="tabpanel" aria-labelledby="historyTab">
                     <div class="card">
-                        <!-- Add content here!! -->
+                       <?php require_once 'your_bets.php';?>
+
                         <h2>Add content here!!</h2>
                     </div>
                 </div>

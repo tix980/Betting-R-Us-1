@@ -1,24 +1,24 @@
 <?php
-use BettingRUs\Models\Database;
-
-require_once "Models/Database.php";
-require_once "vendor/autoload.php";
-?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <meta charset="utf-8">
-    <title>Your Bets</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link  rel="stylesheet" type="text/css" href="css/contact-bet-history.css">
-    <link  rel="stylesheet" type="text/css" href="css/main.css">
-    <meta name="viewport" content="width=device-width">
-</head>
-<body>
-
+//use BettingRUs\Models\Database;
+//
+//require_once "Models/Database.php";
+//require_once "vendor/autoload.php";
+//?>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" dir="ltr">-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <title>Your Bets</title>-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">-->
+<!--    <link  rel="stylesheet" type="text/css" href="css/contact-bet-history.css">-->
+<!--    <link  rel="stylesheet" type="text/css" href="css/main.css">-->
+<!--    <meta name="viewport" content="width=device-width">-->
+<!--</head>-->
+<!--<body>-->
+<!---->
 <?php
-require 'header.php';
-?>
+//require 'Views/header.php';
+//?>
 <section id="bet-history">
 
 <div class="bet-hist-form-div">
@@ -37,6 +37,7 @@ require 'header.php';
         <th>Date</th>
         <th>Bet Name</th>
         <th>Betting Amount</th>
+            <th>Bet Type</th>
         <th>Earning/Loss</th>
         <th>Bet Won/Lost</th>
             <th>Bet Status</th>
@@ -47,22 +48,7 @@ require 'header.php';
             <td> 2020/01/01 - 10:00:00</td>
             <td>Harry Potter</td>
             <td>$150</td>
-            <td>0</td>
-            <td>TBD</td>
-            <td>on-going</td>
-        </tr>
-        <tr>
-            <td> 2020/01/01 - 10:00:00</td>
-            <td>John Wick</td>
-            <td>$150</td>
-            <td>0</td>
-            <td>TBD</td>
-            <td>on-going</td>
-        </tr>
-        <tr>
-            <td> 2020/01/01 - 10:00:00</td>
-            <td>Harry Potter</td>
-            <td>$150</td>
+            <td>Flop</td>
             <td>0</td>
             <td>TBD</td>
             <td>on-going</td>
@@ -85,6 +71,7 @@ require 'header.php';
                 <th>Date</th>
                 <th>Bet Name</th>
                 <th>Betting Amount</th>
+                <th>Bet Type</th>
                 <th>Earning/Loss</th>
                 <th>Bet Won/Lost</th>
                 <th>Bet Status</th>
@@ -95,22 +82,7 @@ require 'header.php';
                 <td> 2020/01/01 - 10:00:00</td>
                 <td>Harry Potter</td>
                 <td>$150</td>
-                <td>$300</td>
-                <td>Won</td>
-                <td>complete</td>
-            </tr>
-            <tr>
-                <td> 2020/01/01 - 10:00:00</td>
-                <td>John Wick</td>
-                <td>$150</td>
-                <td>-$150</td>
-                <td>Lost</td>
-                <td>complete</td>
-            </tr>
-            <tr>
-                <td> 2020/01/01 - 10:00:00</td>
-                <td>Harry Potter</td>
-                <td>$150</td>
+                <td>Flop</td>
                 <td>$300</td>
                 <td>Won</td>
                 <td>complete</td>
@@ -124,7 +96,7 @@ require 'header.php';
 
 </section>
 <?php
-require 'footer.php';
-?>
-</body>
-</html>
+//require 'Views/footer.php';
+//?>
+<!--</body>-->
+<!--</html>-->

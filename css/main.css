@@ -212,7 +212,7 @@ button {
     padding: 25px 15px;
 }
 
-/***** User Feedback Carousal ****/
+/***** User Feedback Carousal START ****/
 #testimonials {
     background:#BA1200;
     text-align: center;
@@ -228,3 +228,36 @@ button {
 .feedback-slider-page{
     padding: 5%;
 }
+/***** User Feedback Carousal END ****/
+/*****USER Bets & History Section  START****/
+#bet-history{
+    margin: 0 auto;
+    color: #161616;
+}
+.bet-hist-table-div{
+    margin: 2em;
+    overflow-x: auto;
+}
+
+.bet-hist-table th,.bet-hist-table td{
+    border: 1px solid #ECDD7B;
+    padding: 1em;
+    /*color: #ECDD7B;*/
+}
+
+.bet-hist-form-div{
+    margin: 1em;
+}
+
+.bet-hist-heading,.bet-hist-table{
+    margin: 1em 0;
+}
+
+.bet-hist-form-date-input-btn {
+    padding: 0.2em 0.5em;
+    color: #333;
+    background-color: #EBDD7BFF;
+    border-radius: 5px;
+}
+
+/***** Bet History Section END****/
