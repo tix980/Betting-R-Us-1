@@ -5,8 +5,7 @@
     $username = "";  
     $firstname = ""; 
     $lastname = "";  
-    $email = "";  
-    $password = ""; 
+    $email = "";   
     $dob = ""; 
 
     if(isset($_POST['updateUser'])) {
@@ -15,14 +14,13 @@
         $db = Database::getDb();
         $userObj = new User();
 
-        $users = $userObj->getUserID($id, $db);
+        $u = $userObj->getUserID($id, $db);
 
-        $username = $users->username;  
-        $firstname = $users->firstname; 
-        $lastname = $users->lastname;  
-        $email = $users->email;  
-        $password = $users->user_password; 
-        $dob = $users->date_of_birth; 
+        $username = $u->username;  
+        $firstname = $u->firstname; 
+        $lastname = $u->lastname;  
+        $email = $u->email;  
+        $dob = $u->date_of_birth; 
     }
 
     if(isset($_POST['upUser'])) {
@@ -31,13 +29,12 @@
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
-        $password = $_POST['user_password'];
         $dob = $_POST['date_of_birth'];
 
         $db = Database::getDb();
         $userObj = new User();
 
-        $count = $userObj->updateUser($id, $username, $firstname, $lastname, $email, $password, $dob, $db);
+        $count = $userObj->updateUser($id, $username, $firstname, $lastname, $email, $dob, $db);
 
         if($count) {
             header('Location: list_users.php');
@@ -84,10 +81,10 @@
                         <label for="email">Email:</label>
                         <input id="email" type="email" name="email" value="<?= $email; ?>" />
                     </div>
-                    <div class="formFields">
+                    <!-- <div class="formFields">
                         <label for="password">Password</label>
                         <input id="password" type="password" name="user_password" value="<?= $password; ?>" />
-                    </div>
+                    </div> -->
                     <button class="profileBtn" type="submit" name="upUser">Update User</button>
                 </form>
             </div>
