@@ -11,7 +11,7 @@ require_once "vendor/autoload.php";
 var_dump($_SESSION['userid']);
     $dbcon = Database::getDb();
     $b = new PlaceBet();
-    $currentOngoingBets = $b->getPlaceBetsOngoingStatusByUserId($userID, $dbcon);
+    $ongoingBets = $b->getPlaceBetsOngoingStatusByUserId($userID, $dbcon);
 
     $db = Database::getDb();
     $d = new PlaceBet();
@@ -44,7 +44,7 @@ var_dump($_SESSION['userid']);
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($currentOngoingBets as $userOngoingBet) { ?>
+        <?php foreach ($ongoingBets as $userOngoingBet) { ?>
         <tr>
             <td><?= $userOngoingBet->date; ?></td>
             <td><?= $userOngoingBet->bet_movie; ?></td>

@@ -113,8 +113,8 @@ class PlaceBet
 
 
     public function  getPlaceBetsOngoingStatusByUserId ($id,$db){
-        $sql = "SELECT movies.title as bet_movie ,users.username as username , current_bets.bet_status, place_bets.amount, place_bets.bet_type,place_bets.current_bet_id,place_bets.result,place_bets.earning_loss,place_bets.bet_won_lost,place_bets.result_status, place_bets.id FROM movies INNER JOIN current_bets ON movies.id = current_bets.movie_id inner join place_bets on current_bets.id = place_bets.current_bet_id inner join users on users.id = place_bets.user_id where place_bets.user_id = :id ";
-//        AND place_bets.result_status = 'Ongoing'
+        $sql = "SELECT movies.title as bet_movie ,users.username as username , current_bets.bet_status, place_bets.amount, place_bets.bet_type,place_bets.current_bet_id,place_bets.result,place_bets.earning_loss,place_bets.bet_won_lost,place_bets.result_status, place_bets.id FROM movies INNER JOIN current_bets ON movies.id = current_bets.movie_id inner join place_bets on current_bets.id = place_bets.current_bet_id inner join users on users.id = place_bets.user_id where place_bets.user_id = :id AND place_bets.result_status = 'Ongoing' ";
+
         $pdostm = $db->prepare($sql);
         $pdostm->bindParam(':id', $id);
         $pdostm->execute();
@@ -124,8 +124,8 @@ class PlaceBet
     }
 
     public function  getPlaceBetsCompletedStatusByUserId ($id,$db){
-        $sql = "SELECT movies.title as bet_movie ,users.username as username , current_bets.bet_status, place_bets.amount, place_bets.bet_type,place_bets.current_bet_id,place_bets.result,place_bets.earning_loss,place_bets.bet_won_lost,place_bets.result_status, place_bets.id FROM movies INNER JOIN current_bets ON movies.id = current_bets.movie_id inner join place_bets on current_bets.id = place_bets.current_bet_id inner join users on users.id = place_bets.user_id where place_bets.user_id = :id ";
-//        AND place_bets.result_status = 'Completed'
+        $sql = "SELECT movies.title as bet_movie ,users.username as username , current_bets.bet_status, place_bets.amount, place_bets.bet_type,place_bets.current_bet_id,place_bets.result,place_bets.earning_loss,place_bets.bet_won_lost,place_bets.result_status, place_bets.id FROM movies INNER JOIN current_bets ON movies.id = current_bets.movie_id inner join place_bets on current_bets.id = place_bets.current_bet_id inner join users on users.id = place_bets.user_id where place_bets.user_id = :id AND place_bets.result_status = 'Completed' ";
+
         $pdostm = $db->prepare($sql);
         $pdostm->bindParam(':id', $id);
         $pdostm->execute();
