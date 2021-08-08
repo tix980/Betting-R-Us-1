@@ -229,7 +229,8 @@ button {
 /*****USER Bets & History Section  START****/
 #bet-history{
     margin: 0 auto;
-    color: #161616;
+    background-color: #031927;
+    color: #ECDD7B;
 }
 .bet-hist-table-div{
     margin: 2em;

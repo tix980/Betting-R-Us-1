@@ -57,7 +57,7 @@
                             <button id="friendListTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#friends" type="button" role="tab" aria-controls="friends" aria-selected="false">Friend's List</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button id="historyTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">Betting History</button>
+                            <button id="historyTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">Your Bets</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button id="membershipTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#usermembership" type="button" role="tab" aria-controls="usermembership" aria-selected="false">Membership</button>

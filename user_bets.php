@@ -59,9 +59,6 @@ require_once "vendor/autoload.php";
     </table>
 </div>
 
-</section>
-<section id="bet-history">
-
     <h2 class="bet-hist-heading">Past Bets</h2>
     <div class="bet-hist-table-div">
         <table class="bet-hist-table">
