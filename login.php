@@ -34,7 +34,7 @@
                 $_SESSION['userdob'] = $userdob;
                 $_SESSION['accountage'] = $accountage;
 
-                header('Location: index.php');
+                header('Location: user_profile.php');
                 // echo $_SESSION['userid'];
             } else {
                 echo "Invalid credentials";
