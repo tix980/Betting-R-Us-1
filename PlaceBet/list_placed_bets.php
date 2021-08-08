@@ -58,6 +58,11 @@ if(isset($_GET['bet_movie'])){
                 <th>Bet Status</th>
                 <th>Amount</th>
                 <th>Bet Type</th>
+                <th>Result</th>
+                <th>Earnings/Loss</th>
+                <th>Bet Won/Lost</th>
+                <th>Result Status</th>
+                <th>Bet Placed Date</th>
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
@@ -71,6 +76,11 @@ if(isset($_GET['bet_movie'])){
                     <td><?= $bet->bet_status; ?></td>
                     <td><?= $bet->amount; ?></td>
                     <td><?= $bet->bet_type; ?></td>
+                    <td><?= $bet->result; ?></td>
+                    <td><?= $bet->earning_loss; ?></td>
+                    <td><?= $bet->bet_won_lost; ?></td>
+                    <td><?= $bet->result_status; ?></td>
+                    <td><?= $bet->date; ?></td>
                     <td><form action="./update_placed_bet.php" method="post">
                             <input type="hidden" name="id" value="<?= $bet->id; ?>"/>
                             <input type="submit" class="button btn btn-primary" name="updateBet" value="Update"/>

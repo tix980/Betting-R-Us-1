@@ -43,7 +43,7 @@ if(isset($_POST['placeBet'])){
 
     if ($bets) {
         echo "The bet was placed sucessfully";
-        header("Location: place_bet.php");//it should be directed to user profile
+        header("Location: current_bet.php");//it should be directed to user profile
     } else {
         echo "Problem adding new rule";
     }

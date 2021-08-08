@@ -43,7 +43,7 @@ class MovieInfo{
 	}
 
 	public function listActors($db){
-		$sql = "SELECT actor_fname, actor_lname FROM actors";
+		$sql = "SELECT actor_fname, actor_lname,poster FROM actors";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->execute();
 		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
