@@ -1,7 +1,6 @@
 <?php 
     session_start();
-
-    use BettingRUs\Models\{Database, MovieInfo};
+    use BettingRUs\Models\{Database,PlaceBet,MovieInfo};
     require_once "vendor/autoload.php";
 
     $userID = $_SESSION['userid'];
@@ -13,6 +12,9 @@
     $accountage = $_SESSION['accountage'];
 
     $db = Database::getDb();
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -84,9 +86,8 @@
                 <!-- DIV for User's Betting History -->
                 <div id="history" class="tab-pane fade" role="tabpanel" aria-labelledby="historyTab">
                     <div class="card">
-                       <?php require_once 'your_bets.php';?>
+                       <?php require_once 'user_bets.php';?>
 
-                        <h2>Add content here!!</h2>
                     </div>
                 </div>
                 <!-- DIV for User's Friend List -->
