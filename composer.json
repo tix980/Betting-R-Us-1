@@ -1,8 +1,8 @@
 {
-    "name": "solaire/betting-r-us",
+    "name": "solaire/betting-rus",
     "autoload": {
         "psr-4": {
-            "BettingRUs\\Models\\": "Models/"
+            "Solaire\\BettingRus\\": "src/"
         }
     },
     "authors": [
@@ -11,7 +11,5 @@
             "email": "tix980@mail.usask.ca"
         }
     ],
-    "require": {
-        "phpmailer/phpmailer": "^6.5"
-    }
+    "require": {}
 }
