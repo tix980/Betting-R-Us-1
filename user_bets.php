@@ -28,6 +28,7 @@ require_once "vendor/autoload.php";
     </form>
 </div>
     <h2 class="bet-hist-heading">Current Bets</h2>
+    <p class="bet-hist-para" >Status change and process is completed after 2-3 weeks from the movies release date</p>
 <div class="bet-hist-table-div">
     <table class="bet-hist-table">
         <thead>

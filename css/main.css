@@ -236,7 +236,9 @@ button {
     margin: 2em;
     overflow-x: auto;
 }
-
+.bet-hist-para{
+    text-align: center;
+}
 .bet-hist-table th,.bet-hist-table td{
     border: 1px solid #ECDD7B;
     padding: 1em;

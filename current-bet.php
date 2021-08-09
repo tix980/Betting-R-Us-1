@@ -74,38 +74,7 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
 
         } ?>
 
-<!--        <div class="current-bet-container">-->
-<!--            <h3>Savage Monkey</h3>-->
-<!--            <p class="current-bet-dates">Release Date:10th July 2021</p>-->
-<!--            <p class="current-bet-dates bet-closing">Bet Close Date:9th July 2021</p>-->
-<!--            <div class="current-bet-links">-->
-<!--                <a class="bet-hit" href="#">Box-Office Hit</a>-->
-<!--                <a class="bet-flop" href="#">Box Office Flop</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="current-bet-container">-->
-<!--            <h3>Athens Tomorrow</h3>-->
-<!--            <p class="current-bet-dates">Release Date:20th July 2021</p>-->
-<!--            <p class="current-bet-dates bet-closing">Bet Close Date:19th July 2021</p>-->
-<!--            <div class="current-bet-links">-->
-<!--                <a class="bet-hit" href="#">Box-Office Hit</a>-->
-<!--                <a  class="bet-flop" class="bet-flop" href="#">Box Office Flop</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="current-bet-container">-->
-<!--            <h3>Tropic Thunder Again!</h3>-->
-<!--            <p class="current-bet-dates">Release Date:29th August 2021</p>-->
-<!--            <p class="current-bet-dates bet-closing">Bet Close Date:28th August 2021</p>-->
-<!--            <div class="current-bet-links">-->
-<!--                <a class="bet-hit" href="#">Box-Office Hit</a>-->
-<!--                <a class="bet-flop" href="#">Box Office Flop</a>-->
-<!--            </div>-->
-<!--        </div>-->
     </div>
-
-
-
-
 </section>
 </main>
 
