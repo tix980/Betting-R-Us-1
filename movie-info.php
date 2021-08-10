@@ -21,7 +21,7 @@ if(isset($_GET['id'])){
 	$title = $selectMovie->movieTitle;
 	$releaseDate = $selectMovie->releaseDate;
 	$movieBackGround = $selectMovie->movieBackGround;
-
+    $actorId = $selectMovie->id;
 	$actors = $m->selectActorByMovieId($db,$id);
 
 }
@@ -72,8 +72,8 @@ if ($m) {
 				<div class="flex-container">
 					<?php foreach ($actors as $actor){?>
 					<div class="actor-name">
-						<div class="first-name"><a href="#"><?php echo $actor-> actor_fname ?></a></div>
-						<div class="last-name"><a href="#"><?php echo $actor-> actor_lname ?></a></div>
+						<div class="first-name"><a href="actor-info.php?id= <?= $actor-> id;?>"><?php echo $actor-> actor_fname ?></a></div>
+						<div class="last-name"><a href= "actor-info.php?id= <?= $actor-> id;?>"><?php echo $actor-> actor_lname ?></a></div>
 					</div>
 					<?php }; ?>
 <!--					<div class="actor-name">-->

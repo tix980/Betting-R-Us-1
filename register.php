@@ -17,7 +17,7 @@
         $count = $userObj->addUser($username, $firstname, $lastname, $email, $passwordHash, $dob, $db);
 
         if($count) {
-            header("Location: Users/list_users.php");
+            header("Location: index.php");
 
         } else {
             echo "<p>User was not added to database!</p>";

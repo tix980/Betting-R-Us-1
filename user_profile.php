@@ -1,7 +1,6 @@
 <?php 
     session_start();
-
-    use BettingRUs\Models\{Database, MovieInfo};
+    use BettingRUs\Models\{Database,PlaceBet,MovieInfo};
     require_once "vendor/autoload.php";
     require_once "Models/Database.php";
     require_once "Models/MovieInfo.php";
@@ -16,11 +15,8 @@
 
     $db = Database::getDb();
 
-    if(isset($userID)){
-        '<script>
-            document.getElementById("login").innerHTML =' . $userFullName .';
-        </script>';
-    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -60,10 +56,13 @@
                             <button id="walletTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#wallet" type="button" role="tab" aria-controls="wallet" aria-selected="false">Wallet</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button id="friendListTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#friends" type="button" role="tab" aria-controls="friends" aria-selected="false">Friend's List</buttton>
+                            <button id="friendListTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#friends" type="button" role="tab" aria-controls="friends" aria-selected="false">Friend's List</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button id="historyTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">Betting History</button>
+                            <button id="historyTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">Your Bets</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button id="membershipTab" class="nav-link" data-bs-toggle="tab" data-bs-target="#usermembership" type="button" role="tab" aria-controls="usermembership" aria-selected="false">Membership</button>
                         </li>
                     </ul>
                 </div>
@@ -86,12 +85,19 @@
                         <h2>Add content here!!</h2>
                     </div>
                 </div>
+                <!-- DIV for User's Betting History -->
+                <div id="history" class="tab-pane fade" role="tabpanel" aria-labelledby="historyTab">
+                    <div class="card">
+                       <?php require_once 'user_bets.php';?>
+
+                    </div>
+                </div>
                 <!-- DIV for User's Friend List -->
                 <div id="friends" class="tab-pane fade" role="tabpanel" aria-labelledby="friendListTab">
                     <!-- Add content here!! -->
                 </div>
-                <!-- DIV for User's Betting History -->
-                <div id="history" class="tab-pane fade" role="tabpanel" aria-labelledby="historyTab">
+                <!-- DIV for User's Membership -->
+                <div id="usermembership" class="tab-pane fade" role="tabpanel" aria-labelledby="membershipTab">
                     <div class="card">
                         <!-- Add content here!! -->
                         <h2>Add content here!!</h2>

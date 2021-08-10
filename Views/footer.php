@@ -20,6 +20,10 @@
                         <a href="faq.php">FAQ</a>
                     </li>
                     <li>
+                        <a href="rules.php">Rules</a>
+                    </li>
+
+                    <li>
                         <a href="#">Contact</a>
                     </li>
                     <li>
