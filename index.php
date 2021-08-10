@@ -3,6 +3,8 @@
 
     use BettingRUs\Models\{Database, MovieInfo};
     require_once "vendor/autoload.php";
+    require_once "Models/Database.php";
+    require_once "Models/MovieInfo.php";
 
     $userID = $_SESSION['userid'];
     $username = $_SESSION['username'];
@@ -15,6 +17,7 @@
 
     $m = new MovieInfo();
     $movies = $m->listMovies($db);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
