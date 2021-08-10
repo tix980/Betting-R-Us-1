@@ -1,8 +1,41 @@
 <?php
-use BettingRUs\Models\Database;
+session_start();
 
-// require_once "Models/Database.php";
-	require_once "vendor/autoload.php";
+use BettingRUs\Models\{Database, Currency};
+
+require_once "vendor/autoload.php";
+require_once "Models/Database.php";
+require_once "Models/Currency.php";
+
+$userID = $_SESSION['userid'];
+$username = $_SESSION['username'];
+$userType = $_SESSION['accounttype'];
+$userFullName = $_SESSION['userrealname'];
+
+$money="";
+
+$c = new Currency();
+$db = Database::getDb();
+
+$id=$userID;
+
+$wallet = $c->selectedWallet($id,$db);
+
+(int)$cad = $wallet->canadian_dollars;
+echo($cad);
+
+
+if(isset($_POST['btn'])){
+    $money = (int)$cad + (int)$_POST['amount'] ;
+
+    $count = $c->purchaseInGameCurrency($id,$money,$db);
+    if($count){
+        echo "your total:" . $money . "bucks";
+    }else{
+        echo "something is wrong!";
+    }
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,17 +133,11 @@ use BettingRUs\Models\Database;
 		<div class="row">
 			<div class="col-md-6 col-xs-12">
 				<span class="required-field">*</span>
-				<label for="donation_amount" class="form-label">Amount</label>
-				<select id="donation_amount" class="form-select">
-					<option selected>$5</option>
-					<option>$10</option>
-					<option>$20</option>
-					<option>$50</option>
-					<option>$100</option>
-				</select>
+				<label for="amount" class="form-label">Amount</label>
+                <input type="text" id="amount" name="amount" value="">
 			</div>
 		<div class="col-12">
-			<button type="submit" class="btn form-submit" id="donation-btn-submit">Make Payment</button>
+			<button type="submit" class="btn form-submit" id="donation-btn-submit" name="btn">Make Payment</button>
 
 		</div>
 
