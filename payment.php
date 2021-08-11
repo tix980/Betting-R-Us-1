@@ -1,11 +1,8 @@
 <?php
-session_start();
 
 use BettingRUs\Models\{Database, Currency};
 
-require_once "vendor/autoload.php";
-require_once "Models/Database.php";
-require_once "Models/Currency.php";
+require_once "Views/header.php";
 
 $userID = $_SESSION['userid'];
 $username = $_SESSION['username'];
@@ -56,7 +53,7 @@ if(isset($_POST['btn'])){
 	<title>Payment page</title>
 </head>
 <body>
-<?php require_once "Views/header.php"; ?>
+<?php //require_once "Views/header.php"; ?>
 
 <div class="container">
 	<h1>Payment</h1>
