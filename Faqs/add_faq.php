@@ -1,6 +1,8 @@
 <?php
 use BettingRUs\Models\{Database, Faq};
 require_once "../vendor/autoload.php";
+require_once "../Models/Database.php";
+require_once "../Models/Faq.php";
 
 if(isset($_POST['addFaq'])){
     $question = $_POST['question'];

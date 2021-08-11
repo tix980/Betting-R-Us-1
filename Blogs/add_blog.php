@@ -1,6 +1,8 @@
 <?php
 use BettingRUs\Models\{Database, Blog};
 require_once "../vendor/autoload.php";
+require_once "../Models/Database.php";
+require_once "../Models/Blog.php";
 
 if(isset($_POST['addBlog'])){
     $file = $_FILES['imagefile'];

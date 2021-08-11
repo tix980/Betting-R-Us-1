@@ -1,8 +1,8 @@
 <?php
 use BettingRUs\Models\{Database, Faq};
 
-// require_once "Models/Database.php";
-// require_once "Models/Faq.php";
+ require_once "Models/Database.php";
+ require_once "Models/Faq.php";
 require_once "vendor/autoload.php";
 
 $db = Database::getDb();
