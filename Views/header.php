@@ -2,7 +2,7 @@
     session_start();
 
     use BettingRUs\Models\{Database, MovieInfo};
-    require_once "vendor/autoload.php";
+    require_once "../vendor/autoload.php";
 
     $userID = $_SESSION['userid'];
     $username = $_SESSION['username'];
