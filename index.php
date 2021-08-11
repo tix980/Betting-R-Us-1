@@ -3,8 +3,8 @@
 
     use BettingRUs\Models\{Database, MovieInfo};
     require_once "vendor/autoload.php";
-    require_once "Models/Database.php";
-    require_once "Models/MovieInfo.php";
+//    require_once "Models/Database.php";
+//    require_once "Models/MovieInfo.php";
 
     $userID = $_SESSION['userid'];
     $username = $_SESSION['username'];
@@ -182,7 +182,7 @@
                     </div>
                     <div class="row">
                         <a class="btn betBtn" href="list-movies.php">View All Movies</a>
-                    </div>
+                    </
                 </div>
             </section>
             <section id="testimonials">
