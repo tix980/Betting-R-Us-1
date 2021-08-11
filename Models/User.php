@@ -42,12 +42,14 @@
         }
 
         // Update a User within the database
-        public function updateUser($id, $username, $firstname, $lastname, $email, $dob, $db) {
+        public function updateUser($id, $username, $firstname, $lastname, $email, $account_type, $dob, $db) {
             $query = "UPDATE users 
                      SET username = :username, 
                      firstname = :firstname, 
                      lastname = :lastname, 
                      email = :email,  
+                    --  user_password = :password,
+                     account_type = :account_type,
                      date_of_birth = :dob 
                      WHERE id = :id";
 
@@ -57,6 +59,8 @@
             $pdostm->bindParam(':firstname', $firstname);
             $pdostm->bindParam(':lastname', $lastname);
             $pdostm->bindParam(':email', $email);
+            // $pdostm->bindParam(':password', $password);
+            $pdostm->bindParam(':account_type', $account_type);
             $pdostm->bindParam(':dob', $dob);
 
             $count = $pdostm->execute();

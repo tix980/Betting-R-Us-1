@@ -36,6 +36,7 @@
                         <th>Email</th>
                         <th>Password</th>
                         <th>User Since</th>
+                        <th>Account Type</th>
                         <th>Membership</th>
                     </tr>
                 </thead>
@@ -49,6 +50,7 @@
                             <td><?= $bet_user->email ?></td>
                             <td><?= $bet_user->user_password ?></td>
                             <td><?= $bet_user->user_since ?></td>
+                            <td><?= $bet_user->account_type ?></td>
                             <td><?= $bet_user->membership ?></td>
                             <td>
                                 <form action="update_user.php" method="POST">

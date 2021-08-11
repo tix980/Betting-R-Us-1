@@ -6,6 +6,8 @@
     $firstname = ""; 
     $lastname = "";  
     $email = "";   
+    // $password = "";
+    $account_type = "";
     $dob = ""; 
 
     if(isset($_POST['updateUser'])) {
@@ -20,6 +22,8 @@
         $firstname = $u->firstname; 
         $lastname = $u->lastname;  
         $email = $u->email;  
+        // $password = $u->user_password;
+        $account_type = $u->account_type;
         $dob = $u->date_of_birth; 
     }
 
@@ -29,12 +33,14 @@
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $email = $_POST['email'];
+        // $password = $_POST['user_password'];
+        $account_type = $_POST['account_type'];
         $dob = $_POST['date_of_birth'];
 
         $db = Database::getDb();
         $userObj = new User();
 
-        $count = $userObj->updateUser($id, $username, $firstname, $lastname, $email, $dob, $db);
+        $count = $userObj->updateUser($id, $username, $firstname, $lastname, $email, $account_type, $dob, $db);
 
         if($count) {
             header('Location: list_users.php');
@@ -82,9 +88,13 @@
                         <input id="email" type="email" name="email" value="<?= $email; ?>" />
                     </div>
                     <!-- <div class="formFields">
-                        <label for="password">Password</label>
+                        <label for="password">Password:</label>
                         <input id="password" type="password" name="user_password" value="<?= $password; ?>" />
                     </div> -->
+                    <div class="formFields">
+                        <label for="accountType">Account Type:</label>
+                        <input id="accountType" type="text" name="account_type" value="<?= $account_type; ?>" />
+                    </div>
                     <button class="profileBtn" type="submit" name="upUser">Update User</button>
                 </form>
             </div>
