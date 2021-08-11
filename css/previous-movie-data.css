@@ -47,6 +47,14 @@ table, th, td {
   text-align: center;
 }
 
+.actors-name a{
+  color: #ECDD7B;
+}
+
+.actors-name a:hover{
+  text-decoration: none;
+}
+
 .btn-container{
   text-align: center;
   margin: 3em auto;

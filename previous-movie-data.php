@@ -103,7 +103,7 @@ if(isset($_GET['id'])){
             <h2>Notable Actors</h2>
             <?php foreach($actors as $actor){?>
                 <div class="actors-container">
-                    <div class="actors-name"><?php echo $actor-> actor_fname . ' ' . $actor->actor_lname ?></div>
+                    <div class="actors-name"><?php echo "<a href='actor-info.php?id=" . $actor->id . "'</a>" .  $actor-> actor_fname . ' ' . $actor->actor_lname ?></div>
 
                 </div>
             <?php }; ?>
