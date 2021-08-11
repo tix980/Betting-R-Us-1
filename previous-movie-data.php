@@ -6,7 +6,6 @@ require_once "vendor/autoload.php";
 require_once "Models/MovieInfo.php";
 
 
-
 $m = new MovieInfo();
 $db = Database::getDb();
 if(isset($_GET['id'])){
@@ -64,7 +63,7 @@ if(isset($_GET['id'])){
                 </div>
                 <div class="movie-info-container">
                     <p>Release Date: <?php
-                        if ($releaseDate > date("Y/m/d")) {
+                        if ($releaseDate > date("Y-m-d")) {
                             echo $releaseDate . '</p>';
                             echo "This movie has not been released yet!" . '<a class="link-styling" href="./current-bet.php" > Place a bet today! </a>';
 
@@ -86,13 +85,13 @@ if(isset($_GET['id'])){
                     <tbody>
                         <tr>
                            <td><?= $budget ?></td>
-                            <td><?php  if ($releaseDate > date("Y/m/d")){
+                            <td><?php  if ($releaseDate > date("Y-m-d")){
                                 echo 'Coming Soon';
                                     } else {
                                 echo $gross;
                                 } ?>
                             </td>
-                            <td><?php  if ($releaseDate > date("Y/m/d")){
+                            <td><?php  if ($releaseDate > date("Y-m-d")){
                                     echo 'Coming Soon';
                                 } else {
                                     echo $rating;
@@ -109,7 +108,7 @@ if(isset($_GET['id'])){
                 </div>
             <?php }; ?>
 
-            <?php if ($releaseDate > date("Y/m/d")){
+            <?php if ($releaseDate > date("Y-m-d")){
                 echo '<div class="btn-container"><a class="btn-primary" href="current-bet.php">' . 'Place a bet Today!' . '</a></div>';
             }
             ?>
