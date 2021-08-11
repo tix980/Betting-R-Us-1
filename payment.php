@@ -62,7 +62,7 @@ if(isset($_POST['btn'])){
 	<h1>Payment</h1>
 	<p>Feeling yolo? Make a payment!</p>
 
-	<form class="donation-form">
+	<form action="#" method="POST" class="donation-form">
 		<div class="row">
 			<div class="col-md-6 col-xs-12">
 				<span class="required-field">*</span>
