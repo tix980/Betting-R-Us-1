@@ -1,5 +1,5 @@
 {
-    "name": "solaire/betting-r-us",
+    "name": "solaire/betting-rus",
     "autoload": {
         "psr-4": {
             "BettingRUs\\Models\\": "Models/"
@@ -11,5 +11,7 @@
             "email": "tix980@mail.usask.ca"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
 }
