@@ -26,6 +26,7 @@ require_once "vendor/autoload.php";
             <input class="bet-hist-form-date-input" type="date" name="dateselect" id="dateselect" >
             <input class="bet-hist-form-date-input-btn"type="button" name="btn btn-search" value="Search" >
     </form>
+    <a class="btn btn-primary" href="current-bet.php#" role="button">Place more Bets</a>
 </div>
     <h2 class="bet-hist-heading">Current Bets</h2>
     <p class="bet-hist-para" >Status change and process is completed after 2-3 weeks from the movies release date</p>

@@ -182,7 +182,7 @@
                     </div>
                     <div class="row">
                         <a class="btn betBtn" href="list-movies.php">View All Movies</a>
-                    </div>
+                    </
                 </div>
             </section>
             <section id="testimonials">
