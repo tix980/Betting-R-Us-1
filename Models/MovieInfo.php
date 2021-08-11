@@ -12,7 +12,7 @@ class MovieInfo{
   }
 
 	public function selectDirectorByMovieId($db,$id){
-		$sql = "SELECT * FROM movie_director join movies on movies.id = movie_actor.movie_id join directors on director.id = movie_director.director_id WHERE movie.id = :id";
+		$sql = "SELECT directors.director_fname as director_fname, directors.director_lname as director_lname , directors.id FROM movie_director join movies on movies.id = movie_director.movie_id join directors on directors.id = movie_director.director_id WHERE movies.id = :id";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':id',$id);
 		$pdostm->execute();
@@ -50,6 +50,14 @@ class MovieInfo{
 
 		return $m;
 	}
+    public function listDirectors($db){
+        $sql = "SELECT id, director_fname, director_lname,poster FROM directors";
+        $pdostm = $db ->prepare($sql);
+        $pdostm->execute();
+        $m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
+
+        return $m;
+    }
 
 	public function selectedMovie($id,$db){
 		$sql="SELECT * FROM movies WHERE id = :id";
@@ -113,14 +121,15 @@ class MovieInfo{
 
 
 
-	public function addDirector($directorFirstName, $directorLastName,$birthDate,$birthCity,$biography,$db){
-		$sql = "INSERT INTO actors(director_fname,director_lname,date_of_birth,birth_city,biography) VALUES(:directorFirstName,:directorLastName,:birthDate,:birthCity,:biography)";
+	public function addDirector($directorFirstName, $directorLastName,$birthDate,$birthCity,$biography,$poster, $db){
+		$sql = "INSERT INTO directors(director_fname,director_lname,date_of_birth,birth_city,biography,poster) VALUES(:directorFirstName,:directorLastName,:birthDate,:birthCity,:biography,:poster)";
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':directorFirstName',$directorFirstName);
-		$pdostm->bindParam(':actorLastName',$directorLastName);
+		$pdostm->bindParam(':directorLastName',$directorLastName);
 		$pdostm->bindParam(':birthDate',$birthDate);
 		$pdostm->bindParam(':birthCity',$birthCity);
 		$pdostm->bindParam(':biography',$biography);
+        $pdostm->bindParam(':poster',$poster);
 
 		$count = $pdostm ->execute();
 		return $count;
@@ -153,6 +162,14 @@ class MovieInfo{
         $selectedActor = $pdostm->fetch(\PDO::FETCH_OBJ);
         return $selectedActor;
     }
+    public function selectedDirector($id,$db){
+        $sql="SELECT * FROM directors WHERE id = :id";
+        $pdostm = $db->prepare($sql);
+        $pdostm->bindParam(':id',$id);
+        $pdostm->execute();
+        $selectedDirector = $pdostm->fetch(\PDO::FETCH_OBJ);
+        return $selectedDirector;
+    }
 
 	public function updateActor($id,$actorFirstName, $actorLastName,$birthDate,$birthCity,$biography,$poster,$db){
 		$sql = "UPDATE actors SET actor_fname = :actorFirstName, actor_lname = :actorLastName, date_of_birth = :birthDate, birth_city = :birthCity, biography = :biography, poster = :poster WHERE id = :id ";
@@ -169,14 +186,15 @@ class MovieInfo{
 		return $count;
 	}
 
-	public function updateDirector($id,$directorFirstName, $directorLastName,$birthDate,$birthCity,$biography,$db){
-		$sql = "UPDATE directors SET director_fname = :directorFirstName, director_lname = :directorLastName, date_of_birth = :birthDate, birth_city = :birthCity, biography = :biography, WHERE id = :id ";
+	public function updateDirector($id,$directorFirstName, $directorLastName,$birthDate,$birthCity,$biography, $poster, $db){
+		$sql = "UPDATE directors SET director_fname = :directorFirstName, director_lname = :directorLastName, date_of_birth = :birthDate, birth_city = :birthCity, biography = :biography,poster = :poster WHERE id = :id ";
 		$pdostm = $db ->prepare($sql);
-		$pdostm->bindParam('::directorFirstName',$directorFirstName);
+		$pdostm->bindParam(':directorFirstName',$directorFirstName);
 		$pdostm->bindParam(':directorLastName',$directorLastName);
 		$pdostm->bindParam(':birthDate',$birthDate);
 		$pdostm->bindParam(':birthCity',$birthCity);
 		$pdostm->bindParam(':biography',$biography);
+        $pdostm->bindParam(':poster',$poster);
 		$pdostm->bindParam(':id',$id);
 
 		$count = $pdostm ->execute();
@@ -224,9 +242,29 @@ class MovieInfo{
         return $movies;
 
     }
+    public function getDirectorWithId($id, $db) {
+        $sql = "SELECT * FROM directors where id = :id";
+
+        $pdostm = $db->prepare($sql);
+        $pdostm->bindParam(':id', $id);
+        $pdostm->execute();
+
+        $directors = $pdostm->fetch(\PDO::FETCH_OBJ);
+        return $directors;
+
+    }
 
     Public function selectActorMoviesByActorId($db,$id){
         $sql = "SELECT movies.title  FROM movie_actor join actors on actors.id = movie_actor.actor_id inner join movies on movies.id = movie_actor.movie_id WHERE actors.id = :id";
+        $pdostm = $db ->prepare($sql);
+        $pdostm->bindParam(':id',$id);
+        $pdostm->execute();
+        $m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
+
+        return $m;
+    }
+    Public function selectDirectorMoviesByDirectorId($db,$id){
+        $sql = "SELECT movies.title,movies.id  FROM movie_director join directors on directors.id = movie_director.director_id inner join movies on movies.id = movie_director.movie_id WHERE directors.id = :id";
         $pdostm = $db ->prepare($sql);
         $pdostm->bindParam(':id',$id);
         $pdostm->execute();
