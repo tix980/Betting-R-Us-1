@@ -3,8 +3,6 @@
 
     use BettingRUs\Models\{Database, User};
     require_once "vendor/autoload.php";
-    require_once "Models/Database.php";
-    require_once "Models/User.php";
 
     $password=$username=$userType=$userID="";
 
