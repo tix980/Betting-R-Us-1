@@ -49,6 +49,7 @@ Below are a list of features that each member of the team has worked on.
 - Place a Bet
 - Rules and Regulations
 - Membership
+- Directors
 
 ### Justin
 - Movie Box Office Information
