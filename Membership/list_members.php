@@ -1,8 +1,8 @@
 <?php
-use BettingRUs\Models\Database;
+use BettingRUs\Models\{Database,User};
 
-require_once "Models/Database.php";
-require_once "vendor/autoload.php";
+//require_once "./Models/Database.php";
+require_once "./vendor/autoload.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +62,7 @@ require_once "vendor/autoload.php";
                     <td><a class="memberbtn" href="delete_member.php">Delete</a></td>
                 </tr>
                 </tbody>
-                <a class="addmember" href="../add_member.php">Add Member</a>
+                <a class="addmember" href="../join_membership.php">Add Member</a>
     </div>
 </main>
 </body>

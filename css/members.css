@@ -16,11 +16,67 @@
     margin-right: 30px;
 }
 .membercontainer{
-    background-color: #031927;
-    color:white;
-    min-height: 100vh;
-    text-align: center;
+    display:flex;
 }
+.benefits{
+    flex:1 0 0;
+    border:solid 2px  gold;
+    background-color:rosybrown;
+    color:black;
+    margin:50px;
+    padding:10px;
+    border-radius:20px;
+}
+.steps{
+    flex:1 0 0;
+    border:solid 2px  gold;
+    background-color: #bebebf;
+    color:black;
+    margin:50px;
+    padding:10px;
+    border-radius:20px;
+}
+.mheading{
+    color:black;
+    padding:10px;
+}
+.memberpara{
+    text-align: center;
+    font-size: 30px;
+    color:coral;
+    font-family: "Bookman Old Style", sans-serif;
+}
+.previewform{
+    text-align: center;
+    font-size: 24px;
+    font-family: "Bookman Old Style", sans-serif;
+}
+.previewbtn{
+    background-color: #0f5132;
+    color:white;
+    border-radius: 20px;
+    padding:10px 5px;
+    font-size: 20px;
+    margin:20px;
+}
+.paymentbtn{
+    background-color: #007bff;
+    color:white;
+    border-radius: 20px;
+    padding:10px 5px;
+    font-size: 20px;
+    margin:20px;
+}
+.btncontainer{
+
+    display:flex;
+    text-align: center;
+
+}
+.btncontainer a{
+    text-decoration: none;
+}
+
 .membercontainer h1{
     padding-top:50px;
 
@@ -41,9 +97,39 @@
 }
 .membershipcard{
     flex:1 0 0;
+
 }
 .membershipcard img{
     padding:20px;
+
+}
+.membercard{
+    text-align: center;
+    position:relative;
+}
+.membername{
+    position:absolute;
+    right:700px;
+    top:350px;
+    color:#967331;
+    font-family:Algerian;
+    font-size:48px;
+}
+.memberusername{
+    position:absolute;
+    right:800px;
+    top:450px;
+    color:#967331;
+    font-family: "Brush Script MT", serif;
+    font-size:30px;
+}
+.memberexpiry{
+    position:absolute;
+    right:800px;
+    top:500px;
+    color:#967331;
+    font-family:"Brush Script MT", Serif;
+    font-size:30px;
 }
 .addmember{
     background-color: yellow;
