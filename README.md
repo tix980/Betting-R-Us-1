@@ -22,7 +22,7 @@ Our team Shamless Coders decided to create a betting website called “Bets R’
 - Place a Bet
 - Leadership Board
 - Currency Calculator
-- Movie and Actor Information
+- Movie,Director and Actor Information
 - Movie Box Office Information
 - Blog
 - FAQ
@@ -48,8 +48,9 @@ Below are a list of features that each member of the team has worked on.
 ### Alby
 - Place a Bet
 - Rules and Regulations
-- Membership
+- Membership function
 - Directors
+- Genre function
 
 ### Justin
 - Movie Box Office Information
