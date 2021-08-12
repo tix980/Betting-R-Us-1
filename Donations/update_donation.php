@@ -3,8 +3,8 @@ use BettingRUs\Models\{Database, Donation};
 require_once "../vendor/autoload.php";
 require_once "../Models/Database.php";
 require_once "../Models/Donation.php";
-
-$donation_amount = '';
+require_once '../contactUs/contactFunction.php';
+$donationTotalt = '';
 $cc_number = '';
 $cc_name = '';
 $cc_code = '';
@@ -112,45 +112,30 @@ if(isset($_POST['updDonation'])){
                 <div class="col-md-6 col-xs-12">
                     <span class="required-field">*</span>
                     <label for="donation_amount" class="form-label">Donation Amount</label>
-                    <select id="donation_amount" class="form-select" name="donation_amount" value="<?= $donation_amount ?>">
-                        <option>$5</option>
-                        <option>$10</option>
-                        <option>$20</option>
-                        <option>$50</option>
-                        <option>$100</option>
+                    <select id="donation_amount" class="form-select" name="donation_amount">
+                        <?php
+                        $amount = ['$5'=>'$5','$10'=>'$10','$20'=>'$20','$50'=>'$50'];
+                        echo populateDropdown($amount, $donation_amount);
+                        ?>
                     </select>
+
                 </div>
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <span class="required-field">*</span>
                         <label for="expiryDate" class="form-label">Expiry Date</label>
                         <select id="expiryDate" class="form-select" name="cc_expiry_month">
-                            <option selected>MM</option>
-                            <option>01</option>
-                            <option>02</option>
-                            <option>03</option>
-                            <option>04</option>
-                            <option>05</option>
-                            <option>06</option>
-                            <option>07</option>
-                            <option>08</option>
-                            <option>09</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
+                            <?php
+                            $expiryDate = ['MM' => 'MM','01' => '01', '02' => '02', '03'=>'03','04' => '04', '05' => '05', '06' => '06', '07' => '07', '08' => '08', '09' => '09', '10' => '10', '11' => '11', '12' => '12'];
+                            echo populateDropdown($expiryDate, $cc_expiry_month);
+                            ?>
+                            ?>
                         </select>
                         <select id="expiryYear" class="form-select" name="cc_expiry_year">
-                            <option selected>YYYY</option>
-                            <option>2021</option>
-                            <option>2022</option>
-                            <option>2023</option>
-                            <option>2024</option>
-                            <option>2025</option>
-                            <option>2026</option>
-                            <option>2027</option>
-                            <option>2028</option>
-                            <option>2029</option>
-                            <option>2030</option>
+                            <?php
+                            $expiryYear = ['YY' => 'YY','21' => '21', '22' => '22', '23'=>'23','24' => '24', '25' => '25', '26' => '26', '27' => '27', '28' => '28', '29' => '29', '30' => '30'];
+                            echo populateDropdown($expiryYear, $cc_expiry_year);
+                            ?>
                         </select>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -172,11 +157,10 @@ if(isset($_POST['updDonation'])){
                         <span class="required-field">*</span>
                         <label for="charities" class="form-label">Select a Charity</label>
                         <select id="charities" class="form-select" name="charity">
-                            <option selected>Charities</option>
-                            <option>Sick Kids</option>
-                            <option>Food Banks Canada</option>
-                            <option>World Wide Fund for Nature (WWF)</option>
-                            <option>Heart and Stroke Foundation</option>
+                            <?php
+                            $charities = ['Charities' => 'Charities','Sick Kids' => 'Sick Kids', 'Food Banks Canada' => 'Food Banks Canada', 'World Wide Fund for Nature (WWF)'=>'World Wide Fund for Nature (WWF)','Heart and Stroke Foundation' => 'Heart and Stroke Foundation'];
+                            echo populateDropdown($charities, $charity);
+                            ?>
                         </select>
                     </div>
                     <div class="col-md-6 col-xs-12">
