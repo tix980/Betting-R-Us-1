@@ -23,7 +23,7 @@ $rules = $r->getAllRules(Database::getDb());
 </head>
 <body>
     <?php
-    require 'header.php';
+    require './Views/header.php';
     ?>
 <div class="container-fluid">
     <main>
@@ -49,7 +49,7 @@ $rules = $r->getAllRules(Database::getDb());
         </ol>
     </main>
     <?php
-    require 'footer.php';
+    require './Views/footer.php';
     ?>
 </div><!-- container -->
 
