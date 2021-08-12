@@ -9,53 +9,48 @@ session_start();
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
 }
-if($_SESSION['accounttype'] ==='admin'){
+elseif($_SESSION['accounttype'] === 'admin'){
     header('Location: PlaceBet/list_placed_bets.php');
 }
-$id = $bet_type =  "";
-$db = Database::getDb();
-$b = new PlaceBet();
-$currentbet = "";
-if(isset($_POST['hit'])){
-
-    $id = $_POST['id'];
+else {
+    $id = $bet_type = "";
     $db = Database::getDb();
-    $bet_type = 'hit';
-    $currentbet = new PlaceBet();
-    $getcurrentbet = $currentbet->getCurrentBetById($id, $db);
+    $b = new PlaceBet();
+    $currentbet = "";
+    if (isset($_POST['hit'])) {
 
-}
-elseif(isset($_POST['flop'])){
+        $id = $_POST['id'];
+        $db = Database::getDb();
+        $bet_type = 'hit';
+        $currentbet = new PlaceBet();
+        $getcurrentbet = $currentbet->getCurrentBetById($id, $db);
 
-    $id = $_POST['id'];
-    $db = Database::getDb();
-    $bet_type = 'flop';
-    $currentbet = new PlaceBet();
-    $getcurrentbet = $currentbet->getCurrentBetById($id, $db);
+    } elseif (isset($_POST['flop'])) {
 
-}
+        $id = $_POST['id'];
+        $db = Database::getDb();
+        $bet_type = 'flop';
+        $currentbet = new PlaceBet();
+        $getcurrentbet = $currentbet->getCurrentBetById($id, $db);
 
+    } elseif (isset($_POST['placeBet'])) {
+        $amount = $_POST['amount'];
+        $userid = $_SESSION['userid'];
+        $currentbetid = $_POST['currentbetid'];
+        $bettype = $_POST['bettype'];
 
+        $db = Database::getDb();
+        $bets = $b->addBet($currentbetid, $userid, $amount, $bettype, $db);
 
-
-elseif(isset($_POST['placeBet'])){
-    $amount = $_POST['amount'];
-    $userid = $_SESSION['userid'];
-    $currentbetid =$_POST['currentbetid'] ;
-    $bettype = $_POST['bettype'];
-
-    $db = Database::getDb();
-    $bets = $b->addBet($currentbetid, $userid, $amount, $bettype,  $db);
-
-    if ($bets) {
-        echo "The bet was placed sucessfully";
-        header("Location: user_profile.php");//it should be directed to user profile
+        if ($bets) {
+            echo "The bet was placed sucessfully";
+            header("Location: user_profile.php");//it should be directed to user profile
+        } else {
+            echo "Problem adding new bet";
+        }
     } else {
-        echo "Problem adding new bet";
+        header("Location: current-bet.php");
     }
-}
-else{
-    header("Location: current-bet.php");
 }
 
 
