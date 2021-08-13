@@ -8,6 +8,16 @@ require_once "vendor/autoload.php";
 $db = Database::getDb();
 $f = new Faq();
 $faqs = $f->getAllFaqs(Database::getDb());
+$adminBtn = "";
+session_start();
+$userType = $_SESSION['accounttype'];
+
+
+if ($userType == 'admin'){
+    $adminBtn = "style='display:block;'";
+} else {
+    $adminBtn = "style='display:none;'";
+}
 
 
 
@@ -33,6 +43,7 @@ $faqs = $f->getAllFaqs(Database::getDb());
 
 <div class="container-md faq-page">
     <h1>FAQ</h1>
+
 
     <div class="accordion faq-section" id="accordionExample">
 
@@ -64,12 +75,20 @@ $faqs = $f->getAllFaqs(Database::getDb());
         <?php } ?>
 
     </div>
+
 </div>
 
-
-
+<div <?php echo $adminBtn; ?>>
+    <a class="btn btn-primary" href="faqs/list_faq.php" role="button">Admin List</a>
+</div>
 
 <footer><?php require_once "Views/footer.php"; ?></footer>
+
+
+
+
+
+
 
 </body>
 
