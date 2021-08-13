@@ -34,30 +34,30 @@ Our team Shamless Coders decided to create a betting website called “Bets R’
 Below are a list of features that each member of the team has worked on.
 
 ### Tingwei (Team Lead)
-- Movie Information
-- Currency Calculator
-- Wallet
-- Payment Deposit
+- [X] Movie Information
+- [X] Currency Calculator
+- [X] Wallet
+- [X] Payment Deposit
 
 ### Neil
-- Actor Information
-- User Betting History
-- Current Bets
-- Feedback/Contact Us
+- [X] Actor Information
+- [X] User Betting History
+- [X] Current Bets
+- [X] Feedback/Contact Us
 
 ### Alby
-- Place a Bet
-- Rules and Regulations
-- Membership
+- [X] Place a Bet
+- [X] Rules and Regulations
+- [X] Membership
 
 ### Justin
-- Movie Box Office Information
-- Blog
-- FAQ
-- Donations
+- [X] Movie Box Office Information
+- [X] Blog
+- [X] FAQ
+- [X] Donations
 
 ### Natasha
-- Login/Sign Up
-- User Profile
-- Friend List
-- Leadership Board
+- [X] Login/Sign Up
+- [X] User Profile
+- [X] Friend List
+- [X] Leadership Board
