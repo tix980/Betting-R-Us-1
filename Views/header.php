@@ -2,7 +2,7 @@
     session_start();
 
     use BettingRUs\Models\{Database, MovieInfo};
-    require_once "../vendor/autoload.php";
+    require_once "vendor/autoload.php";
 
     $userID = $_SESSION['userid'];
     $username = $_SESSION['username'];
@@ -42,14 +42,14 @@
                         <a class="nav-link" href="donations.php">Donate</a>
                     </li>
                 </ul>
-                <?php 
+                <?php
                     if(isset($userID)){
                 ?>
                 <div class="btn">
                     <a class="username" href="user_profile.php" type="button"><?= $username ?></a>
                     <a class="profileBtn" href="logout.php" type="button">Logout</a>
                 </div>
-                <?php 
+                <?php
                     } else {
                 ?>
                 <div class="btn">
