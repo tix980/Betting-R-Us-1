@@ -133,6 +133,7 @@
                         <a class="btn betBtn" href="list-movies.php">View All Movies</a>
                 </div>
             </section>
+<!--            HOMEPAGE TESTIMONIAL CARAOUSAL-->
             <?php require_once 'homepage_testimonials.php'?>
 
             <section id="membership" class="row">
