@@ -51,8 +51,8 @@ if(isset($_POST['makepayment'])){
     <div class="message-member">
         <p>Thank you <?php echo $_SESSION['userrealname'] ?> !</p>
         <p>You are now our valuable Member!</p>
-        <p>Your remaining balance in the wallet is <?php echo ($cad - 100) ?></p>
-        <p>Your remaining token in the wallet is <?php echo ($token + 10) ?></p>
+        <p>Your remaining balance in the wallet is <?php echo $wallet->canadian_dollars ?></p>
+        <p>Your remaining token in the wallet is <?php echo $wallet->token  ?></p>
     <form action="preview_membership.php" method="post">
         <input class="previewbtn" type="submit" name="preview" value="Preview"/>
     </form>
