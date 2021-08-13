@@ -1,5 +1,15 @@
 <?php
 	use BettingRUs\Models\{Database, User};
+	session_start();
+	if(!isset($_SESSION['username'])){
+        header('location:login.php');
+    }else{
+        echo $_SESSION['membership'];
+        if($_SESSION['membership'] === 1){
+            header('location:user_profile.php');
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,13 +27,14 @@
 <div class="container-fluid">
     <?php
     require_once './Views/header.php';
+
     ?>
         <div class="container-fluid">
             <div class="membercontainer">
             <div class="benefits">
                 <h2 class="mheading">Membership Benefits</h2>
                 <ol>
-                    <li>You get to have a bonus of 1000 tokens.</li>
+                    <li>You get to have a bonus of 10 tokens.</li>
                     <li>Get plenty of gifts </li>
                     <li>No limits in betting!</li>
                 </ol>
@@ -39,13 +50,13 @@
             </div>
             <p class="memberpara">Do you want to become a member?</p>
             <div class="previewform">
-            <form action="preview_membership.php" method="post">
+            <form action="member_payment.php" method="post">
                 <input type="radio" id="yes" name="membership" value="Yes">
                 <label for="yes">Yes</label>
                 <input type="radio" id="no" name="membership" value="No">
                 <label for="no">No</label>
                 <div >
-                <input class="previewbtn" type="submit" name="preview" value="Preview your Card"/>
+                <input class="previewbtn" type="submit" name="makepayment" value="MakePayment"/>
                 </div>
             </form>
             </div>

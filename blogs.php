@@ -9,6 +9,17 @@ $db = Database::getDb();
 $b = new Blog();
 $blogs = $b->getAllBlogs(Database::getDb());
 
+$adminBtn = "";
+session_start();
+$userType = $_SESSION['accounttype'];
+
+
+if ($userType == 'admin'){
+    $adminBtn = "style='display:block;'";
+} else {
+    $adminBtn = "style='display:none;'";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +63,10 @@ $blogs = $b->getAllBlogs(Database::getDb());
             </div>
 
         </main>
+    <div <?php echo $adminBtn; ?>>
+        <a class="btn btn-primary" href="Blogs/list_blog.php" role="button">Admin List</a>
+    </div>
+
     <?php include "Views/footer.php";
     ?>
     </body>
