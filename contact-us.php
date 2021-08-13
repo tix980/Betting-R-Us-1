@@ -1,10 +1,19 @@
 <?php
+session_start();
 use BettingRUs\Models\{Database, ContactFeedback};
 // require_once "Models/Database.php";
 // require_once "Models/ContactFeedback.php";
 require_once "vendor/autoload.php";
 require_once 'contactUs/contactFunction.php';
 require_once'contactUs/contactValidation.php';
+
+(string)$userType = $_SESSION['accounttype'];
+if($userType == 'admin') {
+   $adminBtn = "style='display:block;'";
+
+} else {
+    $adminBtn = "style='display:none;'";
+}
 $formSentMessage = "";
 $errors = "";
 
@@ -116,8 +125,9 @@ require 'Views/header.php';
           </form>
     </div>
 </div>
+    <div   <?php echo $adminBtn;?>>
     <a class="btn btn-primary" href="contactUs/list_contactus.php" role="button">Admin List</a>
-
+    </div>
 </section>
 </main>
 

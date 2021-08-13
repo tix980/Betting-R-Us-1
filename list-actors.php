@@ -3,9 +3,16 @@ use BettingRUs\Models\{Database, MovieInfo};
 
 
 require_once "vendor/autoload.php";
-require_once "Models/Database.php";
-require_once "Models/MovieInfo.php";
+//require_once "Models/Database.php";
+//require_once "Models/MovieInfo.php";
 
+(string)$userType = $_SESSION['accounttype'];
+if($userType == 'admin') {
+    $adminBtn = "style='display:block;'";
+
+} else {
+    $adminBtn = "style='display:none;'";
+}
 $db = Database::getDb();
 
 $m = new MovieInfo();
@@ -17,6 +24,7 @@ if ($m) {
 } else {
 	echo "problem adding a Request";
 }
+//hello
 
 ?>
 
@@ -35,7 +43,7 @@ if ($m) {
 <body>
 <div class="container-fluid">
 	<?php require_once "Views/header.php"; ?>
-	<div id="button">
+	<div id="button" <?php echo $adminBtn ?>>
 		<a href="MovieActors/add_actor.php" class="btn btn-primary">Add</a>
 	</div>
 	<main class="main">
