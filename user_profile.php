@@ -74,9 +74,9 @@
                 </div>
                 <!-- DIV for User's Wallet -->
                 <div id="wallet" class="tab-pane fade" role="tabpanel" aria-labelledby="walletTab">
-                    <div class="card">
+                    <div class="card" style="background: darkred; padding-left: 5em;">
                         <!-- Add content here!! -->
-                        <h2>Add content here!!</h2>
+											<?php require_once 'currency-convert.php';?>
                     </div>
                 </div>
                 <!-- DIV for User's Betting History -->
