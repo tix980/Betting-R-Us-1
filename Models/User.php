@@ -13,6 +13,19 @@
             return $users;
         }
 
+        // Find a User's friends
+        public function getUserFriends($id, $db) {
+            $query = "SELECT u.username FROM `users` u JOIN `users_friends` uf ON u.id = uf.user_id WHERE uf.friend_id = :id";
+            $pdostm = $db->prepare($query);
+
+            $pdostm->bindParam(":id", $id);
+            $pdostm->execute();
+
+            $friends = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+
+            return $friends;
+        }
+
         // Find a User by id
         public function getUserID($id, $db) {
             $query = "SELECT * FROM users WHERE id = :id";
