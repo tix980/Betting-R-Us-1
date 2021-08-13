@@ -11,6 +11,14 @@
     $accountage = $_SESSION['accountage'];
 
     $db = Database::getDb();
+
+    if(isset($_POST['id'])) {
+        $userObj = new User();
+
+        $friend = $userObj->getUserFriends($id, $db);
+
+        $username = $friend->username;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +30,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link  rel="stylesheet" type="text/css" href="css/main.css">
-        <title>Register</title>
+        <title>Profile</title>
     </head>
     <body>
         <?php require_once 'Views/header.php'; ?>
@@ -75,26 +83,26 @@
                 <!-- DIV for User's Wallet -->
                 <div id="wallet" class="tab-pane fade" role="tabpanel" aria-labelledby="walletTab">
                     <div class="card" style="background: darkred; padding-left: 5em;">
-                        <!-- Add content here!! -->
-											<?php require_once 'currency-convert.php';?>
+						<?php require_once 'currency-convert.php'; ?>
                     </div>
                 </div>
                 <!-- DIV for User's Betting History -->
                 <div id="history" class="tab-pane fade" role="tabpanel" aria-labelledby="historyTab">
                     <div class="card">
-                       <?php require_once 'user_bets.php';?>
-
+                       <?php require_once 'user_bets.php'; ?>
                     </div>
                 </div>
                 <!-- DIV for User's Friend List -->
                 <div id="friends" class="tab-pane fade" role="tabpanel" aria-labelledby="friendListTab">
-                    <!-- Add content here!! -->
+                <div class="card">
+                        <!-- Add content here!! -->
+                        <h2><?= $username ?></h2>
+                    </div>
                 </div>
                 <!-- DIV for User's Membership -->
                 <div id="usermembership" class="tab-pane fade" role="tabpanel" aria-labelledby="membershipTab">
                     <div class="card">
-                        <!-- Add content here!! -->
-                        <h2>Add content here!!</h2>
+                        <?php require_once 'join_membership.php'; ?>
                     </div>
                 </div>
             </div>

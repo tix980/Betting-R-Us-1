@@ -56,9 +56,7 @@ if(isset($_POST['convert'])){
     <script src="https://kit.fontawesome.com/c277f8812a.js" crossorigin="anonymous"></script>
   </head>
   <body>
-		<header>
 			<?php require_once "Views/header.php"; ?>
-		</header>
     <main>
       <div class="page-container">
         <form action="#" method="POST" class="form-group" id="currency-converter-form" name="currency-converter-form" >
@@ -94,6 +92,6 @@ if(isset($_POST['convert'])){
         </form>
       </div>
     </main>
-		<footer><?php require_once "Views/footer.php"; ?></footer>
+    <?php require_once "Views/footer.php"; ?>
   </body>
 </html>
