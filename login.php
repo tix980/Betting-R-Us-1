@@ -23,6 +23,7 @@
             $userType = $user->account_type;
             $userdob = $user->date_of_birth;
             $accountage = $user->user_since;
+            $membership = $user->membership;
             echo $username;
 
             if($localUsername == $username && $LocalPassword == $password){
@@ -33,6 +34,7 @@
                 $_SESSION['useremail'] = $useremail;
                 $_SESSION['userdob'] = $userdob;
                 $_SESSION['accountage'] = $accountage;
+                $_SESSION['membership'] = $membership;
 
                 if($userType == 'admin') {
                     header('Location: admin-index.php');

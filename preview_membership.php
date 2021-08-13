@@ -1,13 +1,21 @@
+
 <?php
 session_start();
+use BettingRUs\Models\{Database, Currency,User};
+
+require_once "vendor/autoload.php";
+
 if(isset($_POST['preview'])){
-    if($_POST['membership'] === 'No') {
-        header('location:index.php');
-    }
-$name = $_SESSION['userrealname'];
-$t = time();
-$expiry = date("Y-m-d",$t + 31536000);
-$username = $_SESSION['username'];
+    $id = $_SESSION['userid'];
+    $wallet="";
+    $c = new Currency();
+    $db = Database::getDb();
+
+    $wallet = $c->selectedWallet($id,$db);
+    $name = $_SESSION['userrealname'];
+    $t = time();
+    $expiry = date("Y-m-d",$t + 31536000);
+    $username = $_SESSION['username'];
 }?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,12 +34,17 @@ $username = $_SESSION['username'];
     <?php
     require_once './Views/header.php';
     ?>
+
     <section class="membershipcard">
+
         <div class="membercard">
-    <img src="./images/membership.jpg" alt="image of a membership card" width="650" height="450"/>
+            <img src="./images/membership.jpg" alt="image of a membership card" width="650" height="450"/>
         </div>
         <div class="membername">
             <p><?php echo $name ?> </p>
+        </div>
+        <div class="money">
+            <p><?php echo $wallet->canadian_dollars . "$" . " " .$wallet->token . "Tokens"?></p>
         </div>
         <div class="memberusername">
             <p><?php echo $username ?></p>
@@ -41,14 +54,11 @@ $username = $_SESSION['username'];
         </div>
     </section>
     <div class="btncontainer">
-        <form action="payment.php" method="post">
-            <input class="paymentbtn" type="submit" name="payment" value="Pay Your Fees"/>
-        </form>
         <a class="previewbtn" href="index.php" >Back to Homepage</a>
     </div>
-<?php
-require_once './Views/footer.php';
-?>
+    <?php
+    require_once './Views/footer.php';
+    ?>
 </div>
 </body>
 </html>

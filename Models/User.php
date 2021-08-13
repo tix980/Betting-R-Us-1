@@ -71,10 +71,23 @@
             $pdostm->bindParam(':lastname', $lastname);
             $pdostm->bindParam(':email', $email);
             $pdostm->bindParam(':dob', $dob);
+            $pdostm->bindParam(':id', $id);
 
             $count = $pdostm->execute();
             return $count;
         }
+        public function updateMembership($id, $member, $db) {
+            $query = "UPDATE users 
+                     SET membership = :member
+                      WHERE id = :id";
+            $pdostm = $db->prepare($query);
+
+            $pdostm->bindParam(':member', $member);
+            $pdostm->bindParam(':id', $id);
+            $count = $pdostm->execute();
+            return $count;
+        }
+
 
         // Delete a User from the database
         public function deleteUser($id, $db) {

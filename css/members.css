@@ -115,6 +115,15 @@
     font-family:Algerian;
     font-size:48px;
 }
+.money{
+    position:absolute;
+    right:700px;
+    top:400px;
+    color:#967331;
+    font-family:"Times New Roman";
+    font-size:16px;
+    font-weight: bold;
+}
 .memberusername{
     position:absolute;
     right:800px;
@@ -129,6 +138,16 @@
     top:500px;
     color:#967331;
     font-family:"Brush Script MT", Serif;
+    font-size:30px;
+}
+.message-member{
+    max-width:500px;
+    text-align: center;
+    background-color:lightgoldenrodyellow;
+    color:blueviolet;
+    padding:30px;
+    border-radius:20px;
+    margin: 30px auto;
     font-size:30px;
 }
 .addmember{
