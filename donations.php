@@ -8,6 +8,8 @@ require_once "contactUs/contactFunction.php";
 //require_once "Models/Donation.php";
 //require_once "Models/Database.php";
 
+$errors = "";
+//var_dump($_POST);
 if(isset($_POST['addDonation'])){
     $donation_amount = $_POST['donation_amount'];
     $cc_number = $_POST['cc_number'];
@@ -21,16 +23,19 @@ if(isset($_POST['addDonation'])){
     $email = $_POST['email'];
     $charity = $_POST['charity'];
 
-    $db = Database::getDb();
-    $d = new Donation();
-    $donations = $d->addDonation($donation_amount, $cc_number_hashed, $cc_name, $cc_code_hashed, $cc_expiry_month, $cc_expiry_year, $phone_number,
-        $email, $charity, $db);
 
-    if ($donations) {
-        echo "Added faq succesfully";
-    } else {
-        echo "Problem adding new faq";
-    }
+
+
+        $db = Database::getDb();
+        $d = new Donation();
+        $donations = $d->addDonation($donation_amount, $cc_number_hashed, $cc_name, $cc_code_hashed, $cc_expiry_month, $cc_expiry_year, $phone_number,
+            $email, $charity, $db);
+
+
+
+
+
+
 }
 
 ?>
@@ -53,7 +58,6 @@ if(isset($_POST['addDonation'])){
   </head>
   <body>
     <?php require_once "Views/header.php"; ?>
-
 
     <div class="container">
       <h1>Donations</h1>
@@ -147,6 +151,14 @@ if(isset($_POST['addDonation'])){
                 </ul>
 
       </form>
+
+        <?php
+            if ($donations) {
+        echo "<h1>Thanks for donating!</h1>";
+    } else {
+                echo "Problem submitting form";
+            }
+            ?>
     </div>
 
 

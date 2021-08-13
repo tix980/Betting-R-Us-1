@@ -71,6 +71,7 @@ $donations = $d->getAllDonations(Database::getDb());
 
 
         </table>
+        <a href="../donations.php" class="btn btn-secondary btn-lg float-left">Back to main</a>
 
     </div>
 

@@ -46,6 +46,7 @@ if(isset($_POST['updDonation'])){
     echo $cc_expiry_year;
     $email = $_POST['email'];
     $charity = $_POST['charity'];
+    $phone_number = $_POST['phone_number'];
     echo $charity;
     $id = $_POST['id'];
     echo $id;
@@ -56,9 +57,9 @@ if(isset($_POST['updDonation'])){
 
     var_dump($d);
     echo $id;
-    $donation = $d->updateDonation($id, $donation_amount, $cc_number, $cc_name, $cc_code, $cc_expiry_month, $cc_expiry_year, $email, $charity, $charity, $db);
+    $donation = $d->updateDonation($id, $donation_amount, $cc_number, $cc_name, $cc_code, $cc_expiry_month, $cc_expiry_year, $email, $phone_number, $charity, $db);
     var_dump($donation);
-    echo($d->updateDonation($id, $donation_amount, $cc_number, $cc_name, $cc_code, $cc_expiry_month, $cc_expiry_year, $email, $charity, $charity, $db));
+    echo($d->updateDonation($id, $donation_amount, $cc_number, $cc_name, $cc_code, $cc_expiry_month, $cc_expiry_year, $email, $phone_number, $charity, $db));
 
 
     if($donation){
