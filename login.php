@@ -3,8 +3,6 @@
 
     use BettingRUs\Models\{Database, User};
     require_once "vendor/autoload.php";
-    require_once "Models/Database.php";
-    require_once "Models/User.php";
 
     $password=$username=$userType=$userID="";
 
@@ -22,7 +20,7 @@
             $userFullName = $user->firstname . ' ' . $user->lastname;
             $useremail = $user->email;
             $password = $user->user_password;
-            $userType = $user->accountType;
+            $userType = $user->account_type;
             $userdob = $user->date_of_birth;
             $accountage = $user->user_since;
             echo $username;
@@ -36,7 +34,12 @@
                 $_SESSION['userdob'] = $userdob;
                 $_SESSION['accountage'] = $accountage;
 
-                header('Location: user_profile.php');
+                if($userType == 'admin') {
+                    header('Location: admin-index.php');
+
+                } else {
+                    header('Location: index.php');
+                }
                 // echo $_SESSION['userid'];
             } else {
                 echo "Invalid credentials";

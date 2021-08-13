@@ -1,5 +1,5 @@
 {
-    "name": "solaire/betting-r-us",
+    "name": "solaire/betting-rus",
     "autoload": {
         "psr-4": {
             "BettingRUs\\Models\\": "Models/"

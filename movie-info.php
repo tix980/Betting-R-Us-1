@@ -76,19 +76,8 @@ if ($m) {
 						<div class="last-name"><a href= "actor-info.php?id= <?= $actor-> id;?>"><?php echo $actor-> actor_lname ?></a></div>
 					</div>
 					<?php }; ?>
-<!--					<div class="actor-name">-->
-<!--						<div class="first-name"><a href="#">Harrison</a></div>-->
-<!--						<div class="last-name"><a href="#">Ford</a></div>-->
-<!--					</div>-->
-<!--					<div class="actor-name">-->
-<!--						<div class="first-name"><a href="#">Carrie</a></div>-->
-<!--						<div class="last-name"><a href="#">Fisher</a></div>-->
-<!--					</div>-->
-<!--					<div class="director-name">-->
-<!--						<div class="first-name"><a href="#">George</a></div>-->
-<!--						<div class="last-name"><a href="#">Lucas</a></div>-->
-<!--					</div>-->
-					<a href="#" id="bet-btn">PLACE THE BET NOW!</a>
+
+					<a href="current-bet.php" id="bet-btn">PLACE THE BET NOW!</a>
 				</div>
       </div>
     </main>

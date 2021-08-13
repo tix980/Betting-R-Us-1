@@ -1,9 +1,6 @@
 <?php 
-    session_start();
-    use BettingRUs\Models\{Database,PlaceBet,MovieInfo};
+    use BettingRUs\Models\{Database, PlaceBet, MovieInfo};
     require_once "vendor/autoload.php";
-    require_once "Models/Database.php";
-    require_once "Models/MovieInfo.php";
 
     $userID = $_SESSION['userid'];
     $username = $_SESSION['username'];
@@ -14,9 +11,6 @@
     $accountage = $_SESSION['accountage'];
 
     $db = Database::getDb();
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -80,9 +74,9 @@
                 </div>
                 <!-- DIV for User's Wallet -->
                 <div id="wallet" class="tab-pane fade" role="tabpanel" aria-labelledby="walletTab">
-                    <div class="card">
+                    <div class="card" style="background: darkred; padding-left: 5em;">
                         <!-- Add content here!! -->
-                        <h2>Add content here!!</h2>
+											<?php require_once 'currency-convert.php';?>
                     </div>
                 </div>
                 <!-- DIV for User's Betting History -->
