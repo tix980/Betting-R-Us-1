@@ -85,9 +85,20 @@ if(isset($_POST['addBlog'])){
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="https://cdn.tiny.cloud/1/8v9ejw7spxuyhkjmcd8vizdq1a9koa3bs3g5x3nvo3qwovjq/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="../css/blog.css" type="text/css">
         <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <script>
+            tinymce.init({
+                selector: 'textarea',
+                plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+                toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+                toolbar_mode: 'floating',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+            });
+        </script>
         <title>Add Blog</title>
     </head>
     <body>
@@ -114,7 +125,9 @@ if(isset($_POST['addBlog'])){
         </div>
         <div class="form-group">
             <label for="post">Post:</label>
-            <input type="text" class="form-control" name="post" id="post" placeholder="Post">
+            <textarea class="form-control" name="post" id="post" placeholder="Post">
+                Content Here!
+            </textarea>
         </div>
         <div class="form-group">
             <input type="file" name="imagefile" id="imagefile">

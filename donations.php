@@ -24,18 +24,22 @@ if(isset($_POST['addDonation'])){
     $charity = $_POST['charity'];
 
 
-
-
-        $db = Database::getDb();
-        $d = new Donation();
-        $donations = $d->addDonation($donation_amount, $cc_number_hashed, $cc_name, $cc_code_hashed, $cc_expiry_month, $cc_expiry_year, $phone_number,
-            $email, $charity, $db);
+    $db = Database::getDb();
+    $d = new Donation();
+    $donations = $d->addDonation($donation_amount, $cc_number_hashed, $cc_name, $cc_code_hashed, $cc_expiry_month, $cc_expiry_year, $phone_number, $email, $charity, $db);
 
 
 
+}
+$adminBtn = "";
+session_start();
+$userType = $_SESSION['accounttype'];
 
 
-
+if ($userType == 'admin'){
+    $adminBtn = "style='display:block;'";
+} else {
+    $adminBtn = "style='display:none;'";
 }
 
 ?>
@@ -155,13 +159,13 @@ if(isset($_POST['addDonation'])){
         <?php
             if ($donations) {
         echo "<h1>Thanks for donating!</h1>";
-    } else {
-                echo "Problem submitting form";
-            }
+    }
             ?>
     </div>
 
-
+    <div <?php echo $adminBtn; ?>>
+        <a class="btn btn-primary" href="Donations/list_donation.php" role="button">Admin List</a>
+    </div>
 
 
   <footer><?php require_once "Views/footer.php"; ?></footer>
