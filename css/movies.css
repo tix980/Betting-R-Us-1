@@ -34,3 +34,9 @@
 .main{
     clear: both;
 }
+.genrebtn{
+    background-color: #031927;
+    text-transform: capitalize;
+    font-family: cursive;
+    color:gold;
+}

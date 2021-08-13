@@ -1,12 +1,7 @@
 <?php
-
-session_start();
-
 use BettingRUs\Models\{Database, Currency};
 
-require_once "Models/Database.php";
 require_once "vendor/autoload.php";
-require_once "Models/Currency.php";
 
 $userID = $_SESSION['userid'];
 $username = $_SESSION['username'];

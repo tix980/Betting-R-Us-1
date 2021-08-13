@@ -62,3 +62,39 @@
 .payment-card i{
     font-size: 2em;
 }
+
+/*Donation Thanks page styling */
+.img-container{
+    display: flex;
+}
+
+.donation-thanks h1{
+    color: #ECDD7B;
+}
+
+.donation-thanks p{
+    color: #ECDD7B;
+}
+
+.img-container img{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.donation-thanks-btn{
+    color: black;
+    background-color: #ECDD7B;
+}
+
+.donation-thanks-btn:hover{
+    background-color: black;
+    color: #ECDD7B;
+    border-color: black;
+}
+
+.error-messages li{
+    color: red;
+    text-align: center;
+    text-decoration: none;
+    list-style-type: none;
+}
