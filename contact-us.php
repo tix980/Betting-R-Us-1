@@ -1,12 +1,9 @@
 <?php
-session_start();
+
 use BettingRUs\Models\{Database, ContactFeedback};
-// require_once "Models/Database.php";
-// require_once "Models/ContactFeedback.php";
-//hello
+
+require 'Views/header.php';
 require_once "vendor/autoload.php";
-require_once 'contactUs/contactFunction.php';
-require_once'contactUs/contactValidation.php';
 
 (string)$userType = $_SESSION['accounttype'];
 if($userType == 'admin') {
@@ -59,9 +56,6 @@ if(isset($_POST['addContactFeedback'])) {
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-<?php
-require 'Views/header.php';
-?>
 <main id="main">
 <section id="contact-us-section">
 

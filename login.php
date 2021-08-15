@@ -1,7 +1,7 @@
 <?php
-    session_start();
-
     use BettingRUs\Models\{Database, User};
+
+		include 'Views/header.php' ;
     require_once "vendor/autoload.php";
 
     $password=$username=$userType=$userID="";
@@ -62,7 +62,6 @@
         <title>Log In</title>
     </head>
     <body>
-        <?php include 'Views/header.php' ?>
         <main>
             <div class="forms">
                 <h1>Login to Start Betting!</h1>
