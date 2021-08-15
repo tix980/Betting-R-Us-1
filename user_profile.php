@@ -1,5 +1,5 @@
 <?php 
-    use BettingRUs\Models\{Database, PlaceBet, MovieInfo};
+    use BettingRUs\Models\{Database, PlaceBet, MovieInfo, User};
     require_once "vendor/autoload.php";
 
     $userID = $_SESSION['userid'];
@@ -107,6 +107,6 @@
                 </div>
             </div>
         </main>
-        <?php require_once 'Views/footer.php'; ?>
+				<?php require_once 'Views/footer.php'; ?>
     </body>
 </html>
