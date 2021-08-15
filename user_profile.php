@@ -26,7 +26,7 @@
         <title>Profile</title>
     </head>
     <body>
-        <main id="userProfileMain">
+        <main id="userProfileMain" style="padding-bottom: 13em;">
             <div class="card w-80">
                 <div class="row cardProfileImg">
                     <div class="col-md-4 text-center">
@@ -99,6 +99,6 @@
                 </div>
             </div>
         </main>
-				<?php require_once 'Views/footer.php'; ?>
+				<footer style="margin-top:3em;"><?php include 'Views/footer.php'; ?></footer>
     </body>
 </html>
