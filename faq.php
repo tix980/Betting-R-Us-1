@@ -45,14 +45,6 @@ if ($userType == 'admin'){
 
     <div class="accordion faq-section" id="accordionExample">
 
-<!--        <div class="faq-search-container">-->
-<!--            <h2>Frequently Asked Questions</h2>-->
-<!--            <form method="post">-->
-<!--                <input type="text" name="search">-->
-<!--                <input type="submit" name="submit" value="Search">-->
-<!--            </form>-->
-<!---->
-<!--        </div>-->
         <h2>Frequently Asked Questions</h2>
         <?php foreach ($faqs as $faq) { ?>
             <div class="card">
