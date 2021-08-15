@@ -1,8 +1,7 @@
 <?php
 use BettingRUs\Models\{Database, Blog};
 
-require_once "Models/Database.php";
-require_once "Models/Blog.php";
+include "Views/header.php";
 require_once "vendor/autoload.php";
 
 $db = Database::getDb();
@@ -10,7 +9,6 @@ $b = new Blog();
 $blogs = $b->getAllBlogs(Database::getDb());
 
 $adminBtn = "";
-session_start();
 $userType = $_SESSION['accounttype'];
 
 
@@ -38,8 +36,6 @@ if ($userType == 'admin'){
         <title>Blogs</title>
     </head>
     <body>
-    <?php include "Views/header.php";
-    ?>
         <main>
 
             <div class="container blogs">

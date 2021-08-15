@@ -1,10 +1,10 @@
 <?php
 	use BettingRUs\Models\{Database, User};
-	session_start();
+	require_once './Views/header.php';
 	if(!isset($_SESSION['username'])){
         header('location:login.php');
     }else{
-        echo $_SESSION['membership'];
+//        echo $_SESSION['membership'];
         if($_SESSION['membership'] === 1){
             header('location:user_profile.php');
         }
@@ -25,10 +25,6 @@
 </head>
 <body>
 <div class="container-fluid">
-    <?php
-    require_once './Views/header.php';
-
-    ?>
         <div class="container-fluid">
             <div class="membercontainer">
             <div class="benefits">
