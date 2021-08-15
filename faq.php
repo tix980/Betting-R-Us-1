@@ -1,6 +1,7 @@
 <?php
 use BettingRUs\Models\{Database, Faq};
 
+require_once "errorhandle.php";
 require_once "Views/header.php";
 require_once "Models/Database.php";
  require_once "Models/Faq.php";
@@ -10,14 +11,16 @@ $db = Database::getDb();
 $f = new Faq();
 $faqs = $f->getAllFaqs(Database::getDb());
 $adminBtn = "";
-$userType = $_SESSION['accounttype'];
+
+(string)$userType = $_SESSION['accounttype'];
 
 
-if ($userType == 'admin'){
-    $adminBtn = "style='display:block;'";
-} else {
-    $adminBtn = "style='display:none;'";
-}
+    if ($userType == 'admin'){
+        $adminBtn = "style='display:block;'";
+    } else {
+        $adminBtn = "style='display:none;'";
+    }
+
 
 
 
