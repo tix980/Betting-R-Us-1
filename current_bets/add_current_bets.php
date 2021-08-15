@@ -1,8 +1,6 @@
 <?php
 use BettingRUs\Models\{Database, CurrentBet};
 
-require_once "../Models/Database.php";
-require_once  "../Models/CurrentBets.php";
 require_once '../vendor/autoload.php';
 require_once 'currentBetMovieFunction.php';
 

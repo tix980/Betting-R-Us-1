@@ -2,11 +2,7 @@
 
 use BettingRUs\Models\{Database, MovieInfo};
 
-
 require_once "vendor/autoload.php";
-//require_once "Models/Database.php";
-//require_once "Models/MovieInfo.php";
-//added comment
 
 (string)$userType = $_SESSION['accounttype'];
 if($userType == 'admin') {

@@ -1,8 +1,6 @@
 <?php
 use BettingRUs\Models\{Database, CurrentBet};
 
-require_once "../Models/Database.php";
-require_once  "../Models/CurrentBets.php";
 require_once '../vendor/autoload.php';
 require_once 'currentBetMovieFunction.php';
 
@@ -10,7 +8,6 @@ var_dump($_POST);
 $movies = $betCloseDate = $betStatus = "";
 $c2 = new CurrentBet();
 $movie = $c2 ->getMovie(Database::getDb());
-
 
 if(isset($_POST['updateCurrentBet'])){
     $id= $_POST['id'];
@@ -20,22 +17,15 @@ if(isset($_POST['updateCurrentBet'])){
     $s = new CurrentBet();
     $currentBet = $s->getCurrentBetsById($id, $db);
 
-
     $movies = $currentBet->movie_id;
     $betCloseDate = $currentBet->bet_close_date;
     $betStatus =  $currentBet->bet_status;
-
-
-
 }
 if(isset($_POST['updCurrentBet'])) {
     $id = $_POST['id'];
     $movie = $_POST['movie'];
     $betCloseDate = $_POST['bet-close-date'];
     $betStatus = $_POST['bet-status'];
-
-
-
 
     $db = Database::getDb();
     $s = new CurrentBet();
@@ -64,7 +54,6 @@ if(isset($_POST['updCurrentBet'])) {
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-
 <div class="current-bet-page" style="margin-top: 2em">
     <h1>Update Current Bets</h1>
     <form action="" method="post">
@@ -76,7 +65,6 @@ if(isset($_POST['updCurrentBet'])) {
                 <?php echo  populateDropdown($movie,$movies) ?>
             </select>
             <span style="color: red">
-
             </span>
         </div>
         <div class="form-group">
@@ -93,7 +81,6 @@ if(isset($_POST['updCurrentBet'])) {
         <button type="submit" name="updCurrentBet" class="btn btn-primary" id="btn-submit">
             Update Current Bet
         </button>
-
     </form>
 </div>
 </body>

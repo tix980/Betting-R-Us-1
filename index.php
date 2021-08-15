@@ -9,9 +9,7 @@
     $userType = $_SESSION['accounttype'];
     $userFullName = $_SESSION['userrealname'];
 
-
     $db = Database::getDb();
-
 
     $m = new MovieInfo();
     $movies = $m->listMovies($db);

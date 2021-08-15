@@ -1,11 +1,7 @@
 <?php
 
 use BettingRUs\Models\{Database, MovieInfo};
-
-require_once "../Models/Database.php";
-//require_once  "../Models/CurrentBets.php";
 require_once '../vendor/autoload.php';
-
 
 $actorFirstName=$actorLastName=$birthDate=$birthCity=$biography=$poster ="";
 $m = new MovieInfo();
@@ -26,7 +22,6 @@ if(isset($_POST['updateActor'])){
 
 if(isset($_POST['updActor'])){
     $id=$_POST['id'];
-
     $actorFirstName = $_POST['actor-first-name'];
     $actorLastName = $_POST['actor-last-name'];
     $birthDate = $_POST['actor-birth-date'];
@@ -42,10 +37,7 @@ if(isset($_POST['updActor'])){
         echo "something is wrong!";
     }
 }
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -59,13 +51,10 @@ if(isset($_POST['updActor'])){
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-
 <div class="current-bet-page" style="margin-top: 2em">
     <h1>Update Actor</h1>
     <form action="" method="post" enctype="multipart/form-data">
-
             <input type="hidden" name="id" value="<?= $id; ?>" />
-
         <div class="form-group">
             <label for="actor-first-name">Actor First Name:</label>
             <input type="text" class="form-control" name="actor-first-name" id="actor-first-name" placeholder="First Name" value="<?= $actorFirstName; ?>">
@@ -86,12 +75,7 @@ if(isset($_POST['updActor'])){
             <label for="actor-biography">Actor Biography:</label>
             <textarea  class="form-control" name="actor-biography" id="actor-biography" ><?= $biography; ?>"</textarea>
         </div>
-<!--        <div class="form-group">-->
-<!--            <label for="actor-image"> Actor Image</label>-->
-<!--            <input type="text" class="form-control" name="actor-image" id="actor-image" placeholder="Paste your url path here">-->
-<!--        </div>-->
         <div class="form-group">
-<!--            <label for="actorimage"> Actor Image</label>-->
             <input type="file" name="actorimage" id="actorimage" value="<?= $poster; ?>">
         </div>
         <div class="form-group">
@@ -100,7 +84,6 @@ if(isset($_POST['updActor'])){
         <button type="submit" name="updActor" class="btn btn-primary" id="btn-submit">
     Update Actor
 </button>
-
     </form>
 </div>
 </body>
