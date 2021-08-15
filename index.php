@@ -7,7 +7,8 @@
 
 
     $m = new MovieInfo();
-    $movies = $m->listMovies($db);
+    $movies = $m->listMoviesLimitEight($db);
+    $limitedMovies = $m->listMoviesLimitSix($db);
 
 ?>
 <!DOCTYPE html>
@@ -118,7 +119,7 @@
                 <p class="text-center">Here are a few of the movies that we feature to bet on.</p>
                 <div class="container-fluid">
                     <div class="row">
-						<?php foreach ($movies as $m){ ?>
+						<?php foreach ($limitedMovies as $m){ ?>
                         <img class="col" src="<?= $m->movie_background ?>" alt ="movie poster" height="350"  width="100"/>
 						<?php };?>
                     </div>

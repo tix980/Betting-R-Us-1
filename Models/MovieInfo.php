@@ -42,6 +42,25 @@ class MovieInfo{
 		return $m;
 	}
 
+	public function listMoviesLimitSix($db){
+		$sql = "SELECT title, id, poster,movie_background FROM movies LIMIT 6";
+		$pdostm = $db ->prepare($sql);
+		$pdostm->execute();
+		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
+
+		return $m;
+	}
+
+	public function listMoviesLimitEight($db){
+		$sql = "SELECT title, id, poster,movie_background FROM movies LIMIT 8";
+		$pdostm = $db ->prepare($sql);
+		$pdostm->execute();
+		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
+
+		return $m;
+	}
+
+
 	public function listActors($db){
 		$sql = "SELECT id, actor_fname, actor_lname,poster FROM actors";
 		$pdostm = $db ->prepare($sql);
