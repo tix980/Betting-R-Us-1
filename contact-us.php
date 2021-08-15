@@ -2,9 +2,9 @@
 
 use BettingRUs\Models\{Database, ContactFeedback};
 
-require 'Views/header.php';
 require_once "vendor/autoload.php";
-
+require_once "contactUs/contactFunction.php";
+require 'Views/header.php';
 (string)$userType = $_SESSION['accounttype'];
 if($userType == 'admin') {
    $adminBtn = "style='display:block;'";
@@ -56,9 +56,9 @@ if(isset($_POST['addContactFeedback'])) {
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
+
 <main id="main">
 <section id="contact-us-section">
-
 <div class= "contact-us-heading-div">
         <h1 class="contact-us-heading">Get in Touch with us</span></h1>
         <p>Please fill in the form in order for us to contact you</p>
