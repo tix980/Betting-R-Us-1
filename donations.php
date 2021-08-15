@@ -1,12 +1,11 @@
 <?php
 use BettingRUs\Models\{Database, Donation};
 
+require_once "Views/header.php";
 require_once "vendor/autoload.php";
-require_once "Models/Donation.php";
-require_once "Models/Database.php";
-require_once "contactUs/contactFunction.php";
 //require_once "Models/Donation.php";
 //require_once "Models/Database.php";
+require_once "contactUs/contactFunction.php";
 
 $errors = "";
 //var_dump($_POST);
@@ -32,7 +31,6 @@ if(isset($_POST['addDonation'])){
 
 }
 $adminBtn = "";
-session_start();
 $userType = $_SESSION['accounttype'];
 
 
@@ -61,8 +59,6 @@ if ($userType == 'admin'){
     <title>Donation's page</title>
   </head>
   <body>
-    <?php require_once "Views/header.php"; ?>
-
     <div class="container">
       <h1>Donations</h1>
       <p>Feeling generous? Make a donation!</p>

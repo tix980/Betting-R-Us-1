@@ -1,12 +1,9 @@
 <?php
-//session_start();
 use BettingRUs\Models\{Database, CurrentBet};
-
-include 'Views/header.php';
-require_once "Models/Database.php";
+require_once  "Views/header.php";
 require_once  "Models/CurrentBets.php";
 require_once "vendor/autoload.php";
-//(string)$userType = $_SESSION['accounttype'];
+(string)$userType = $_SESSION['accounttype'];
 if($userType == 'admin') {
     $adminBtn = "style='display:block;'";
 
@@ -32,6 +29,7 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
+
 <main id="main">
 <section id="current-bet">
     <div class="current-bet-heading">

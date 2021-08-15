@@ -1,12 +1,9 @@
 <?php
-session_start();
 use BettingRUs\Models\{Database, PlaceBet};
-require_once "Models/Database.php";
-require_once "Models/PlaceBet.php";
+//require_once "Models/Database.php";
+//require_once "Models/PlaceBet.php";
 require_once "vendor/autoload.php";
 
-
-//var_dump($_SESSION['userid']);
     $dbcon = Database::getDb();
     $b = new PlaceBet();
     $ongoingBets = $b->getPlaceBetsOngoingStatusByUserId($userID, $dbcon);
