@@ -1,7 +1,8 @@
 <?php
 use BettingRUs\Models\{Database, Faq};
 
- require_once "Models/Database.php";
+require_once "Views/header.php";
+require_once "Models/Database.php";
  require_once "Models/Faq.php";
 require_once "vendor/autoload.php";
 
@@ -9,7 +10,6 @@ $db = Database::getDb();
 $f = new Faq();
 $faqs = $f->getAllFaqs(Database::getDb());
 $adminBtn = "";
-session_start();
 $userType = $_SESSION['accounttype'];
 
 
@@ -39,8 +39,6 @@ if ($userType == 'admin'){
     <title>FAQ</title>
 </head>
 <body>
-<?php require_once "Views/header.php"; ?>
-
 <div class="container-md faq-page">
     <h1>FAQ</h1>
 
