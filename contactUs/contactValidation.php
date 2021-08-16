@@ -45,11 +45,11 @@ function validateContactForm($firstname,$lastname,$email, $contactNumber, $enqui
     }
 //IF ENQURY SELECTION ID EMPTY, THROW AN ERROR
     if (empty($enquiry ) ) {
-        $errors .= "Please select a contact via the list<br/>";
+        $errors .= "Please select an enquiry type via the list<br/>";
     }
     //IF MESSAGE TEXT BOX IS EMPTY, THROW AN ERROR
     if (empty($message)) {
-        $errors .= "Please enter a comments<br/>";
+        $errors .= "Please enter a message<br/>";
     }
     return $errors;
 }

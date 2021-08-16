@@ -15,7 +15,7 @@
 
         // /Find a User's friends
         public function getUserFriends($id, $db) {
-            $query = "SELECT u.username FROM `users` u JOIN `users_friends` uf ON u.id = uf.user_id WHERE uf.friend_id = :id";
+            $query = "SELECT u.username FROM users u LEFT JOIN users_friends uf ON u.id = uf.friend_id WHERE uf.user_id = :id";
             $pdostm = $db->prepare($query);
 
             $pdostm->bindParam(":id", $id);
@@ -76,13 +76,15 @@
             $count = $pdostm->execute();
             return $count;
         }
-        public function updateMembership($id, $member, $db) {
+        public function updateMembership($id, $member,$expiry, $db) {
             $query = "UPDATE users 
-                     SET membership = :member
+                     SET membership = :member,
+                         member_validity = :expiry
                       WHERE id = :id";
             $pdostm = $db->prepare($query);
 
             $pdostm->bindParam(':member', $member);
+            $pdostm->bindParam(':expiry', $expiry);
             $pdostm->bindParam(':id', $id);
             $count = $pdostm->execute();
             return $count;

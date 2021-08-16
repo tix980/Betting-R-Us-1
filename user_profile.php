@@ -1,16 +1,13 @@
 <?php 
     use BettingRUs\Models\{Database, PlaceBet, MovieInfo, User};
-		require_once 'Views/header.php';
     require_once "vendor/autoload.php";
 
     $db = Database::getDb();
 
-    if(isset($_POST['id'])) {
+    if(isset($userID)) {
         $userObj = new User();
 
-        $friend = $userObj->getUserFriends($id, $db);
-
-        $username = $friend->username;
+        $friends = $userObj->getUserFriends($id, $db);
     }
 ?>
 
@@ -26,7 +23,8 @@
         <title>Profile</title>
     </head>
     <body>
-        <main id="userProfileMain" style="padding-bottom: 13em;">
+        <?php include "Views/header.php"; ?>
+        <main id="userProfileMain">
             <div class="card w-80">
                 <div class="row cardProfileImg">
                     <div class="col-md-4 text-center">
@@ -74,7 +72,7 @@
                 </div>
                 <!-- DIV for User's Wallet -->
                 <div id="wallet" class="tab-pane fade" role="tabpanel" aria-labelledby="walletTab">
-                    <div class="card" style="background: darkred; padding-left: 5em;">
+                    <div class="card">
 						<?php require_once 'currency-convert.php'; ?>
                     </div>
                 </div>
@@ -88,7 +86,9 @@
                 <div id="friends" class="tab-pane fade" role="tabpanel" aria-labelledby="friendListTab">
                 <div class="card">
                         <!-- Add content here!! -->
-                        <h2><?= $username ?></h2>
+                        <?php foreach ($friends as $user_friend ) { ?>
+                            <p><?php $user_friend->username ?> <p>
+                        <?php } ?>
                     </div>
                 </div>
                 <!-- DIV for User's Membership -->
@@ -99,6 +99,6 @@
                 </div>
             </div>
         </main>
-				<footer style="margin-top:3em;"><?php include 'Views/footer.php'; ?></footer>
+        <?php include 'Views/footer.php'; ?>
     </body>
 </html>

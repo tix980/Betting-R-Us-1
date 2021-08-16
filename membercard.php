@@ -1,21 +1,18 @@
-
-<?php
+<?Php
 use BettingRUs\Models\{Database, Currency,User};
 require_once './Views/header.php';
-require_once "vendor/autoload.php";
+$id = $_SESSION['userid'];
+$wallet="";
+$c = new Currency();
+$db = Database::getDb();
 
-if(isset($_POST['preview'])){
-    $id = $_SESSION['userid'];
-    $wallet="";
-    $c = new Currency();
-    $db = Database::getDb();
-
-    $wallet = $c->selectedWallet($id,$db);
-    $name = $_SESSION['userrealname'];
-    $t = time();
-    $expiry = date("Y-m-d",$t + 31536000);
-    $username = $_SESSION['username'];
-}?>
+$wallet = $c->selectedWallet($id,$db);
+$name = $_SESSION['userrealname'];
+$u = new User();
+$username = $_SESSION['username'];
+$user = $u->getUserID($id, $db);
+$expiry = $user->member_validity;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,9 +50,7 @@ if(isset($_POST['preview'])){
     <div class="btncontainer">
         <a class="previewbtn" href="index.php" >Back to Homepage</a>
     </div>
-    <?php
-    require_once './Views/footer.php';
-    ?>
+
 </div>
 </body>
 </html>

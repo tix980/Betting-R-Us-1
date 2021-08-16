@@ -1,6 +1,6 @@
 <?php 
     use BettingRUs\Models\{Database, User};
-
+    include "Views/admin-header.php";
     require_once "../vendor/autoload.php";
 
     $db = Database::getDb();
