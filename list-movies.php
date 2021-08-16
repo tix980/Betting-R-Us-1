@@ -78,10 +78,13 @@ if ($genres) {
         require_once 'Views/header.php';
         ?>
 			<div id="button">
+                <a href="MovieXActors/list_moviesxactors.php" class="btn btn-danger">Actors Movies relation list</a>
 				<a href="./admin-add-movie.php" class="btn btn-primary">Add</a>
 			</div>
         <main class="main">
+
         <h2 class="heading">Movies</h2>
+
         <div class="row">
             <ul class="genre_buttons">
 

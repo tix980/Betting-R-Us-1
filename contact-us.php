@@ -1,11 +1,11 @@
 <?php
-
 use BettingRUs\Models\{Database, ContactFeedback};
 
 require_once "vendor/autoload.php";
 require_once "contactUs/contactFunction.php";
 require_once "contactUs/contactValidation.php";
 require 'Views/header.php';
+
 (string)$userType = $_SESSION['accounttype'];
 if($userType == 'admin') {
    $adminBtn = "style='display:block;'";
@@ -13,6 +13,7 @@ if($userType == 'admin') {
 } else {
     $adminBtn = "style='display:none;'";
 }
+
 $formSentMessage = "";
 $errors = "";
 
@@ -36,9 +37,10 @@ if(isset($_POST['addContactFeedback'])) {
 
         //IF IF THE INFORMATION STORED TO THE DATABASE IS SUCCESSFUL, THEN SEND IT TO THE EMAIL
         if ($r) {
-            $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname, your form has been successfully submitted";
             require_once 'contactUs/message.php';
-        } else {
+            $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname, your form has been successfully submitted";
+
+;        } else {
             $formSentMessage = "Problem adding your request";
         }
     }

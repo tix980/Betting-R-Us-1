@@ -1,7 +1,5 @@
 <?php
 use BettingRUs\Models\{Database, PlaceBet};
-//require_once "Models/Database.php";
-//require_once "Models/PlaceBet.php";
 require_once "vendor/autoload.php";
 
     $dbcon = Database::getDb();
@@ -34,11 +32,11 @@ require_once "vendor/autoload.php";
         <th>Date</th>
         <th>Bet Movie Name</th>
         <th>Betting Amount</th>
-            <th>Bet Type</th>
-            <th>Box Office Status</th>
+        <th>Bet Type</th>
+         <th>Box Office Status</th>
         <th>Earning/Loss</th>
         <th>Bet Won/Lost</th>
-            <th>Bet Status</th>
+        <th>Bet Status</th>
         </tr>
         </thead>
         <tbody>
