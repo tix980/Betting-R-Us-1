@@ -1,5 +1,5 @@
 <?php 
-    use BettingRUs\Models\{Database, PlaceBet, MovieInfo};
+    use BettingRUs\Models\{Database, PlaceBet, MovieInfo, User};
     require_once "vendor/autoload.php";
 
     $userID = $_SESSION['userid'];
@@ -12,12 +12,10 @@
 
     $db = Database::getDb();
 
-    if(isset($_POST['id'])) {
+    if(isset($userID)) {
         $userObj = new User();
 
-        $friend = $userObj->getUserFriends($id, $db);
-
-        $username = $friend->username;
+        $friends = $userObj->getUserFriends($id, $db);
     }
 ?>
 
@@ -96,7 +94,9 @@
                 <div id="friends" class="tab-pane fade" role="tabpanel" aria-labelledby="friendListTab">
                 <div class="card">
                         <!-- Add content here!! -->
-                        <h2><?= $username ?></h2>
+                        <?php foreach ($friends as $user_friend ) { ?>
+                            <p><?php $user_friend->username ?> <p>
+                        <?php } ?>
                     </div>
                 </div>
                 <!-- DIV for User's Membership -->

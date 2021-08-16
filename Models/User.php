@@ -15,7 +15,7 @@
 
         // Find a User's friends
         public function getUserFriends($id, $db) {
-            $query = "SELECT u.username FROM `users` u JOIN `users_friends` uf ON u.id = uf.user_id WHERE uf.friend_id = :id";
+            $query = "SELECT u.username FROM users u LEFT JOIN users_friends uf ON u.id = uf.friend_id WHERE uf.user_id = :id";
             $pdostm = $db->prepare($query);
 
             $pdostm->bindParam(":id", $id);
