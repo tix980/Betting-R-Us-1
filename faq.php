@@ -72,7 +72,7 @@ $adminBtn = "";
 </div>
 
 <div <?php echo $adminBtn; ?>>
-    <a class="btn btn-primary" href="faqs/list_faq.php" role="button">Admin List</a>
+    <a class="btn btn-primary" href="Faqs/list_faq.php" role="button">Admin List</a>
 </div>
 
 <footer><?php require_once "Views/footer.php"; ?></footer>

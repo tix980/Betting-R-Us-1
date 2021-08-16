@@ -3,7 +3,7 @@ use BettingRUs\Models\{Database, MovieInfo};
 
 require_once '../vendor/autoload.php';
 require_once '../current_bets/currentBetMovieFunction.php';
-
+$errorMsg="";
 var_dump($_POST);
 $s = new MovieInfo();
 $movies = $s->listMovies(Database::getDb());
@@ -18,9 +18,9 @@ if(isset($_POST['addMovieActor'])) {
     $k = $b->addMoviexActor($movies, $actors, $db);
 
     if($k){
-        echo "success";
+        header("Location: ../current-bet.php");
     } else {
-        echo "problem adding a Movies to actor";
+        $errorMsg = "There was an error associating movie with an actor";
     }
 
 }
@@ -40,9 +40,10 @@ if(isset($_POST['addMovieActor'])) {
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-
+<a class="btn btn-primary" href="list_moviesxactors.php" role="button">Back to List</a>
 <div class="current-bet-page" style="margin-top: 2em">
     <h1>Add Movies TO  Actors and Vise Versa</h1>
+    <p> <?php echo  $errorMsg; ?></p>
   <div class="back-btn-container ">
         <a href="../list-actors.php" class="btn-danger">Back to Actors List</a>
         <a href="../list-movies.php" class="btn-danger">Back to Movies List</a>

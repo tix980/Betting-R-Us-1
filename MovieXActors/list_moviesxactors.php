@@ -1,8 +1,7 @@
 <?php
 use BettingRUs\Models\{Database,MovieInfo};
 
-//require_once "../Models/Database.php";
-//require_once "../Models/ContactFeedback.php";
+
 require_once "../vendor/autoload.php";
 
 $c = new MovieInfo();
@@ -32,6 +31,7 @@ echo "error-loading page";
 <?php
 //include '../header.php';
 //?>
+<a class="btn btn-primary" href="../MovieXActors/add_movie_actor.php" role="button">Associate Movie wih actors</a>
 <a class="btn btn-primary" href="../list-movies.php" role="button">Back to movie list</a>
 <p class="h1 text-center">Movies and Actors Relations</p>
 <div class="m-1" >
@@ -54,15 +54,15 @@ echo "error-loading page";
                 <td><?= $info->actor_lname; ?></td>
 
                 <td>
-                    <form action="update-contactus.php" method="post">
+                    <form action="update_moviexactor.php" method="post">
                         <input type="hidden" name="id" value="<?= $info->id ?>"/>
-                        <input type="submit" class="button btn btn-primary" name="updateContactFeedback" value="Update"/>
+                        <input type="submit" class="button btn btn-primary" name="updateActorxMovie" value="Update"/>
                     </form>
                 </td>
                 <td>
-                    <form action="delete_contactus.php" method="post">
+                    <form action="delete_moviexactor.php" method="post">
                         <input type="hidden" name="id" value="<?= $info->id ?>"/>
-                        <input type="submit" class="button btn btn-danger" name="deleteContactFeedback" value="Delete"/>
+                        <input type="submit" class="button btn btn-danger" name="deleteActorxMovie" value="Delete"/>
                     </form>
                 </td>
             </tr>

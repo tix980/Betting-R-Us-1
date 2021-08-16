@@ -24,7 +24,7 @@ try {
 
     //Recipients
     $mail->setFrom($email, $firstname. ' '. $lastname);
-    $mail->addAddress($email , 'BetWebsiteFormMessage');     //Add a recipient
+    $mail->addAddress('betsrusphp@gmail.com' , 'BetWebsiteFormMessage');     //Add a recipient
 //    $mail->addAddress($email);               //Name is optional
 //    $mail->addReplyTo('info@example.com', 'Information');
 //    $mail->addCC('cc@example.com');
@@ -40,8 +40,8 @@ try {
     $mail->Body    = 'Contact Number ' . $contactNumber . 'Message:' . $message ;
     $mail->AltBody = $message;
 
-    // $mail->send();
-    // echo 'Message has been sent';
+     $mail->send();
+     echo 'Message has been sent';
 } catch (Exception $e) {
-    // echo "Message could not be sent.";
+     echo "Message could not be sent.";
 }
