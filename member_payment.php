@@ -8,25 +8,32 @@ if(isset($_POST['makepayment'])){
     if(!isset($_SESSION['username'])){
         header('location:login.php');
     }
-    if($_POST['membership'] === 'No') {
-        header('location:index.php');
+    if(!isset($_POST['membership'])) {
+        header('location:join_membership.php');
     }
-    $id = $_SESSION['userid'];
-    $wallet=$newwallet=$updateuser="";
-    $cad=$token=0;
-    $c = new Currency();
-    $db = Database::getDb();
-
-    $wallet = $c->selectedWallet($id,$db);
-    $cad = ($wallet->canadian_dollars)-100;
-    if($cad < 0){
-        header('location:payment.php');
+    elseif(!($_POST['membership'] === 'Yes')){
+        header('location:index.php');
     }else{
-        $token = ($wallet->token) + 10;
-        $newwallet = $c->updateWallet($id, $cad,$token, $db);
-        $u = new User();
-        $member = 1;
-        $updateuser = $u->updateMembership( $id, $member, $db);
+        $id = $_SESSION['userid'];
+        $wallet=$newwallet=$updateuser="";
+        $cad=$token=0;
+        $c = new Currency();
+        $db = Database::getDb();
+
+        $wallet = $c->selectedWallet($id,$db);
+        $cad = ($wallet->canadian_dollars)-100;
+        if($cad < 0){
+            header('location:payment.php');
+        }else{
+            $token = ($wallet->token) + 10;
+            $newwallet = $c->updateWallet($id, $cad,$token, $db);
+            $u = new User();
+            $member = 1;
+            $t = time();
+            $expiry = date("Y-m-d",$t + 31536000);
+            $updateuser = $u->updateMembership( $id, $member,$expiry, $db);
+        }
+
     }
 
 }

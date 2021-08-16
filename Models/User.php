@@ -76,13 +76,15 @@
             $count = $pdostm->execute();
             return $count;
         }
-        public function updateMembership($id, $member, $db) {
+        public function updateMembership($id, $member,$expiry, $db) {
             $query = "UPDATE users 
-                     SET membership = :member
+                     SET membership = :member,
+                         member_validity = :expiry
                       WHERE id = :id";
             $pdostm = $db->prepare($query);
 
             $pdostm->bindParam(':member', $member);
+            $pdostm->bindParam(':expiry', $expiry);
             $pdostm->bindParam(':id', $id);
             $count = $pdostm->execute();
             return $count;

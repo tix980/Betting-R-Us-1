@@ -97,20 +97,22 @@
 }
 .membershipcard{
     flex:1 0 0;
+    position:relative;
 
 }
 .membershipcard img{
     padding:20px;
 
+
 }
 .membercard{
     text-align: center;
-    position:relative;
+    /*position:relative;*/
 }
 .membername{
     position:absolute;
     right:700px;
-    top:350px;
+    top:200px;
     color:#967331;
     font-family:Algerian;
     font-size:48px;
@@ -118,7 +120,7 @@
 .money{
     position:absolute;
     right:700px;
-    top:400px;
+    top:250px;
     color:#967331;
     font-family:"Times New Roman";
     font-size:16px;
@@ -126,16 +128,16 @@
 }
 .memberusername{
     position:absolute;
-    right:800px;
-    top:450px;
+    left:500px;
+    top:300px;
     color:#967331;
     font-family: "Brush Script MT", serif;
     font-size:30px;
 }
 .memberexpiry{
     position:absolute;
-    right:800px;
-    top:500px;
+    left:500px;
+    top:350px;
     color:#967331;
     font-family:"Brush Script MT", Serif;
     font-size:30px;

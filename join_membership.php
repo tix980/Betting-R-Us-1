@@ -1,16 +1,21 @@
 <?php
-	use BettingRUs\Models\{Database, User};
-	session_start();
+	use BettingRUs\Models\{ Database, User};
+	 require_once "./vendor/autoload.php";
+     require_once './Views/header.php';
 	if(!isset($_SESSION['username'])){
         header('location:login.php');
-    }else{
-        echo $_SESSION['membership'];
-        if($_SESSION['membership'] === 1){
-            header('location:user_profile.php');
-        }
     }
+	$id = $_SESSION['userid'];
+	$db = $db = Database::getDb();
+	$u = new User();
+	$user = $u->getUserID( $id, $db);
+	$membership = $user->membership;
+	echo $membership;
+	if($membership === '1'){
 
-?>
+	    require_once "membercard.php";
+	}else{?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,10 +30,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <?php
-    require_once './Views/header.php';
 
-    ?>
         <div class="container-fluid">
             <div class="membercontainer">
             <div class="benefits">
@@ -74,3 +76,6 @@
 <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php
+    }
+	?>
