@@ -4,57 +4,24 @@ use BettingRUs\Models\{Database, MovieInfo};
 require_once '../vendor/autoload.php';
 require_once '../current_bets/currentBetMovieFunction.php';
 
-require_once '../contactUs/contactFunction.php';
-//var_dump($_POST);
-
-
-$movie = $actor =$movieId = $actorId = $actorFirstName= $actorLastName ="";
 $s = new MovieInfo();
 $movies = $s->listMovies(Database::getDb());
-
-$f = new MovieInfo();
-$actors = $f->listActors(Database::getDb());
-if(isset($_POST['updateActorxMovie'])){
-    $id= $_POST['id'];
-
+$d = new MovieInfo();
+$directors = $d->listDirectors(Database::getDb());
+if(isset($_POST['addMoviexDirector'])) {
+    $movies = $_POST['movie'];
+    $directors = $_POST['director'];
     $db = Database::getDb();
+    $b = new MovieInfo();
+    $k = $b->addMoviexDirector($movies, $directors, $db);
 
-    $s = new MovieInfo();
-    $movie = $s->getMovieWithId($id, $db);
-
-    $a = new MovieInfo();
-    $actor = $a->getActorWithId($id,$db);
-
-    $movie = $s->title;
-    $movieId= $s->id;
-    $actorFirstName =  $a->actor_fname;
-    $actorLastName =  $a->actor_lname;
-    $actorId =  $a->id;
-
-
-
-}
-if(isset($_POST['updContactFeedback'])) {
-    $id = $_POST['id'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $contactNumber = $_POST['telephone'];
-    $enquiry = $_POST['enquiry'];
-    $message = $_POST['description'];
-    $status = $_POST['status'];
-
-    $db = Database::getDb();
-    $s = new ContactFeedback();
-    $count = $s->updateContactFeedback($id,$firstname, $lastname,$email,$contactNumber,$enquiry,$message,$status, $db);
-
-    if($count){
-        header("Location: list_contactus.php");
+    if($k){
+        echo "success";
     } else {
-        echo "problem updating the form info";
+        echo "problem adding a Movies to director";
     }
-}
 
+}
 
 
 ?>
@@ -73,18 +40,18 @@ if(isset($_POST['updContactFeedback'])) {
 <body>
 
 <div class="current-bet-page" style="margin-top: 2em">
-    <h1>Add Movies TO  Actors and Vise Versa</h1>
+    <h1>Add Movies TO  Directors and Vise Versa</h1>
     <div class="back-btn-container ">
-        <a href="../list-actors.php" class="btn-danger">Back to Actors List</a>
+        <a href="../list_directors.php" class="btn-danger">Back to Directors List</a>
         <a href="../list-movies.php" class="btn-danger">Back to Movies List</a>
     </div>
 
     <form action="" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <label for="actor"> Actor :</label>
-            <select  name="actor" class="form-control"
-                     id="actor" >
-                <?php echo  populateDropdownActor($actors,$actorId) ?>
+            <label for="director"> Director :</label>
+            <select  name="director" class="form-control"
+                     id="director" >
+                <?php echo  populateDropdownDirector($directors) ?>
             </select>
             <span style="color: red">
 
@@ -94,16 +61,17 @@ if(isset($_POST['updContactFeedback'])) {
             <label for="movie"> Movies :</label>
             <select  name="movie" class="form-control"
                      id="movie" >
-                <?php echo  populateDropdownMovie($movies,$movieId) ?>
+                <?php echo  populateDropdownMovie($movies) ?>
             </select>
             <span style="color: red">
 
             </span>
         </div>
-        <button type="submit" name="addMovieActor" class="btn btn-primary" id="btn-submit">
-            Add Actors to Movies
+        <button type="submit" name="addMoviexDirector" class="btn btn-primary" id="btn-submit">
+            Add Directors to Movies
         </button>
     </form>
 </div>
 </body>
 </html>
+

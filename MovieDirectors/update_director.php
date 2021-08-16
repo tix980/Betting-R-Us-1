@@ -10,7 +10,7 @@ require_once '../vendor/autoload.php';
 $directorFirstName=$directorLastName=$birthDate=$birthCity=$biography=$poster ="";
 $m = new MovieInfo();
 $db = Database::getDb();
-var_dump($_POST);
+
 if(isset($_POST['updateDirector'])){
     $id=$_POST['id'];
     $director =$m->selectedDirector($id,$db);
