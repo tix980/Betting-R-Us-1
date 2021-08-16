@@ -292,7 +292,7 @@ class MovieInfo{
         return $m;
     }
 
-
+//  MOVE ACTOR BRIDGING FUCNTION
 
     public  function addMoviexActor($movieId, $actorId, $db){
         $sql = "INSERT INTO movie_actor(movie_id,actor_id) VALUES(:movieId,:actorId)";
