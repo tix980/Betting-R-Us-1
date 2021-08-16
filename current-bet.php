@@ -1,10 +1,15 @@
 <?php
-session_start();
 use BettingRUs\Models\{Database, CurrentBet};
-
-require_once "Models/Database.php";
+require_once  "Views/header.php";
 require_once  "Models/CurrentBets.php";
 require_once "vendor/autoload.php";
+(string)$userType = $_SESSION['accounttype'];
+if($userType == 'admin') {
+    $adminBtn = "style='display:block;'";
+
+} else {
+    $adminBtn = "style='display:none;'";
+}
 $hitFlopBtnDisplay ="";
 $c = new CurrentBet();
 $currentBets = $c->getAllCurrentBets(Database::getDb());
@@ -24,15 +29,15 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-<?php include 'Views/header.php'; ?>
 
 <main id="main">
 <section id="current-bet">
     <div class="current-bet-heading">
         <h2>Current on-going Bet</h2>
     </div>
-
+<div <?php echo $adminBtn ?>>
     <a href="current_bets/add_current_bets.php" id="btn_addCar" class="btn btn-success btn-lg float-right">Add a Current Bet</a>
+</div>
     <div class=" container current-bet-container-flex">
 
         <?php foreach ($currentBets as $currentBet) {
@@ -61,6 +66,7 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
                 <input type="submit" class="bet-flop button btn btn-primary" name="flop" value="Box Office Flop"/>
             </form>
             </div>
+            <div <?php echo $adminBtn ?>>
             <form action="current_bets/update_current_bets.php" method="post">
                 <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
                 <input type="submit" class="button btn btn-primary" name="updateCurrentBet" value="Update"/>
@@ -69,6 +75,7 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
                 <input type="hidden" name="id" value="<?= $currentBet->id ?>"/>
                 <input type="submit" class="button btn btn-danger" name="deleteCurrentBet" value="Delete"/>
             </form>
+            </div>
         </div>
         <?php
 

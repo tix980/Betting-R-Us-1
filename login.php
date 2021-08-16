@@ -1,7 +1,7 @@
 <?php
-    session_start();
-
     use BettingRUs\Models\{Database, User};
+
+		include 'Views/header.php' ;
     require_once "vendor/autoload.php";
 
     $password=$username=$userType=$userID="";
@@ -23,6 +23,7 @@
             $userType = $user->account_type;
             $userdob = $user->date_of_birth;
             $accountage = $user->user_since;
+            $membership = $user->membership;
             echo $username;
 
             if($localUsername == $username && $LocalPassword == $password){
@@ -33,6 +34,7 @@
                 $_SESSION['useremail'] = $useremail;
                 $_SESSION['userdob'] = $userdob;
                 $_SESSION['accountage'] = $accountage;
+                $_SESSION['membership'] = $membership;
 
                 if($userType == 'admin') {
                     header('Location: admin-index.php');
@@ -60,7 +62,6 @@
         <title>Log In</title>
     </head>
     <body>
-        <?php include 'Views/header.php' ?>
         <main>
             <div class="forms">
                 <h1>Login to Start Betting!</h1>

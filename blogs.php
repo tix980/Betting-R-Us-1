@@ -1,13 +1,22 @@
 <?php
 use BettingRUs\Models\{Database, Blog};
 
-require_once "Models/Database.php";
-require_once "Models/Blog.php";
+include "Views/header.php";
 require_once "vendor/autoload.php";
 
 $db = Database::getDb();
 $b = new Blog();
 $blogs = $b->getAllBlogs(Database::getDb());
+
+$adminBtn = "";
+$userType = $_SESSION['accounttype'];
+
+
+if ($userType == 'admin'){
+    $adminBtn = "style='display:block;'";
+} else {
+    $adminBtn = "style='display:none;'";
+}
 
 ?>
 <!DOCTYPE html>
@@ -27,8 +36,6 @@ $blogs = $b->getAllBlogs(Database::getDb());
         <title>Blogs</title>
     </head>
     <body>
-    <?php include "Views/header.php";
-    ?>
         <main>
 
             <div class="container blogs">
@@ -52,6 +59,10 @@ $blogs = $b->getAllBlogs(Database::getDb());
             </div>
 
         </main>
+    <div <?php echo $adminBtn; ?>>
+        <a class="btn btn-primary" href="Blogs/list_blog.php" role="button">Admin List</a>
+    </div>
+
     <?php include "Views/footer.php";
     ?>
     </body>

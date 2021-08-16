@@ -40,8 +40,8 @@ try {
     $mail->Body    = 'Contact Number ' . $contactNumber . 'Message:' . $message ;
     $mail->AltBody = $message;
 
-    $mail->send();
-    echo 'Message has been sent';
+    // $mail->send();
+    // echo 'Message has been sent';
 } catch (Exception $e) {
-    echo "Message could not be sent.";
+    // echo "Message could not be sent.";
 }

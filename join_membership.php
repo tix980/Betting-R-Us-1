@@ -1,6 +1,19 @@
 <?php
 	use BettingRUs\Models\{Database, User};
-?>
+	require_once './Views/header.php';
+	if(!isset($_SESSION['username'])){
+        header('location:login.php');
+    }
+	$id = $_SESSION['userid'];
+	$db = $db = Database::getDb();
+	$u = new User();
+	$user = $u->getUserID( $id, $db);
+	$membership = $user->membership;
+	if($membership === '1'){
+
+	    require_once "membercard.php";
+	}else{?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +28,12 @@
 </head>
 <body>
 <div class="container-fluid">
-    <?php
-    require_once './Views/header.php';
-    ?>
         <div class="container-fluid">
             <div class="membercontainer">
             <div class="benefits">
                 <h2 class="mheading">Membership Benefits</h2>
                 <ol>
-                    <li>You get to have a bonus of 1000 tokens.</li>
+                    <li>You get to have a bonus of 10 tokens.</li>
                     <li>Get plenty of gifts </li>
                     <li>No limits in betting!</li>
                 </ol>
@@ -39,13 +49,13 @@
             </div>
             <p class="memberpara">Do you want to become a member?</p>
             <div class="previewform">
-            <form action="preview_membership.php" method="post">
+            <form action="member_payment.php" method="post">
                 <input type="radio" id="yes" name="membership" value="Yes">
                 <label for="yes">Yes</label>
                 <input type="radio" id="no" name="membership" value="No">
                 <label for="no">No</label>
                 <div >
-                <input class="previewbtn" type="submit" name="preview" value="Preview your Card"/>
+                <input class="previewbtn" type="submit" name="makepayment" value="MakePayment"/>
                 </div>
             </form>
             </div>
@@ -53,9 +63,6 @@
         </div>
 
     <!--</div>-->
-    <?php
-    require_once './Views/footer.php';
-    ?>
 </div><!-- container -->
 
 <script src="./js/jquery.min.js"></script>
@@ -63,3 +70,6 @@
 <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php
+    }
+	?>

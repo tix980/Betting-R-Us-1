@@ -13,7 +13,7 @@
             return $users;
         }
 
-        // Find a User's friends
+        // /Find a User's friends
         public function getUserFriends($id, $db) {
             $query = "SELECT u.username FROM users u LEFT JOIN users_friends uf ON u.id = uf.friend_id WHERE uf.user_id = :id";
             $pdostm = $db->prepare($query);
@@ -71,10 +71,25 @@
             $pdostm->bindParam(':lastname', $lastname);
             $pdostm->bindParam(':email', $email);
             $pdostm->bindParam(':dob', $dob);
+            $pdostm->bindParam(':id', $id);
 
             $count = $pdostm->execute();
             return $count;
         }
+        public function updateMembership($id, $member,$expiry, $db) {
+            $query = "UPDATE users 
+                     SET membership = :member,
+                         member_validity = :expiry
+                      WHERE id = :id";
+            $pdostm = $db->prepare($query);
+
+            $pdostm->bindParam(':member', $member);
+            $pdostm->bindParam(':expiry', $expiry);
+            $pdostm->bindParam(':id', $id);
+            $count = $pdostm->execute();
+            return $count;
+        }
+
 
         // Delete a User from the database
         public function deleteUser($id, $db) {
@@ -87,4 +102,28 @@
 
             return $count;
         }
+
+        //Add a wallet
+			public function createWallet($money,$token,$id,$db){
+				$sql = "INSERT INTO wallet(token,canadian_dollars,user_id) VALUES(:token,:money,:id)";
+				$pdostm = $db ->prepare($sql);
+				$pdostm->bindParam(':money',$money);
+				$pdostm->bindParam(':token',$token);
+				$pdostm->bindParam(':id',$id);
+
+				$count = $pdostm ->execute();
+				return $count;
+			}
+
+			// Find last user id
+			public function getLastUserID($db) {
+				$query = "SELECT id FROM users ORDER BY id DESC LIMIT 1";
+				$pdostm = $db->prepare($query);
+				$pdostm->execute();
+
+				return $pdostm->fetch(\PDO::FETCH_OBJ);
+			}
+
+
+
     }

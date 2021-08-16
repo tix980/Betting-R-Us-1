@@ -3,14 +3,16 @@
 
     use BettingRUs\Models\{Database, MovieInfo};
     require_once "vendor/autoload.php";
+		if(isset($_SESSION['userid'])){
+			$userID = $_SESSION['userid'];
+			$username = $_SESSION['username'];
+			$userType = $_SESSION['accounttype'];
+			$userFullName = $_SESSION['userrealname'];
+			$useremail = $_SESSION['useremail'];
+			$userdob = $_SESSION['userdob'];
+			$accountage = $_SESSION['accountage'];
+		}
 
-    $userID = $_SESSION['userid'];
-    $username = $_SESSION['username'];
-    $userType = $_SESSION['accounttype'];
-    $userFullName = $_SESSION['userrealname'];
-    $useremail = $_SESSION['useremail'];
-    $userdob = $_SESSION['userdob'];
-    $accountage = $_SESSION['accountage'];
 
     $db = Database::getDb();
 ?>
@@ -42,14 +44,14 @@
                         <a class="nav-link" href="donations.php">Donate</a>
                     </li>
                 </ul>
-                <?php 
+                <?php
                     if(isset($userID)){
                 ?>
                 <div class="btn">
                     <a class="username" href="user_profile.php" type="button"><?= $username ?></a>
                     <a class="profileBtn" href="logout.php" type="button">Logout</a>
                 </div>
-                <?php 
+                <?php
                     } else {
                 ?>
                 <div class="btn">

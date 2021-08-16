@@ -1,20 +1,13 @@
 <?php
-    session_start();
 
     use BettingRUs\Models\{Database, MovieInfo};
     require_once "vendor/autoload.php";
 
-    $userID = $_SESSION['userid'];
-    $username = $_SESSION['username'];
-    $userType = $_SESSION['accounttype'];
-    $userFullName = $_SESSION['userrealname'];
-
-
     $db = Database::getDb();
 
-
     $m = new MovieInfo();
-    $movies = $m->listMovies($db);
+    $movies = $m->listMoviesLimitEight($db);
+    $limitedMovies = $m->listMoviesLimitSix($db);
 
 ?>
 <!DOCTYPE html>
@@ -33,56 +26,7 @@
     <body>
         <?php require_once "Views/header.php"; ?>
         <main>
-            <section id="carousel">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="./images/bet_friends.jpg" class="d-block w-100" alt="Bet Safely">
-                            <div class="carousel-caption d-none d-md-block carouselTxt">
-                                <h1>Safe Betting</h1>
-                                <p>Feel at ease with our secure and safe betting.</p>
-                                <button class="betBtn" type="button" onclick="window.location.href='register.php'">Join Now!</button>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./images/bet_friends.jpg" class="d-block w-100" alt="new movies">
-                            <div class="carousel-caption d-none d-md-block carouselTxt">
-                                <h1>New Releases</h1>
-                                <p>Bet on upcoming box office releases.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./images/bet_friends.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block carouselTxt">
-                                <h1>Bet with Friends</h1>
-                                <p>Have a movie that you and your friends are interested in watching, why not bet to see if it will be abox office hit or flop.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="./images/bet_friends.jpg" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block carouselTxt">
-                                <h1>Donate</h1>
-                                <p>It's always nice to give.</p>
-                                <button class="betBtn" type="button" onclick="window.location.href='donations.php'">Donate Today!</button>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </section>
+            <?php require_once 'home-page-carousal.php'; ?>
             <section id="lastMinBets">
                 <h2>Last Minute Bets</h2>
                 <div class="row">
@@ -174,7 +118,7 @@
                 <p class="text-center">Here are a few of the movies that we feature to bet on.</p>
                 <div class="container-fluid">
                     <div class="row">
-						<?php foreach ($movies as $m){ ?>
+						<?php foreach ($limitedMovies as $m){ ?>
                         <img class="col" src="<?= $m->movie_background ?>" alt ="movie poster" height="350"  width="100"/>
 						<?php };?>
                     </div>
@@ -182,30 +126,9 @@
                         <a class="btn betBtn" href="list-movies.php">View All Movies</a>
                 </div>
             </section>
-            <section id="testimonials">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="6000">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active feedback-slider-page">
-                            <h2>Great website to use for your betting needs!.</h2>
-                            <img class="testimonial-image" src="images/user_profile.png" alt="user testimonial">
-                            <em>John Doe, Toronto</em>
-                        </div>
-                        <div class="carousel-item feedback-slider-page">
-                            <h2 class="testimonial-text">Love the odds and the simplicity of this website as the whole experience was seamless</h2>
-                            <img class="testimonial-image" src="images/user_profile.png" alt="user testimonial">
-                            <em>Cathrina Elizabeth, Ottawa</em>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </section>
+<!--            HOMEPAGE TESTIMONIAL CARAOUSAL-->
+            <?php require_once 'homepage_testimonials.php'?>
+
             <section id="membership" class="row">
                 <div class="col">
                     <h2>What are you waiting for!</h2>

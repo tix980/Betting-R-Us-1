@@ -35,7 +35,7 @@ VALUES (:movieId, :betCloseDate, :betStatus) ";
         return $s;
     }
 public function getAllCurrentBets($dbcon){
-    $sql = "SELECT movies.title, movies.release_date, movies.movie_background, current_bets.id,current_bets.movie_id,current_bets.bet_close_date,current_bets.bet_status FROM current_bets  inner JOIN movies ON movies.id = current_bets.movie_id";
+    $sql = "SELECT movies.title, movies.release_date, movies.movie_background, current_bets.id,current_bets.movie_id,current_bets.bet_close_date,current_bets.bet_status FROM current_bets  inner JOIN movies ON movies.id = current_bets.movie_id order by movies.release_date";
     $pdostm = $dbcon->prepare($sql);
     $pdostm->execute();
 

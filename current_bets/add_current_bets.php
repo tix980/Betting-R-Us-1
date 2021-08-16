@@ -1,10 +1,8 @@
 <?php
 use BettingRUs\Models\{Database, CurrentBet};
 
-require_once "../Models/Database.php";
-require_once  "../Models/CurrentBets.php";
 require_once '../vendor/autoload.php';
-require_once 'currentBetMovieFunction.php';
+require 'currentBetMovieFunction.php';
 
 $b = new CurrentBet();
 $movies = $b->getMovie(Database::getDb());
@@ -49,7 +47,7 @@ if(isset($_POST['addCurrentBet'])) {
             <label for="movie"> Movie :</label>
             <select  name="movie" class="form-control"
                      id="movie" >
-                <?php echo  populateDropdown($movies) ?>
+                <?php echo  populateDropdownMovie($movies) ?>
             </select>
             <span style="color: red">
 

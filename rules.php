@@ -1,4 +1,5 @@
 <?php
+
 use BettingRUs\Models\Database;
 use BettingRUs\Models\Rule;
 

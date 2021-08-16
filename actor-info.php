@@ -1,11 +1,18 @@
 <?php
+session_start();
 use BettingRUs\Models\{Database, MovieInfo};
 
 
 require_once "vendor/autoload.php";
 //require_once "Models/Database.php";
 //require_once "Models/MovieInfo.php";
+(string)$userType = $_SESSION['accounttype'];
+if($userType == 'admin') {
+    $adminBtn = "style='display:block;'";
 
+} else {
+    $adminBtn = "style='display:none;'";
+}
 $actorFname =$actorLname= $title= $poster= $birthCity= $birthDate= $biography="";
 $m = new MovieInfo();
 $db = Database::getDb();
@@ -50,6 +57,7 @@ if(isset($_GET['id'])) {
 <body>
 <header><?php require_once "Views/header.php"; ?></header>
 <main>
+    <div <?php echo $adminBtn?>>
     <form action="MovieActors/update_actor.php" method="post">
         <input type="hidden" name="id" value="<?= $id ?>"/>
         <input type="submit" class="button btn btn-primary" name="updateActor" value="Update"/>
@@ -58,6 +66,7 @@ if(isset($_GET['id'])) {
         <input type="hidden" name="id" value="<?= $id ?>"/>
         <input type="submit" class="button btn btn-danger" name="deleteActor" value="Delete"/>
     </form>
+    </div>
     <div class="page-container">
         <div class="back-btn-container ">
             <a href="list-actors.php" class="btn-danger">Back to Actors List</a>

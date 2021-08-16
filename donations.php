@@ -1,12 +1,11 @@
 <?php
 use BettingRUs\Models\{Database, Donation};
 
+require_once "Views/header.php";
 require_once "vendor/autoload.php";
-require_once "Models/Donation.php";
-require_once "Models/Database.php";
-require_once "contactUs/contactFunction.php";
 //require_once "Models/Donation.php";
 //require_once "Models/Database.php";
+require_once "contactUs/contactFunction.php";
 
 $errors = "";
 //var_dump($_POST);
@@ -24,18 +23,21 @@ if(isset($_POST['addDonation'])){
     $charity = $_POST['charity'];
 
 
-
-
-        $db = Database::getDb();
-        $d = new Donation();
-        $donations = $d->addDonation($donation_amount, $cc_number_hashed, $cc_name, $cc_code_hashed, $cc_expiry_month, $cc_expiry_year, $phone_number,
-            $email, $charity, $db);
+    $db = Database::getDb();
+    $d = new Donation();
+    $donations = $d->addDonation($donation_amount, $cc_number_hashed, $cc_name, $cc_code_hashed, $cc_expiry_month, $cc_expiry_year, $phone_number, $email, $charity, $db);
 
 
 
+}
+$adminBtn = "";
+$userType = $_SESSION['accounttype'];
 
 
-
+if ($userType == 'admin'){
+    $adminBtn = "style='display:block;'";
+} else {
+    $adminBtn = "style='display:none;'";
 }
 
 ?>
@@ -57,8 +59,6 @@ if(isset($_POST['addDonation'])){
     <title>Donation's page</title>
   </head>
   <body>
-    <?php require_once "Views/header.php"; ?>
-
     <div class="container">
       <h1>Donations</h1>
       <p>Feeling generous? Make a donation!</p>
@@ -155,13 +155,13 @@ if(isset($_POST['addDonation'])){
         <?php
             if ($donations) {
         echo "<h1>Thanks for donating!</h1>";
-    } else {
-                echo "Problem submitting form";
-            }
+    }
             ?>
     </div>
 
-
+    <div <?php echo $adminBtn; ?>>
+        <a class="btn btn-primary" href="Donations/list_donation.php" role="button">Admin List</a>
+    </div>
 
 
   <footer><?php require_once "Views/footer.php"; ?></footer>

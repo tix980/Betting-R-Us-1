@@ -1,13 +1,26 @@
 <?php
 use BettingRUs\Models\{Database, Faq};
 
- require_once "Models/Database.php";
+require_once "errorhandle.php";
+require_once "Views/header.php";
+require_once "Models/Database.php";
  require_once "Models/Faq.php";
 require_once "vendor/autoload.php";
 
 $db = Database::getDb();
 $f = new Faq();
 $faqs = $f->getAllFaqs(Database::getDb());
+$adminBtn = "";
+
+(string)$userType = $_SESSION['accounttype'];
+
+
+    if ($userType == 'admin'){
+        $adminBtn = "style='display:block;'";
+    } else {
+        $adminBtn = "style='display:none;'";
+    }
+
 
 
 
@@ -29,21 +42,12 @@ $faqs = $f->getAllFaqs(Database::getDb());
     <title>FAQ</title>
 </head>
 <body>
-<?php require_once "Views/header.php"; ?>
-
 <div class="container-md faq-page">
     <h1>FAQ</h1>
 
+
     <div class="accordion faq-section" id="accordionExample">
 
-<!--        <div class="faq-search-container">-->
-<!--            <h2>Frequently Asked Questions</h2>-->
-<!--            <form method="post">-->
-<!--                <input type="text" name="search">-->
-<!--                <input type="submit" name="submit" value="Search">-->
-<!--            </form>-->
-<!---->
-<!--        </div>-->
         <h2>Frequently Asked Questions</h2>
         <?php foreach ($faqs as $faq) { ?>
             <div class="card">
@@ -64,12 +68,20 @@ $faqs = $f->getAllFaqs(Database::getDb());
         <?php } ?>
 
     </div>
+
 </div>
 
-
-
+<div <?php echo $adminBtn; ?>>
+    <a class="btn btn-primary" href="faqs/list_faq.php" role="button">Admin List</a>
+</div>
 
 <footer><?php require_once "Views/footer.php"; ?></footer>
+
+
+
+
+
+
 
 </body>
 

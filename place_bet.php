@@ -2,10 +2,9 @@
 use BettingRUs\Models\Database;
 use BettingRUs\Models\PlaceBet;
 
-require_once "./Models/Database.php";
+require './Views/header.php';
 require_once "./vendor/autoload.php";
 
-session_start();
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
 }
@@ -69,9 +68,6 @@ else {
     <title>Place Bet</title>
 </head>
 <body>
-<?php
-require './Views/header.php';
-?>
 <div class="container-fluid">
     <main>
         <div class="addform-container">
