@@ -1,9 +1,10 @@
+
 #main {
     max-width: 1200px;
     margin: 0 auto;
     color: #ECDD7B;
     background-color: #031927;
-    font-family: "Montserrat", "sans-serif";
+    /*font-family: "Montserrat", "sans-serif";*/
 }
 
 .form-group,.input-group{
@@ -232,7 +233,7 @@ span{
     margin: 0 auto;
     color: #ECDD7B;
     background-color: #031927;
-    font-family: "Montserrat", "sans-serif";
+    /*font-family: "Montserrat", "sans-serif";*/
 }
 
 .form-group,.input-group{
