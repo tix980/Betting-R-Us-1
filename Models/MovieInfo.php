@@ -1,6 +1,7 @@
 <?php
 namespace BettingRUs\Models;
 class MovieInfo{
+
 	Public function selectActorByMovieId($db,$id){
 		$sql = "SELECT actors.actor_fname as actor_fname, actors.actor_lname  as actor_lname ,actors.id FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
 		$pdostm = $db ->prepare($sql);
@@ -230,6 +231,7 @@ class MovieInfo{
 
 	}
 
+
 	public function deleteActor($id,$db){
 		$sql = "DELETE FROM actors WHERE id = :id";
 		$pdostm = $db ->prepare($sql);
@@ -244,11 +246,13 @@ class MovieInfo{
 		$sql = "DELETE FROM directors WHERE id = :id";
 		$pdostm = $db ->prepare($sql);
 
+
 		$pdostm->bindParam(':id',$id);
 		$count = $pdostm ->execute();
 		return $count;
 
 	}
+
 
 	public function getActorWithId($id, $db) {
 		$sql = "SELECT * FROM actors where id = :id";
@@ -257,8 +261,10 @@ class MovieInfo{
 		$pdostm->bindParam(':id', $id);
 		$pdostm->execute();
 
+
 		$movies = $pdostm->fetch(\PDO::FETCH_OBJ);
 		return $movies;
+
 
 	}
 	public function getDirectorWithId($id, $db) {
@@ -293,7 +299,6 @@ class MovieInfo{
 	}
 
 //  MOVE ACTOR BRIDGING FUCNTION
-
 	public  function addMoviexActor($movieId, $actorId, $db){
 		$sql = "INSERT INTO movie_actor(movie_id,actor_id) VALUES(:movieId,:actorId)";
 		$pdostm = $db ->prepare($sql);
