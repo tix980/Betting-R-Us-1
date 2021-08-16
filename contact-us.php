@@ -1,13 +1,11 @@
 <?php
-session_start();
-use BettingRUs\Models\{Database, ContactFeedback};
-// require_once "Models/Database.php";
-// require_once "Models/ContactFeedback.php";
-//hello
-require_once "vendor/autoload.php";
-require_once 'contactUs/contactFunction.php';
-require_once'contactUs/contactValidation.php';
 
+use BettingRUs\Models\{Database, ContactFeedback};
+
+require_once "vendor/autoload.php";
+require_once "contactUs/contactFunction.php";
+require_once "contactUs/contactValidation.php";
+require 'Views/header.php';
 (string)$userType = $_SESSION['accounttype'];
 if($userType == 'admin') {
    $adminBtn = "style='display:block;'";
@@ -59,12 +57,9 @@ if(isset($_POST['addContactFeedback'])) {
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-<?php
-require 'Views/header.php';
-?>
+
 <main id="main">
 <section id="contact-us-section">
-
 <div class= "contact-us-heading-div">
         <h1 class="contact-us-heading">Get in Touch with us</span></h1>
         <p>Please fill in the form in order for us to contact you</p>
@@ -91,19 +86,19 @@ require 'Views/header.php';
             <div class="form-line">
                 <div class="form-group">
                     <label for="firstname">First Name</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder=" Enter First Name">
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder=" Enter First Name" value="<?= isset($firstname) ? $firstname: ""; ?>" />
                 </div>
                 <div class="form-group">
                     <label for="lastname">Last Name</label>
-                    <input type="text" class="form-control" id="lastname"  name="lastname" placeholder=" Enter Last Name" >
+                    <input type="text" class="form-control" id="lastname"  name="lastname" placeholder=" Enter Last Name" value="<?= isset($lastname) ? $lastname: ""; ?>" />
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="text" class="form-control" name="email" id="email" placeholder=" Enter Email id" >
+                    <input type="text" class="form-control" name="email" id="email" placeholder=" Enter Email id"  value="<?= isset($email) ? $email: ""; ?>"/>
                 </div>
                 <div class="form-group">
                     <label for="telephone">Contact No</label>
-                    <input  type="text" class="form-control" name="telephone" id="telephone" placeholder=" Enter 10-digit mobile no NNN-NNN-NNNN." >
+                    <input  type="text" class="form-control" name="telephone" id="telephone" placeholder=" Enter 10-digit mobile no NNN-NNN-NNNN." value="<?= isset($contactNumber) ? $contactNumber: ""; ?>" />
                 </div>
                 <div class="form-group" >
                     <label  for="enquiry">Enquiry Type</label>
@@ -116,7 +111,7 @@ require 'Views/header.php';
                 </div>
                 <div class="form-group">
                     <label for ="description"> Message</label>
-                    <textarea  class="form-control" name="description" id="description" placeholder="Enter Your Message"></textarea>
+                    <textarea  class="form-control" name="description" id="description" placeholder="Enter Your Message"><?= isset($message) ? $message: ""; ?></textarea>
                 </div>
                 <div>
                  <button type="submit" class="btn-bet btn-primary" name="addContactFeedback" id="btn-submit">Submit</button>

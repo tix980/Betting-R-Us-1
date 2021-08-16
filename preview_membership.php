@@ -1,8 +1,7 @@
 
 <?php
-session_start();
 use BettingRUs\Models\{Database, Currency,User};
-
+require_once './Views/header.php';
 require_once "vendor/autoload.php";
 
 if(isset($_POST['preview'])){
@@ -31,9 +30,7 @@ if(isset($_POST['preview'])){
 </head>
 <body>
 <div class="container-fluid">
-    <?php
-    require_once './Views/header.php';
-    ?>
+
 
     <section class="membershipcard">
 

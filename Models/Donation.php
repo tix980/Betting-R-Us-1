@@ -3,6 +3,7 @@ namespace BettingRUs\Models;
 
 class Donation{
 
+    //Gets all donations
     public function getAllDonations($db) {
         $sql = "SELECT * FROM donations";
         $pdostm = $db->prepare($sql);
@@ -12,6 +13,7 @@ class Donation{
         return $donations;
     }
 
+    //Finds a certain donation by its id
     public function getDonationWithId($id, $db){
         $sql = "SELECT * FROM donations where id = :id";
 
@@ -23,6 +25,7 @@ class Donation{
         return $donations;
     }
 
+    //Updates a donation from the db
     public function updateDonation($id, $donation_amount, $cc_number, $cc_name, $cc_code, $cc_expiry_month, $cc_expiry_year, $email,
     $phone_number, $charity, $db){
         $sql = "UPDATE donations SET 
@@ -53,7 +56,7 @@ class Donation{
         return $count;
     }
 
-
+    //Adds a new donation into the db
     public function addDonation($donation_amount, $cc_number, $cc_name, $cc_code, $cc_expiry_month, $cc_expiry_year, $phone_number,
                                 $email, $charity, $db){
         $sql = "INSERT INTO donations(donation_amount, cc_number, cc_name, cc_code, cc_expiry_month, cc_expiry_year, phone_number,
@@ -76,6 +79,7 @@ class Donation{
 
     }
 
+    //Deletes a donation from the db
     public function deleteDonation($id, $db){
         $sql = "DELETE FROM donations WHERE id= :id";
 

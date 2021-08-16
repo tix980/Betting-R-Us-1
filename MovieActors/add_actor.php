@@ -1,12 +1,8 @@
 <?php
 use BettingRUs\Models\{Database, MovieInfo};
 
-//require_once "../Models/Database.php";
 require_once '../vendor/autoload.php';
 
-
-//$b = new MovieInfo();
-//$movies = $b->getMovie(Database::getDb());
 var_dump($_POST);
 if(isset($_POST['addActor'])) {
     $file = $_FILES['actorimage'];
@@ -80,10 +76,6 @@ if(isset($_POST['addActor'])) {
 <div class="current-bet-page" style="margin-top: 2em">
     <h1>Add New Actor</h1>
     <form action="" method="post" enctype="multipart/form-data">
-
-        <div class="form-group">
-
-        </div>
         <div class="form-group">
             <label for="actor-first-name">Actor First Name:</label>
             <input type="text" class="form-control" name="actor-first-name" id="actor-first-name" placeholder="First Name">
@@ -104,12 +96,7 @@ if(isset($_POST['addActor'])) {
             <label for="actor-biography">Actor Biography:</label>
             <textarea  class="form-control" name="actor-biography" id="actor-biography" ></textarea>
         </div>
-<!--        <div class="form-group">-->
-<!--            <label for="actor-image"> Actor Image</label>-->
-<!--            <input type="text" class="form-control" name="actor-image" id="actor-image" placeholder="Paste your url path here">-->
-<!--        </div>-->
         <div class="form-group">
-<!--            <label for="actorimage"> Actor Image</label>-->
             <input type="file" name="actorimage" id="actorimage">
         </div>
         <div class="form-group">

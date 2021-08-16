@@ -3,6 +3,7 @@ namespace BettingRUs\Models;
 
 class Blog{
 
+    //Gets all blogs from db
     public function getAllBlogs($db) {
         $sql = "SELECT * FROM blogs";
         $pdostm = $db->prepare($sql);
@@ -12,6 +13,7 @@ class Blog{
         return $blogs;
     }
 
+    // Finds a blog by an id
     public function getBlogWithId($id, $db){
         $sql = "SELECT * FROM blogs where id = :id";
 
@@ -23,6 +25,7 @@ class Blog{
         return $blogs;
     }
 
+    // Adds new blog into db
     public function addBlog($date, $author_fname, $author_lname, $post, $title, $imagefile, $db){
         $sql = "INSERT INTO blogs(date, author_fname, author_lname, post, title, imagefile) values (:date, :author_fname, :author_lname, :post, :title, :imagefile)";
         $pdostm = $db->prepare($sql);
@@ -37,6 +40,7 @@ class Blog{
         return $count;
     }
 
+    //Updates already exiting blog
     public function updateBlog($id, $date, $author_fname, $author_lname, $post, $title, $imagefile, $db){
         $sql = "UPDATE blogs SET 
                 date = :date,
@@ -60,6 +64,7 @@ class Blog{
         return $count;
     }
 
+    //Delete a blog from the db
     public function deleteBlog($id, $db){
         $sql = "DELETE FROM blogs WHERE id= :id";
 

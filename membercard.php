@@ -1,8 +1,6 @@
 <?Php
-session_start();
 use BettingRUs\Models\{Database, Currency,User};
-
-require_once "vendor/autoload.php";
+require_once './Views/header.php';
 $id = $_SESSION['userid'];
 $wallet="";
 $c = new Currency();
@@ -29,9 +27,7 @@ $expiry = $user->member_validity;
 </head>
 <body>
 <div class="container-fluid">
-    <?php
-    require_once './Views/header.php';
-    ?>
+
 
     <section class="membershipcard">
 
@@ -54,9 +50,7 @@ $expiry = $user->member_validity;
     <div class="btncontainer">
         <a class="previewbtn" href="index.php" >Back to Homepage</a>
     </div>
-    <?php
-    require_once './Views/footer.php';
-    ?>
+
 </div>
 </body>
 </html>

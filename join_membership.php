@@ -1,7 +1,6 @@
 <?php
-	use BettingRUs\Models\{ Database, User};
-	 require_once "./vendor/autoload.php";
-     require_once './Views/header.php';
+	use BettingRUs\Models\{Database, User};
+	require_once './Views/header.php';
 	if(!isset($_SESSION['username'])){
         header('location:login.php');
     }
@@ -10,7 +9,6 @@
 	$u = new User();
 	$user = $u->getUserID( $id, $db);
 	$membership = $user->membership;
-	echo $membership;
 	if($membership === '1'){
 
 	    require_once "membercard.php";
@@ -30,7 +28,6 @@
 </head>
 <body>
 <div class="container-fluid">
-
         <div class="container-fluid">
             <div class="membercontainer">
             <div class="benefits">
@@ -66,9 +63,6 @@
         </div>
 
     <!--</div>-->
-    <?php
-    require_once './Views/footer.php';
-    ?>
 </div><!-- container -->
 
 <script src="./js/jquery.min.js"></script>

@@ -1,8 +1,6 @@
 <?php
-session_start();
 use BettingRUs\Models\{Database, CurrentBet};
-
-require_once "Models/Database.php";
+require_once  "Views/header.php";
 require_once  "Models/CurrentBets.php";
 require_once "vendor/autoload.php";
 (string)$userType = $_SESSION['accounttype'];
@@ -31,7 +29,6 @@ $currentBets = $c->getAllCurrentBets(Database::getDb());
     <meta name="viewport" content="width=device-width">
 </head>
 <body>
-<?php include 'Views/header.php'; ?>
 
 <main id="main">
 <section id="current-bet">

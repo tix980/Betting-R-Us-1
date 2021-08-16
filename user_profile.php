@@ -1,14 +1,7 @@
 <?php 
-    use BettingRUs\Models\{Database, PlaceBet, MovieInfo};
+    use BettingRUs\Models\{Database, PlaceBet, MovieInfo, User};
+		require_once 'Views/header.php';
     require_once "vendor/autoload.php";
-
-    $userID = $_SESSION['userid'];
-    $username = $_SESSION['username'];
-    $userType = $_SESSION['accounttype'];
-    $userFullName = $_SESSION['userrealname'];
-    $useremail = $_SESSION['useremail'];
-    $userdob = $_SESSION['userdob'];
-    $accountage = $_SESSION['accountage'];
 
     $db = Database::getDb();
 
@@ -33,8 +26,7 @@
         <title>Profile</title>
     </head>
     <body>
-        <?php require_once 'Views/header.php'; ?>
-        <main id="userProfileMain">
+        <main id="userProfileMain" style="padding-bottom: 13em;">
             <div class="card w-80">
                 <div class="row cardProfileImg">
                     <div class="col-md-4 text-center">
@@ -107,6 +99,6 @@
                 </div>
             </div>
         </main>
-        <?php require_once 'Views/footer.php'; ?>
+				<footer style="margin-top:3em;"><?php include 'Views/footer.php'; ?></footer>
     </body>
 </html>

@@ -4,11 +4,6 @@ use BettingRUs\Models\{Database, Currency};
 
 require_once "Views/header.php";
 
-$userID = $_SESSION['userid'];
-$username = $_SESSION['username'];
-$userType = $_SESSION['accounttype'];
-$userFullName = $_SESSION['userrealname'];
-
 $money="";
 
 $c = new Currency();
@@ -147,8 +142,6 @@ if(isset($_POST['btn'])){
 
 	</form>
 </div>
-
-
 <footer><?php require_once "Views/footer.php"; ?></footer>
 
 </body>

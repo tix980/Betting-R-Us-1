@@ -1,8 +1,7 @@
 
 <?php
-session_start();
 use BettingRUs\Models\{Database, Currency,User};
-
+require_once './Views/header.php';
 require_once "vendor/autoload.php";
 if(isset($_POST['makepayment'])){
     if(!isset($_SESSION['username'])){
@@ -52,9 +51,7 @@ if(isset($_POST['makepayment'])){
 </head>
 <body>
 <div class="container-fluid">
-    <?php
-    require_once './Views/header.php';
-    ?>
+
     <div class="message-member">
         <p>Thank you <?php echo $_SESSION['userrealname'] ?> !</p>
         <p>You are now our valuable Member!</p>
