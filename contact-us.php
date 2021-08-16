@@ -35,7 +35,7 @@ if(isset($_POST['addContactFeedback'])) {
         $s = new ContactFeedback();
         $r = $s->addContactFeedback($firstname, $lastname, $email, $contactNumber, $enquiry, $message, $db);
 
-        //IF IF THE INFORMATION STORED TO THE DATABASE IS SUCCESSFUL, THEN SEND IT TO THE EMAIL
+        //IF  THE INFORMATION STORED TO THE DATABASE IS SUCCESSFUL, THEN SEND IT TO THE EMAIL
         if ($r) {
             require_once 'contactUs/message.php';
             $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname, your form has been successfully submitted";
