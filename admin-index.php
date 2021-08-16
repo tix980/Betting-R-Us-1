@@ -18,7 +18,7 @@ require_once "vendor/autoload.php";
     <body>
         <?php include "Views/admin-header.php"; ?>
         <main>
-            <div>
+            <div style="text-align: center">
                 <img src="./images/carousal/bet_friends.jpg">
                 <div>
                     <h1>Safe Betting</h1>
