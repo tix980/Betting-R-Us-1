@@ -8,7 +8,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="./images/carousal/bet_friends.jpg" class="d-block w-100" alt="Bet Safely">
+                <img src="./images/carousal/bet_friends.jpg" class="d-block w-100" alt="Bet Safely" height="735">
                 <div class="carousel-caption d-none d-md-block carouselTxt">
                     <h1>Safe Betting</h1>
                     <p>Feel at ease with our secure and safe betting.</p>
@@ -16,21 +16,21 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="./images/carousal/carousal-image1.jpeg" class="d-block w-100" alt="new movies">
+                <img src="./images/carousal/carousal-image1.jpeg" class="d-block w-100" alt="new movies" height="735">
                 <div class="carousel-caption d-none d-md-block carouselTxt">
                     <h1>New Releases</h1>
                     <p>Bet on upcoming box office releases.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="./images/carousal/carousal-image3.jpeg" class="d-block w-100" alt="...">
+                <img src="./images/carousal/carousal-image3.jpeg" class="d-block w-100" alt="..." height="735">
                 <div class="carousel-caption d-none d-md-block carouselTxt">
                     <h1>Bet with Friends</h1>
                     <p>Have a movie that you and your friends are interested in watching, why not bet to see if it will be abox office hit or flop.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="./images/carousal/carousal-image4.jpeg" class="d-block w-100" alt="...">
+                <img src="./images/carousal/carousal-image4.jpeg" class="d-block w-100" alt="..." height="735">
                 <div class="carousel-caption d-none d-md-block carouselTxt">
                     <h1>Donate</h1>
                     <p>It's always nice to give.</p>

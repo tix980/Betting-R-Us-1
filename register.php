@@ -14,14 +14,20 @@
 
         $db = Database::getDb();
         $userObj = new User();
+        $money=$token=0;
         $count = $userObj->addUser($username, $firstname, $lastname, $email, $passwordHash, $dob, $db);
 
+
         if($count) {
+        	$id = $userObj->getLastUserID($db);
+        	$userid = (int)$id->id;
+					$wallet = $userObj->createWallet($money,$token,$userid,$db);
             header("Location: index.php");
 
         } else {
             echo "<p>User was not added to database!</p>";
         }
+
     }
 ?>
 <!DOCTYPE html>
