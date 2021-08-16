@@ -1,7 +1,7 @@
 <?php
     use BettingRUs\Models\{Database, User};
 
-		include 'Views/header.php' ;
+	include 'Views/header.php' ;
     require_once "vendor/autoload.php";
 
     $password=$username=$userType=$userID="";

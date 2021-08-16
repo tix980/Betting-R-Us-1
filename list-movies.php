@@ -81,7 +81,7 @@ if ($genres) {
 				<a href="./admin-add-movie.php" class="btn btn-primary">Add</a>
 			</div>
         <main class="main">
-        <h2 class="heading">Movies</h2>
+        <h1>Movies</h1>
         <div class="row">
             <ul class="genre_buttons">
 

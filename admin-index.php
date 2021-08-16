@@ -16,9 +16,17 @@ require_once "vendor/autoload.php";
         <title>Admin-Bets R' Us</title>
     </head>
     <body>
-        <?php require_once "Views/admin-header.php"; ?>
-    <main>
-    </main>
-        <?php require_once "Views/admin-footer.php"; ?>
+        <?php include "Views/admin-header.php"; ?>
+        <main>
+            <div>
+                <img src="./images/carousal/bet_friends.jpg">
+                <div>
+                    <h1>Safe Betting</h1>
+                    <p>Feel at ease with our secure and safe betting.</p>
+                    <button class="betBtn" type="button" onclick="window.location.href='register.php'">Join Now!</button>
+                </div>
+            </div>
+        </main>
+        <?php include "Views/admin-footer.php"; ?>
     </body>
 </html>

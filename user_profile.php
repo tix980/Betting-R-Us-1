@@ -24,7 +24,7 @@
     </head>
     <body>
         <?php include "Views/header.php"; ?>
-        <main id="userProfileMain" style="padding-bottom: 13em;">
+        <main id="userProfileMain">
             <div class="card w-80">
                 <div class="row cardProfileImg">
                     <div class="col-md-4 text-center">
@@ -72,7 +72,7 @@
                 </div>
                 <!-- DIV for User's Wallet -->
                 <div id="wallet" class="tab-pane fade" role="tabpanel" aria-labelledby="walletTab">
-                    <div class="card" style="background: darkred; padding-left: 5em;">
+                    <div class="card">
 						<?php require_once 'currency-convert.php'; ?>
                     </div>
                 </div>
