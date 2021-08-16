@@ -3,14 +3,17 @@
 	require_once './Views/header.php';
 	if(!isset($_SESSION['username'])){
         header('location:login.php');
-    }else{
-//        echo $_SESSION['membership'];
-        if($_SESSION['membership'] === 1){
-            header('location:user_profile.php');
-        }
     }
+	$id = $_SESSION['userid'];
+	$db = $db = Database::getDb();
+	$u = new User();
+	$user = $u->getUserID( $id, $db);
+	$membership = $user->membership;
+	if($membership === '1'){
 
-?>
+	    require_once "membercard.php";
+	}else{?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,3 +70,6 @@
 <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php
+    }
+	?>

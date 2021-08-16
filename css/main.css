@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +9,7 @@
 html, body {
     background-color:#031927;
     color: #FFF;
-    font-family: 'Lato';
+    font-family: 'Lato', sans-serif;
 }
 
 /***** Header and Footer *****/
@@ -170,11 +172,12 @@ footer {
 
 h1 {
     margin-bottom: 25px;
+    font-family: 'Roboto', sans-serif;
 }
 
 h2 {
     color: #ECDD7B;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     text-align: center;
 }
 

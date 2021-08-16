@@ -42,7 +42,7 @@
         <title>Register</title>
     </head>
     <body>
-        <?php require_once 'Views/header.php'; ?>
+        <?php include 'Views/header.php'; ?>
         <main>
             <div class="forms">
                 <h1>Sign Up for a free Account!</h1>

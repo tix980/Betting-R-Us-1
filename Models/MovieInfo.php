@@ -1,6 +1,7 @@
 <?php
 namespace BettingRUs\Models;
 class MovieInfo{
+
 	// Find actors that associated with the selected movie
 	Public function selectActorByMovieId($db,$id){
 		$sql = "SELECT actors.actor_fname as actor_fname, actors.actor_lname  as actor_lname ,actors.id FROM movie_actor join movies on movies.id = movie_actor.movie_id join actors on actors.id = movie_actor.actor_id WHERE movies.id = :id";
@@ -78,6 +79,7 @@ class MovieInfo{
 
 	//List all directors
 	public function listDirectors($db){
+
         $sql = "SELECT id, director_fname, director_lname,poster FROM directors";
         $pdostm = $db ->prepare($sql);
         $pdostm->execute();
@@ -85,6 +87,7 @@ class MovieInfo{
 
         return $m;
     }
+
 
     //Find selected movie
 	public function selectedMovie($id,$db){
@@ -104,8 +107,9 @@ class MovieInfo{
 		$pdostm->execute();
 		$m = $pdostm ->fetch(\PDO::FETCH_OBJ);
 
-		return $m;
-	}
+
+        return $m;
+    }
 
 	////Find selected movie, selected movie's box office record and actor information that are associated with the movie
     public function previousMovieInfoFunction($db,$id){
@@ -117,6 +121,7 @@ class MovieInfo{
 
         return $m;
     }
+
 
     //Add movie function
   public function addMovie($movieTitle, $movieBudget,$movieGross,$movieReleaseDate,$rating,$summary,$genre,$poster,$background,$db){
@@ -145,12 +150,23 @@ class MovieInfo{
 		$pdostm->bindParam(':birthDate',$birthDate);
 		$pdostm->bindParam(':birthCity',$birthCity);
 		$pdostm->bindParam(':biography',$biography);
+
         $pdostm->bindParam(':poster',$poster);
+        $pdostm->bindParam(':background',$background);
 
-		$count = $pdostm ->execute();
-		return $count;
-	}
+        $count = $pdostm ->execute();
+        return $count;
+    }
 
+    public function addActor($actorFirstName, $actorLastName,$birthDate,$birthCity,$biography,$poster,$db){
+        $sql = "INSERT INTO actors(actor_fname,actor_lname,date_of_birth,birth_city,biography,poster) VALUES(:actorFirstName,:actorLastName,:birthDate,:birthCity,:biography,:poster)";
+        $pdostm = $db ->prepare($sql);
+        $pdostm->bindParam(':actorFirstName',$actorFirstName);
+        $pdostm->bindParam(':actorLastName',$actorLastName);
+        $pdostm->bindParam(':birthDate',$birthDate);
+        $pdostm->bindParam(':birthCity',$birthCity);
+        $pdostm->bindParam(':biography',$biography);
+        $pdostm->bindParam(':poster',$poster);
 
 	//Add director function
 	public function addDirector($directorFirstName, $directorLastName,$birthDate,$birthCity,$biography,$poster, $db){
@@ -161,7 +177,12 @@ class MovieInfo{
 		$pdostm->bindParam(':birthDate',$birthDate);
 		$pdostm->bindParam(':birthCity',$birthCity);
 		$pdostm->bindParam(':biography',$biography);
+
         $pdostm->bindParam(':poster',$poster);
+        $pdostm->bindParam(':genre',$genre);
+        $pdostm->bindParam(':background',$background);
+        $pdostm->bindParam(':id',$id);
+
 
 		$count = $pdostm ->execute();
 		return $count;
@@ -186,6 +207,7 @@ class MovieInfo{
 		$count = $pdostm ->execute();
 		return $count;
 	}
+
 
 	//Find selected actor
     public function selectedActor($id,$db){
@@ -232,45 +254,49 @@ class MovieInfo{
 		$pdostm->bindParam(':birthDate',$birthDate);
 		$pdostm->bindParam(':birthCity',$birthCity);
 		$pdostm->bindParam(':biography',$biography);
+    
         $pdostm->bindParam(':poster',$poster);
-		$pdostm->bindParam(':id',$id);
+        $pdostm->bindParam(':id',$id);
 
-		$count = $pdostm ->execute();
-		return $count;
-	}
+        $count = $pdostm ->execute();
+        return $count;
+    }
+
 
 	//Delete selected movie
 	public function deleteMovie($id,$db){
 		$sql = "DELETE FROM movies WHERE id = :id";
 		$pdostm = $db ->prepare($sql);
 
-		$pdostm->bindParam(':id',$id);
-		$count = $pdostm ->execute();
-		return $count;
 
-	}
+        $pdostm->bindParam(':id',$id);
+        $count = $pdostm ->execute();
+        return $count;
+
+    }
 
 	//Delete selected actor
 	public function deleteActor($id,$db){
 		$sql = "DELETE FROM actors WHERE id = :id";
 		$pdostm = $db ->prepare($sql);
 
-		$pdostm->bindParam(':id',$id);
-		$count = $pdostm ->execute();
-		return $count;
+        $pdostm->bindParam(':id',$id);
+        $count = $pdostm ->execute();
+        return $count;
 
-	}
+    }
+
 
 	//Delete selected director
 	public function deleteDirector($id,$db){
 		$sql = "DELETE FROM directors WHERE id = :id";
 		$pdostm = $db ->prepare($sql);
 
-		$pdostm->bindParam(':id',$id);
-		$count = $pdostm ->execute();
-		return $count;
+        $pdostm->bindParam(':id',$id);
+        $count = $pdostm ->execute();
+        return $count;
 
-	}
+    }
 
 	//Find selected actor
     public function getActorWithId($id, $db) {
@@ -313,6 +339,61 @@ class MovieInfo{
         $sql = "SELECT movies.title,movies.id  FROM movie_director join directors on directors.id = movie_director.director_id inner join movies on movies.id = movie_director.movie_id WHERE directors.id = :id";
         $pdostm = $db ->prepare($sql);
         $pdostm->bindParam(':id',$id);
+        $pdostm->execute();
+        $m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
+
+        return $m;
+    }
+
+//  MOVE ACTOR BRIDGING FUCNTION
+
+    public  function addMoviexActor($movieId, $actorId, $db){
+        $sql = "INSERT INTO movie_actor(movie_id,actor_id) VALUES(:movieId,:actorId)";
+        $pdostm = $db ->prepare($sql);
+        $pdostm->bindParam(':movieId',$movieId);
+        $pdostm->bindParam(':actorId',$actorId);
+        $count = $pdostm ->execute();
+        return $count;
+    }
+
+    public function listMoviesxActors($db){
+        $sql = "SELECT movie_actor.id, movies.title, actors.actor_fname,actors.actor_lname FROM movie_actor inner join movies on movies.id = movie_actor.movie_id inner join actors on actors.id = movie_actor.actor_id";
+        $pdostm = $db ->prepare($sql);
+        $pdostm->execute();
+        $m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
+
+        return $m;
+    }
+    //MOVIE Director BRIDGING FUCNTION
+
+    public  function addMoviexDirector($movieId, $directorId, $db){
+        $sql = "INSERT INTO movie_director(movie_id,director_id) VALUES(:movieId,:directorId)";
+        $pdostm = $db ->prepare($sql);
+        $pdostm->bindParam(':movieId',$movieId);
+        $pdostm->bindParam(':directorId',$directorId);
+        $count = $pdostm ->execute();
+        return $count;
+    }
+    public  function deleteMoviexDirector($movie_id, $director_id, $db){
+        $sql = "DELETE FROM  movie_director WHERE movie_id = :movie_id && director_id = :director_id";
+        $pdostm = $db ->prepare($sql);
+        $pdostm->bindParam(':movie_id',$movie_id);
+        $pdostm->bindParam(':director_id',$director_id);
+        $count = $pdostm ->execute();
+        return $count;
+    }
+    public  function findMoviexDirector($movie_id, $director_id, $db){
+        $sql = "SELECT movie_director.movie_id as movie_id,movie_director.director_id as director_id, movies.title, directors.director_fname,directors.director_lname FROM movies JOIN  movie_director on movies.id = movie_director.movie_id join directors on movie_director.director_id = directors.id WHERE movie_id = :movie_id && director_id = :director_id";
+        $pdostm = $db ->prepare($sql);
+        $pdostm->bindParam(':movie_id',$movie_id);
+        $pdostm->bindParam(':director_id',$director_id);
+        $count = $pdostm ->execute();
+        return $count;
+    }
+
+    public function listMoviesxDirectors($db){
+        $sql = "SELECT movie_director.movie_id as movie_id,movie_director.director_id as director_id, movies.title, directors.director_fname,directors.director_lname FROM movies JOIN  movie_director on movies.id = movie_director.movie_id join directors on movie_director.director_id = directors.id";
+        $pdostm = $db ->prepare($sql);
         $pdostm->execute();
         $m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
 

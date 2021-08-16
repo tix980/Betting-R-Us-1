@@ -1,6 +1,5 @@
 body{
     background-color: #031927;
-    font-family: 'Montserrat', sans-serif;
 }
 
 .faq-page{
@@ -79,6 +78,14 @@ th,td{
 
 table{
     margin-top: 2em;
+}
+
+.error-container{
+    text-align: center;
+}
+
+.error-container h1{
+    padding: 2em 0 1em 0;
 }
 
 /*Media Queries*/
