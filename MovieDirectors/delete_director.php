@@ -13,7 +13,7 @@ if(isset($_POST['id'])){
     $count = $b->deleteDirector($id, $db);
 
     if($count){
-        header("Location: ../list-directors.php");
+        header("Location: ../list_directors.php");
     } else {
         echo "Problem deleting Director";
     }

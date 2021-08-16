@@ -50,14 +50,27 @@ if(isset($_GET['id'])) {
 <body>
 <header><?php require_once "Views/header.php"; ?></header>
 <main>
-    <form action="MovieDirectors/update_director.php" method="post">
+    <?php
+    (string)$userType = $_SESSION['accounttype'];
+    if($userType == 'admin') {
+        $adminBtn = "style='display:block;'";
+
+    } else {
+        $adminBtn = "style='display:none;'";
+    }
+    ?>
+    <div <?php echo $adminBtn ?>>
+    <form action="./MovieDirectors/update_director.php" method="post">
         <input type="hidden" name="id" value="<?= $id ?>"/>
         <input type="submit" class="button btn btn-primary" name="updateDirector" value="Update"/>
     </form>
-    <form action="MovieDirectors/delete_director.php" method="post">
+    </div>
+    <div <?php echo $adminBtn ?>>
+    <form action="./MovieDirectors/delete_director.php" method="post">
         <input type="hidden" name="id" value="<?= $id ?>"/>
         <input type="submit" class="button btn btn-danger" name="deleteDirector" value="Delete"/>
     </form>
+    </div>
     <div class="page-container">
         <div class="back-btn-container ">
             <a href="list_directors.php" class="btn-danger">Back to directors List</a>
