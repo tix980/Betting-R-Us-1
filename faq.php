@@ -1,7 +1,7 @@
 <?php
 use BettingRUs\Models\{Database, Faq};
 
-require_once "errorhandle.php";
+//require_once "errorhandle.php";
 require_once "Views/header.php";
 require_once "Models/Database.php";
  require_once "Models/Faq.php";

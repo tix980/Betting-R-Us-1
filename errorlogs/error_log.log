@@ -190,3 +190,19 @@ Error reporting
 	 file name: C:\MAMP\htdocs\Betting-R-Us\faq.php
 	 Error line number: 15
 End reporting
+Error reporting
+	 Date Time: 2021-08-16 18:07:27
+	 Error Number: 8
+	 Error Type: Notice
+	 Error Message: Undefined index: accounttype
+	 file name: C:\MAMP\htdocs\Betting-R-Us\faq.php
+	 Error line number: 15
+End reporting
+Error reporting
+	 Date Time: 2021-08-16 18:07:32
+	 Error Number: 8
+	 Error Type: Notice
+	 Error Message: Undefined index: accounttype
+	 file name: C:\MAMP\htdocs\Betting-R-Us\faq.php
+	 Error line number: 15
+End reporting
