@@ -292,7 +292,7 @@ class MovieInfo{
         return $m;
     }
 
-//  MOVE ACTOR BRIDGING FUNCTION
+//  MOVE ACTOR BRIDGING FUCNTION
 
     public  function addMoviexActor($movieId, $actorId, $db){
         $sql = "INSERT INTO movie_actor(movie_id,actor_id) VALUES(:movieId,:actorId)";
@@ -303,47 +303,13 @@ class MovieInfo{
         return $count;
     }
 
-    public function listMoviesxActors($db){
-        $sql = "SELECT movie_actor.id, movies.title, actors.actor_fname,actors.actor_lname FROM movie_actor inner join movies on movies.id = movie_actor.movie_id inner join actors on actors.id = movie_actor.actor_id ";
+    public function listMoviesxactors($db){
+        $sql = "SELECT movies.title, actors.actor_fname,actors.actor_lname FROM movies";
         $pdostm = $db ->prepare($sql);
         $pdostm->execute();
         $m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
 
         return $m;
-    }
-
-    public function getMoviexActorById($id,$db){
-        $sql = "SELECT movie_actor.id, movies.title, actors.actor_fname,actors.actor_lname FROM movie_actor inner join movies on movies.id = movie_actor.movie_id inner join actors on actors.id = movie_actor.actor_id WHERE movie_actor.id = :id ";
-        $pst = $db->prepare($sql);
-        $pst->bindParam(':id', $id);
-        $pst->execute();
-        return $pst->fetch(\PDO::FETCH_OBJ);
-    }
-
-
-    public function updateActorsxMovies($id,$movieId, $actorId, $db){
-        $sql = "UPDATE movie_actor SET movie_id = :movieId, actor_id = :actorId WHERE id = :id ";
-        $pdostm = $db ->prepare($sql);
-        $pdostm->bindParam(':movieId',$movieId);
-        $pdostm->bindParam(':actorId',$actorId);
-        $pdostm->bindParam(':id',$id);
-
-        $count = $pdostm ->execute();
-        return $count;
-    }
-
-
-
-
-
-    public function deleteActorxMovieById($id,$db){
-        $sql = "DELETE FROM movie_actor WHERE id = :id";
-        $pdostm = $db ->prepare($sql);
-
-        $pdostm->bindParam(':id',$id);
-        $count = $pdostm ->execute();
-        return $count;
-
     }
 
 }

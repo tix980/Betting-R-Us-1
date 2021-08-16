@@ -76,13 +76,15 @@
             $count = $pdostm->execute();
             return $count;
         }
-        public function updateMembership($id, $member, $db) {
+        public function updateMembership($id, $member,$expiry, $db) {
             $query = "UPDATE users 
-                     SET membership = :member
+                     SET membership = :member,
+                         member_validity = :expiry
                       WHERE id = :id";
             $pdostm = $db->prepare($query);
 
             $pdostm->bindParam(':member', $member);
+            $pdostm->bindParam(':expiry', $expiry);
             $pdostm->bindParam(':id', $id);
             $count = $pdostm->execute();
             return $count;
@@ -100,4 +102,28 @@
 
             return $count;
         }
+
+        //Add a wallet
+			public function createWallet($money,$token,$id,$db){
+				$sql = "INSERT INTO wallet(token,canadian_dollars,user_id) VALUES(:token,:money,:id)";
+				$pdostm = $db ->prepare($sql);
+				$pdostm->bindParam(':money',$money);
+				$pdostm->bindParam(':token',$token);
+				$pdostm->bindParam(':id',$id);
+
+				$count = $pdostm ->execute();
+				return $count;
+			}
+
+			// Find last user id
+			public function getLastUserID($db) {
+				$query = "SELECT id FROM users ORDER BY id DESC LIMIT 1";
+				$pdostm = $db->prepare($query);
+				$pdostm->execute();
+
+				return $pdostm->fetch(\PDO::FETCH_OBJ);
+			}
+
+
+
     }
