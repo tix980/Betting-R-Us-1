@@ -1,20 +1,18 @@
 <?php
 
-
 namespace BettingRUs\Models;
-
 
 class Rule
 {
+    //to get all the rules in the system
     public function getAllRules($db) {
         $sql = "SELECT * FROM rules";
         $pdostm = $db->prepare($sql);
         $pdostm->execute();
-
         $rules = $pdostm->fetchAll(\PDO::FETCH_ASSOC);
         return $rules;
     }
-
+    //to get a particular rule with the id
     public function getRuleWithId($id, $db){
         $sql = "SELECT * FROM rules where id = :id";
 
@@ -25,7 +23,7 @@ class Rule
         $rules = $pdostm->fetch(\PDO::FETCH_OBJ);
         return $rules;
     }
-
+    // to add the rule in to the database
     public function addRule($rule,  $db){
         $sql = "INSERT INTO rules(rule) values (:rule)";
         $pdostm = $db->prepare($sql);
@@ -34,7 +32,7 @@ class Rule
         $count = $pdostm->execute();
         return $count;
     }
-
+    //to update the rule
     public function updateRule($id, $rule,  $db){
         $sql = "UPDATE rules SET 
                 rule = :rule
@@ -48,7 +46,7 @@ class Rule
         $count = $pdostm->execute();
         return $count;
     }
-
+    //to delete a rule
     public function deleteRule($id, $db){
         $sql = "DELETE FROM rules WHERE id= :id";
 

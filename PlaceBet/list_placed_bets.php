@@ -5,15 +5,16 @@ use BettingRUs\Models\PlaceBet;
 require_once "../Models/Database.php";
 require_once "../vendor/autoload.php";
 require_once "../Library/bet-functions.php";
-
+// to get the current bet details from the model
 $db = Database::getDb();
 $b = new PlaceBet();
 $currentbets = $b->getAllCurrentBets(Database::getDb());
-
+//if the user wants to see the bets for this particular movie then select a movie from the dropdown list to view it
 $bet_movie = $_GET['bet_movie'] ?? "";
 if(isset($_GET['bet_movie'])){
     $bets = $b->getBetsInCurrentBet(Database::getDb(), $_GET['bet_movie']);
 } else {
+    //get all the bets in the system
     $bets =  $b->getAllBets(Database::getDb());
 }
 
@@ -40,6 +41,7 @@ if(isset($_GET['bet_movie'])){
                 <label class="label" for="bet_movie"> Current Bet Movie</label>
                 <select  name="bet_movie" class="select_input"
                          id="bet_movie" >
+                    <!-- a function to create the drop down of the current bets-->
                     <?php echo  populateDropdown($currentbets, $bet_movie) ?>
                 </select>
                 <span style="color: red">
