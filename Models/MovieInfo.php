@@ -303,8 +303,8 @@ class MovieInfo{
         return $count;
     }
 
-    public function listMoviesxactors($db){
-        $sql = "SELECT movies.title, actors.actor_fname,actors.actor_lname FROM movies";
+    public function listMoviesxActors($db){
+        $sql = "SELECT movie_actor.id, movies.title, actors.actor_fname,actors.actor_lname FROM movie_actor inner join movies on movies.id = movie_actor.movie_id inner join actors on actors.id = movie_actor.actor_id";
         $pdostm = $db ->prepare($sql);
         $pdostm->execute();
         $m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
