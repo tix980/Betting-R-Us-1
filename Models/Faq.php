@@ -3,6 +3,7 @@ namespace BettingRUs\Models;
 
 class Faq{
 
+    //Gets all FAQs from db
     public function getAllFaqs($db) {
         $sql = "SELECT * FROM faqs";
         $pdostm = $db->prepare($sql);
@@ -12,6 +13,7 @@ class Faq{
         return $faqs;
     }
 
+    //Finds a specific faq from the db by its id
     public function getFaqWithId($id, $db){
         $sql = "SELECT * FROM faqs where id = :id";
 
@@ -23,6 +25,7 @@ class Faq{
         return $faqs;
     }
 
+    //Adds new faq into db
     public function addFaq($question, $answer, $db){
         $sql = "INSERT INTO faqs(question, answer) values (:question, :answer)";
         $pdostm = $db->prepare($sql);
@@ -33,6 +36,7 @@ class Faq{
         return $count;
     }
 
+    //Updates a faq from db
     public function updateFaq($id, $question, $answer, $db){
         $sql = "UPDATE faqs SET 
                 question = :question,
@@ -49,6 +53,7 @@ class Faq{
         return $count;
     }
 
+    //Deletes a faq from db
     public function deleteFaq($id, $db){
         $sql = "DELETE FROM faqs WHERE id= :id";
 

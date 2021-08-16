@@ -60,9 +60,6 @@
         </div>
 
     <!--</div>-->
-    <?php
-    require_once './Views/footer.php';
-    ?>
 </div><!-- container -->
 
 <script src="./js/jquery.min.js"></script>
