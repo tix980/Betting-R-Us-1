@@ -76,3 +76,21 @@ if(isset($_POST['addMovieActor'])) {
 </div>
 </body>
 </html>
+
+<!--public  function addMoviexActor($movieId, $actorId, $db){-->
+<!--$sql = "INSERT INTO movie_actor(movie_id,actor_id) VALUES(:movieId,:actorId)";-->
+<!--$pdostm = $db ->prepare($sql);-->
+<!--$pdostm->bindParam(':movieId',$movieId);-->
+<!--$pdostm->bindParam(':actorId',$actorId);-->
+<!--$count = $pdostm ->execute();-->
+<!--return $count;-->
+<!--}-->
+<!---->
+<!--public function listMoviesxactors($db){-->
+<!--$sql = "SELECT movies.title, actors.actor_fname,actors.actor_lname FROM movies";-->
+<!--$pdostm = $db ->prepare($sql);-->
+<!--$pdostm->execute();-->
+<!--$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);-->
+<!---->
+<!--return $m;-->
+<!--}-->
