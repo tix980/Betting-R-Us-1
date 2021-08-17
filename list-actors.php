@@ -50,7 +50,7 @@ if ($m) {
 		<section class="movie" id="movie">
 			<ul>
 				<?php foreach ($actors as $actor){ ?>
-					<li class="movie_mainlist"> <img src="images/actors/<?= $actor->poster ?>" alt ="actor poster" height="150"  width="100"/>
+					<li class="movie_mainlist"> <img src="images/actors/<?= $actor->poster ?>" alt ="actor poster" height="400"  width="300"/>
 						<?php echo '<div><a name="selectActor" href="actor-info.php?id='.  $actor->id . '">'. $actor->actor_fname . ' '. $actor->actor_lname . '</a></div>' ?>
 					</li>
 				<?php };?>
