@@ -1,8 +1,7 @@
 <?php
-
 namespace BettingRUs\Models;
 
-class CurrentBet{
+class CurrentBets{
 public function addCurrentBet($movieId, $betCloseDate,$betStatus, $db)
 {
     $sql = "INSERT INTO current_bets (movie_id, bet_close_date,bet_status)
@@ -18,7 +17,8 @@ VALUES (:movieId, :betCloseDate, :betStatus) ";
 }
 
     public function getMovie($db){
-        $query = "SELECT * FROM movies";
+//        $query = "SELECT * FROM movies";
+        $query = "SELECT * FROM movies where release_date between NOW() AND '2050/12/30'";
         $pdostm = $db->prepare($query);
         $pdostm->execute();
 
@@ -60,7 +60,7 @@ public function updateCurrentBet ($id,$movieId, $betCloseDate,$betStatus, $db){
                 bet_close_date = :betCloseDate,
                 bet_status = :betStatus
                 WHERE id = :id
-        
+                
         ";
 
     $pst =  $db->prepare($sql);

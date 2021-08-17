@@ -9,6 +9,7 @@ function populateDropdownMovie($movies, $select = ""){
     return $html_dropdown;
 }
 
+
 function populateDropdownActor($actors, $select = ""){
     $html_dropdown = "";
     foreach ($actors as $actor) {
