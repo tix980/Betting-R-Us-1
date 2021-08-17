@@ -46,7 +46,7 @@ $db = Database::getDb();
                 </ul>
                 <?php if(isset($userID)) { ?>
                     <div class="btn">
-                        <a class="username" href="user_profile.php" type="button"><?= $username ?></a>
+                        <a class="username" href="admin_profile.php" type="button"><?= $username ?></a>
                         <a class="profileBtn" href="logout.php" type="button">Logout</a>
                     </div>
                     <?php } else { ?>
