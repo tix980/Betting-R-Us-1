@@ -41,7 +41,7 @@ $db = Database::getDb();
                         <a class="nav-link" href="contactUs/list_contactus.php">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="donations/list_donation.php">Donate</a>
+                        <a class="nav-link" href="Donations/list_donation.php">Donate</a>
                     </li>
                 </ul>
                 <?php if(isset($userID)) { ?>
