@@ -3,13 +3,13 @@
 use BettingRUs\Models\{Database, Currency,User};
 require_once './Views/header.php';
 require_once "vendor/autoload.php";
-
+//if the user wants to preview the card before payment
 if(isset($_POST['preview'])){
     $id = $_SESSION['userid'];
     $wallet="";
     $c = new Currency();
     $db = Database::getDb();
-
+    //to get the user wallet details
     $wallet = $c->selectedWallet($id,$db);
     $name = $_SESSION['userrealname'];
     $t = time();

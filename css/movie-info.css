@@ -40,6 +40,7 @@ body{
 #page-title h1{
   font-size: 2.5rem;
   margin-left: 8em;
+  color: #bf9b30;
 }
 
 #page-title h2{
@@ -53,6 +54,11 @@ body{
   padding-top:2.5em;
   white-space: pre-line;
   padding-bottom:2em ;
+  color: #9c8d60;
+}
+
+p{
+  color: #9c8d60;
 }
 
 #release-date{

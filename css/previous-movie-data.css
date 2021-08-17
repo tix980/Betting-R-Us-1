@@ -45,6 +45,15 @@ table, th, td {
 
 .actors-container{
   text-align: center;
+  color: #ECDD7B;
+}
+
+.actors-name a{
+  color: #ECDD7B;
+}
+
+.actors-name a:hover{
+  text-decoration: none;
 }
 
 .btn-container{

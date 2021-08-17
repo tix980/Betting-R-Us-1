@@ -1,13 +1,18 @@
 <?php
 use BettingRUs\Models\{Database, MovieInfo};
 
+require_once "Views/header.php";
 require_once "vendor/autoload.php";
-require_once "Models/Database.php";
-require_once "Models/MovieInfo.php";
 
 $actorFname=$actorLname=$title="";
 $m = new MovieInfo();
 $db = Database::getDb();
+if($userType == 'admin') {
+	$adminBtn = "style='display:block;'";
+
+} else {
+	$adminBtn = "style='display:none;'";
+}
 if(isset($_GET['id'])){
 	$id=$_GET['id'];
 
@@ -46,19 +51,16 @@ if ($m) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-	<header>
-		<?php require_once "Views/header.php"; ?>
-	</header>
     <main>
       <div class="page-container" style="background:url('<?= $movieBackGround ?>') !important; background-position: center !important; background-repeat: no-repeat !important; background-size: 1200px 801px !important;">
  				<div id="buttons">
 					<a href="./list-movies.php" class="btn btn-danger float-left">Go back</a>
 					<a href="./previous-movie-data.php?id=<?= $id; ?>" class="btn btn-primary">Box Office</a>
-					<form action="./admin-update-movie.php" method="POST">
+					<form action="./admin-update-movie.php" method="POST" <?php echo $adminBtn?>>
 						<input type="hidden" name="id" value="<?= $id;?>" />
 						<input type="submit" class="btn btn-secondary" name="updateMovie" value="Update" />
 					</form>
-					<form  action="admin-delete-movie.php" method="POST">
+					<form  action="admin-delete-movie.php" method="POST" <?php echo $adminBtn?>>
 						<input type="hidden" name="id" value="<?= $id;?>" />
 						<input type="submit" style="" class="button btn btn-danger" name="deleteMovie" value="Delete" />
 					</form>

@@ -1,13 +1,16 @@
 <?Php
+//declare the models used for this page
 use BettingRUs\Models\{Database, Currency,User};
 require_once './Views/header.php';
+//getting the user id from the session
 $id = $_SESSION['userid'];
 $wallet="";
 $c = new Currency();
 $db = Database::getDb();
-
+//get the wallet details
 $wallet = $c->selectedWallet($id,$db);
 $name = $_SESSION['userrealname'];
+//get the user details
 $u = new User();
 $username = $_SESSION['username'];
 $user = $u->getUserID($id, $db);
@@ -28,9 +31,7 @@ $expiry = $user->member_validity;
 <body>
 <div class="container-fluid">
 
-
     <section class="membershipcard">
-
         <div class="membercard">
             <img src="./images/membership.jpg" alt="image of a membership card" width="650" height="450"/>
         </div>
