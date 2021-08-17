@@ -4,10 +4,17 @@
             <img class="logo" src="./images/BetsRUs_Logo.png" alt="Logo for bets r us">
         </div>
         <div class="col">
-            <div class="btn">
-                <a href="register.php" class="profileBtn" type="button">Register</a>
-                <a href="login.php" class="profileBtn" type="button">Log In</a>
-            </div>
+            <?php if(isset($userID)){ ?>
+                <div class="btn">
+                    <a class="username" href="user_profile.php" type="button"><?= $username ?></a>
+                    <a class="profileBtn" href="logout.php" type="button">Logout</a>
+                </div>
+                <?php } else { ?>
+                <div class="btn">
+                    <a href="login.php" class="profileBtn" type="button">Login</a>
+                    <a href="register.php" class="profileBtn" type="button">Register</a>
+                </div>
+            <?php } ?>
             <div>
                 <ul id="bottomNavLinks">
                     <li>

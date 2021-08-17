@@ -7,10 +7,11 @@
 	$id = $_SESSION['userid'];
 	$db = $db = Database::getDb();
 	$u = new User();
+	//to get the user details
 	$user = $u->getUserID( $id, $db);
 	$membership = $user->membership;
+	//if the user is already a member then redirect to their membership card
 	if($membership === '1'){
-
 	    require_once "membercard.php";
 	}else{?>
 
@@ -30,6 +31,7 @@
 <div class="container-fluid">
         <div class="container-fluid">
             <div class="membercontainer">
+                <!--The benefits of being a member-->
             <div class="benefits">
                 <h2 class="mheading">Membership Benefits</h2>
                 <ol>
@@ -38,6 +40,7 @@
                     <li>No limits in betting!</li>
                 </ol>
             </div>
+                <!-- steps to become a member-->
             <div class="steps">
                 <h2 class="mheading">To Become a Member</h2>
                 <ol>
@@ -47,6 +50,7 @@
                 </ol>
             </div>
             </div>
+            <!-- A radio button for the user to select whether they want to become a member or not-->
             <p class="memberpara">Do you want to become a member?</p>
             <div class="previewform">
             <form action="member_payment.php" method="post">

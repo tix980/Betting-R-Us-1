@@ -1,6 +1,9 @@
 <?php
-session_start();
-require_once "vendor/autoload.php";
+    session_start();
+    require_once "vendor/autoload.php";
+
+    (string)$userName = $_SESSION['username'];
+    date_default_timezone_set("America/Toronto");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,33 +19,96 @@ require_once "vendor/autoload.php";
         <title>Admin-Bets R' Us</title>
     </head>
     <body>
-        <?php include "Views/adm in-header.php"; ?>
+        <?php include "Views/admin-header.php"; ?>
         <main>
-            <section>
-                <h1>Welcome to Betz R' Us!</h1>
-                <div class="card-group">
-                        <div class="card">
-                            <h3 class="card-header">Bets</h3>
+            <section class="adminIndex">
+                <div class="text-center">
+                    <h1>Welcome to Bets R' Us! <?= $userName ?></h1>
+                    <p>Last seen: <?= date("D, m-Y h:i:a") ?></p>
+                </div>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header">Users</h3>
                             <div class="card-body">
-                                <p class="card-text">Bet information goes here</p>
-                                <a class="btn" href="#">View Bets</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-header">Bets</h3>
-                            <div class="card-body">
-                                <p class="card-text">Bet information goes here</p>
-                                <a class="btn" href="#">View Bets</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-header">Bets</h3>
-                            <div class="card-body">
-                                <p class="card-text">Bet information goes here</p>
-                                <a class="btn" href="#">View Bets</a>
+                                <p class="card-text">Click here to manage the user feature.</p>
+                                <a class="btn betBtn" href="Users/list_users.php">Manage Users</a>
                             </div>
                         </div>
                     </div>
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header">Donate</h3>
+                            <div class="card-body">
+                                <p class="card-text">Click here to manage the donate feature.</p>
+                                <a class="btn betBtn" href="Donations/list_donation.php">Manage Donate</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header">Bets</h3>
+                            <div class="card-body">
+                                <p class="card-text">Click here to manage the bet feature.</p>
+                                <a class="btn betBtn" href="current-bet.php">Manage Bets</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header">Movies</h3>
+                            <div class="card-body">
+                                <p class="card-text">Click here to manage the movie feature.</p>
+                                <a class="btn betBtn" href="list-movies.php">Manage Movies</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header">Directors</h3>
+                            <div class="card-body">
+                                <p class="card-text">Click here to manage the director feature.</p>
+                                <a class="btn betBtn" href="#">Manage Directors</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header">Actors</h3>
+                            <div class="card-body">
+                                <p class="card-text">Click here to manage the actor feature.</p>
+                                <a class="btn betBtn" href="list-actors.php">Manage Actors</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header">FAQ</h3>
+                            <div class="card-body">
+                                <p class="card-text">Click here to manage the faq feature.</p>
+                                <a class="btn betBtn" href="Faqs/list_faq.php">Manage FAQ</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header">Rules</h3>
+                            <div class="card-body">
+                                <p class="card-text">Click here to manage the rules feature.</p>
+                                <a class="btn betBtn" href="rules/list_rules.php">Manage Rules</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header">Contact</h3>
+                            <div class="card-body">
+                                <p class="card-text">Click here to manage the contact us feature.</p>
+                                <a class="btn betBtn" href="contactUs/list_contactus.php">Manage Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
         <?php include "Views/admin-footer.php"; ?>

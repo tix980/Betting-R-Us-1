@@ -1,10 +1,10 @@
 <?php
-use BettingRUs\Models\{Database, CurrentBet};
+use BettingRUs\Models\{Database, CurrentBets};
 
 require_once '../vendor/autoload.php';
 require 'currentBetMovieFunction.php';
 
-$b = new CurrentBet();
+$b = new CurrentBets();
 $movies = $b->getMovie(Database::getDb());
 var_dump($_POST);
 if(isset($_POST['addCurrentBet'])) {
@@ -13,7 +13,7 @@ if(isset($_POST['addCurrentBet'])) {
     $betStatus = $_POST['bet-status'];
 
     $db = Database::getDb();
-    $s = new CurrentBet();
+    $s = new CurrentBets();
     $c = $s->addCurrentBet($movies, $betCloseDate,$betStatus, $db);
 
 

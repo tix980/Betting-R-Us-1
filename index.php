@@ -36,7 +36,7 @@
                             <img class="card-img-top" src="<?= $movie->movie_background ?>" alt ="movie poster" height="150"  width="100"/>
                             <div class="card-img-overlay text-center lastBetsTxt">
                                 <h3><?= $movie->title ?></h3>
-                                <button class="betBtn" type="button">Bet Now!</button>
+                                <button class="betBtn" onclick="window.location.href='current-bet.php'" type="button">Bet Now!</button>
                             </div>
                         </div>
                     </div>

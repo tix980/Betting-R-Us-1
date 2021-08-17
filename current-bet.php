@@ -1,5 +1,5 @@
 <?php
-use BettingRUs\Models\{Database, CurrentBet};
+use BettingRUs\Models\{Database, CurrentBets};
 require_once  "Views/header.php";
 require_once  "Models/CurrentBets.php";
 require_once "vendor/autoload.php";
@@ -11,7 +11,7 @@ if($userType == 'admin') {
     $adminBtn = "style='display:none;'";
 }
 $hitFlopBtnDisplay ="";
-$c = new CurrentBet();
+$c = new CurrentBets();
 $currentBets = $c->getAllCurrentBets(Database::getDb());
 
 

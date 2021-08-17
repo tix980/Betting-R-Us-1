@@ -2,6 +2,7 @@
 
 use BettingRUs\Models\{Database, MovieInfo};
 
+require_once "Views/header.php";
 require_once "vendor/autoload.php";
 
 (string)$userType = $_SESSION['accounttype'];
@@ -41,7 +42,6 @@ if ($m) {
 </head>
 <body>
 <div class="container-fluid">
-	<?php require_once "Views/header.php"; ?>
 	<div id="button" <?php echo $adminBtn ?>>
 		<a href="MovieActors/add_actor.php" class="btn btn-primary">Add</a>
 	</div>
@@ -50,8 +50,8 @@ if ($m) {
 		<section class="movie" id="movie">
 			<ul>
 				<?php foreach ($actors as $actor){ ?>
-					<li class="movie_mainlist"> <img src="images/actors/<?= $actor->poster ?>" alt ="actor poster" height="150"  width="100"/>
-						<?php echo '<div><a name="selectActor" href="actor-info.php?id='.  $actor->id . '">'. $actor->actor_fname . ' '. $actor->actor_lname . '</a></div>' ?>
+					<li class="movie_mainlist"> <img src="images/actors/<?= $actor->poster ?>" alt ="actor poster" height="400"  width="300"/>
+						<?php echo '<div><a style="color:white;text-decoration:none;" name="selectActor" href="actor-info.php?id='.  $actor->id . '">'. $actor->actor_fname . ' '. $actor->actor_lname . '</a></div>' ?>
 					</li>
 				<?php };?>
 			</ul>
