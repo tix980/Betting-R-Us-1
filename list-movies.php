@@ -1,10 +1,8 @@
 <?php
 use BettingRUs\Models\{Database, MovieInfo, Genre};
 
-
+require_once 'Views/header.php';
 require_once "vendor/autoload.php";
- require_once "Models/Database.php";
- require_once "Models/MovieInfo.php";
 
 $db = Database::getDb();
 
@@ -15,6 +13,14 @@ $g = new Genre();
 $genres = $g->getAllGenre($db);
 
 $genre="";
+
+if($userType == 'admin') {
+	$adminBtn = "style='display:block;'";
+
+} else {
+	$adminBtn = "style='display:none;'";
+}
+
 if(isset($_POST['romance'])){
     $genre = $_POST['romance'];
     $movies= $g->getMoviesInGenre($db, $genre);
@@ -74,10 +80,7 @@ if ($genres) {
 </head>
 <body>
     <div class="container-fluid">
-        <?php
-        require_once 'Views/header.php';
-        ?>
-			<div id="button">
+			<div id="button" <?php echo $adminBtn?>>
                 <a href="MovieXActors/list_moviesxactors.php" class="btn btn-danger">Actors Movies relation list</a>
 				<a href="./admin-add-movie.php" class="btn btn-primary">Add</a>
 			</div>
@@ -101,7 +104,7 @@ if ($genres) {
         <section class="movie" id="movie">
 					<ul>
 						<?php foreach ($movies as $movie){ ?>
-						<li class="movie_mainlist"> <img src="<?= $movie->poster ?>" alt ="movie poster" height="150"  width="100"/>
+						<li class="movie_mainlist"> <img src="<?= $movie->poster ?>" alt ="movie poster" height="400"  width="300"/>
 							<?php echo '<div><a name="selectMovie" href="movie-info.php?id='.  $movie->id . '">'. $movie->title . '</a></div>' ?>
 						</li>
 						<?php };?>

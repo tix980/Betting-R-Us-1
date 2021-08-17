@@ -39,7 +39,7 @@ try {
     $mail->Subject = 'Message From Bets Are Us app Category ' . $enquiry ;
     $mail->Body    = 'Contact Number ' . $contactNumber . 'Message:' . $message ;
     $mail->AltBody = $message;
-
+		$mail->SMTPDebug  = 0;
      $mail->send();
      echo 'Message has been sent';
 } catch (Exception $e) {
