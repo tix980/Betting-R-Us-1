@@ -1,6 +1,8 @@
 # Shamless Coders - Bets R' Us Website
 This project was made for the course HTTP5202 - Web Application Development 2.
 
+## Live Website URL:https://betting-r-us-marud.ondigitalocean.app/index.php
+
 ## Descrption
 Our team Shamless Coders decided to create a betting website called “Bets R’ Us”. Users can bet on whether an upcoming unreleased movie will be a box office hit or flop. Users can also view information about actors and directors to help determine if they should bet hit or flop on a movie.
 
