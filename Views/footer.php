@@ -1,9 +1,9 @@
 <footer>
     <nav id="bottomNav" class="row">
-        <div class="col">
+        <div class="col-sm-2">
             <img class="logo" src="./images/BetsRUs_Logo.png" alt="Logo for bets r us">
         </div>
-        <div class="col">
+        <div class="col-md">
             <?php if(isset($userID)){ ?>
                 <div class="btn">
                     <a class="username" href="user_profile.php" type="button"><?= $username ?></a>

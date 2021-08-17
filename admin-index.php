@@ -16,16 +16,34 @@ require_once "vendor/autoload.php";
         <title>Admin-Bets R' Us</title>
     </head>
     <body>
-        <?php include "Views/admin-header.php"; ?>
+        <?php include "Views/adm in-header.php"; ?>
         <main>
-            <div>
-                <img src="./images/carousal/bet_friends.jpg">
-                <div>
-                    <h1>Safe Betting</h1>
-                    <p>Feel at ease with our secure and safe betting.</p>
-                    <button class="betBtn" type="button" onclick="window.location.href='register.php'">Join Now!</button>
-                </div>
-            </div>
+            <section>
+                <h1>Welcome to Betz R' Us!</h1>
+                <div class="card-group">
+                        <div class="card">
+                            <h3 class="card-header">Bets</h3>
+                            <div class="card-body">
+                                <p class="card-text">Bet information goes here</p>
+                                <a class="btn" href="#">View Bets</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-header">Bets</h3>
+                            <div class="card-body">
+                                <p class="card-text">Bet information goes here</p>
+                                <a class="btn" href="#">View Bets</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-header">Bets</h3>
+                            <div class="card-body">
+                                <p class="card-text">Bet information goes here</p>
+                                <a class="btn" href="#">View Bets</a>
+                            </div>
+                        </div>
+                    </div>
+            </section>
         </main>
         <?php include "Views/admin-footer.php"; ?>
     </body>
