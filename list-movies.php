@@ -105,7 +105,7 @@ if ($genres) {
 					<ul>
 						<?php foreach ($movies as $movie){ ?>
 						<li class="movie_mainlist"> <img src="<?= $movie->poster ?>" alt ="movie poster" height="400"  width="300"/>
-							<?php echo '<div><a name="selectMovie" href="movie-info.php?id='.  $movie->id . '">'. $movie->title . '</a></div>' ?>
+							<?php echo '<div><a style="color:white;text-decoration: none;"  name="selectMovie" href="movie-info.php?id='.  $movie->id . '">'. $movie->title . '</a></div>' ?>
 						</li>
 						<?php };?>
 					</ul>
