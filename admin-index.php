@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once "vendor/autoload.php";
+(string)$userName = $_SESSION['username'];
+date_default_timezone_set("America/Toronto");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +20,11 @@ require_once "vendor/autoload.php";
     <body>
         <?php include "Views/admin-header.php"; ?>
         <main>
+            <div style="display: flex; justify-content: space-around;">
+                <h1>Welcome back <?= $userName ?></h1>
+                <p><?= date("Y-m-d h:i:sa") ?></p>
+            </div>
+
             <div style="text-align: center">
                 <img src="./images/carousal/bet_friends.jpg">
             </div>
