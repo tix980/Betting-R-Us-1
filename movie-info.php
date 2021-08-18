@@ -3,7 +3,7 @@ use BettingRUs\Models\{Database, MovieInfo};
 
 require_once "Views/header.php";
 require_once "vendor/autoload.php";
-
+$userType = $_SESSION['accounttype'];
 $actorFname=$actorLname=$title="";
 $m = new MovieInfo();
 $db = Database::getDb();
@@ -28,7 +28,7 @@ if(isset($_GET['id'])){
 	$movieBackGround = $selectMovie->movieBackGround;
     $actorId = $selectMovie->id;
 	$actors = $m->selectActorByMovieId($db,$id);
-
+	$directors = $m->selectDirectorByMovieId($db,$id);
 }
 
 if ($m) {
@@ -78,7 +78,12 @@ if ($m) {
 						<div class="last-name"><a href= "actor-info.php?id= <?= $actor-> id;?>"><?php echo $actor-> actor_lname ?></a></div>
 					</div>
 					<?php }; ?>
-
+                    <?php foreach ($directors as $director){?>
+                        <div class="actor-name">
+                            <div class="first-name"><a href="director-info.php?id= <?= $director-> id;?>"><?php echo $director-> director_fname ?></a></div>
+                            <div class="last-name"><a href= "director-info.php?id= <?= $director-> id;?>"><?php echo $director-> director_lname ?></a></div>
+                        </div>
+                    <?php }; ?>
 					<a href="current-bet.php" id="bet-btn">PLACE THE BET NOW!</a>
 				</div>
       </div>

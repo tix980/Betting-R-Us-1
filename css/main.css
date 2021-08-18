@@ -211,6 +211,23 @@ button {
 .cardProfileImg {
     padding: 25px 15px;
 }
+/*---------------------------------*/
+
+/***** Admin Index ****/
+.adminIndex {
+    padding: 35px 25px;
+}
+
+.adminCards {
+    background-color: #333;
+    border: 2px solid #BA1200;
+    text-align: center;
+}
+
+.adminCardHeader {
+    background-color: #BA1200;
+}
+/*--------------------*/
 
 /***** User Feedback Carousal START ****/
 #testimonials {
@@ -229,6 +246,7 @@ button {
     padding: 5%;
 }
 /***** User Feedback Carousal END ****/
+
 /*****USER Bets & History Section  START****/
 #bet-history{
     margin: 0 auto;

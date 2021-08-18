@@ -29,7 +29,7 @@ if($listMovieDirectors){
 <body>
 
 <a class="btn btn-primary" href="../list-movies.php" role="button">Back to movie list</a>
-<a class="btn btn-primary" href="./add_moviexdirector.php" role="button">Add MovieXDirector</a>
+<a class="btn btn-primary" href="./add_moviexdirector.php" role="button">Associate Director with Movies</a>
 <p class="h1 text-center">Movies and Directors Relations</p>
 <div class="m-1" >
     <!--    Displaying Data in Table-->

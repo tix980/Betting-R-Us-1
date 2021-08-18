@@ -17,7 +17,7 @@ class MovieInfo{
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':id',$id);
 		$pdostm->execute();
-		$m = $pdostm ->fetch(\PDO::FETCH_OBJ);
+		$m = $pdostm ->fetchAll(\PDO::FETCH_OBJ);
 
 		return $m;
 	}

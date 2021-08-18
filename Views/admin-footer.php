@@ -4,26 +4,34 @@
             <img class="logo" src="./images/BetsRUs_Logo.png" alt="Logo for bets r us">
         </div>
         <div class="col">
-            <div class="btn">
-                <a href="register.php" class="profileBtn" type="button">Register</a>
-                <a href="login.php" class="profileBtn" type="button">Log In</a>
-            </div>
+            <?Php $username = $_SESSION['username']; ?>
+            <?php if(isset($userID)){ ?>
+                <div class="btn">
+                    <a class="username" href="user_profile.php" type="button"><?= $username ?></a>
+                    <a class="profileBtn" href="logout.php" type="button">Logout</a>
+                </div>
+                <?php } else { ?>
+                <div class="btn">
+                    <a href="login.php" class="profileBtn" type="button">Login</a>
+                    <a href="register.php" class="profileBtn" type="button">Register</a>
+                </div>
+            <?php } ?>
             <div>
                 <ul id="bottomNavLinks">
                     <li>
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="#">Directors</a>
+                        <a href="list_directors.php">Directors</a>
                     </li>
                     <li>
-                        <a href="rules/list_rules.php">Rules</a>
+                        <a href="Rules/list_rules.php">Rules</a>
                     </li>
                     <li>
                         <a href="Users/list_users.php">Users</a>
                     </li>
                     <li>
-                        <a href="#">Actors</a>
+                        <a href="list-actors.php">Actors</a>
                     </li>
                 </ul>
             </div>

@@ -13,7 +13,7 @@ $g = new Genre();
 $genres = $g->getAllGenre($db);
 
 $genre="";
-
+$userType = $_SESSION['accounttype'];
 if($userType == 'admin') {
 	$adminBtn = "style='display:block;'";
 
@@ -81,6 +81,7 @@ if ($genres) {
 <body>
     <div class="container-fluid">
 			<div id="button" <?php echo $adminBtn?>>
+                <a href="MovieXDirectors/list_moviesxdirectors.php" class="btn btn-danger">Directors Movies relation list</a>
                 <a href="MovieXActors/list_moviesxactors.php" class="btn btn-danger">Actors Movies relation list</a>
 				<a href="./admin-add-movie.php" class="btn btn-primary">Add</a>
 			</div>

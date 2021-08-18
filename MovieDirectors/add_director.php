@@ -4,15 +4,10 @@ use BettingRUs\Models\{Database, MovieInfo};
 require_once "../Models/Database.php";
 require_once '../vendor/autoload.php';
 
-
-//$b = new MovieInfo();
-//$movies = $b->getMovie(Database::getDb());
-var_dump($_POST);
 if(isset($_POST['addDirector'])) {
     $file = $_FILES['directorimage'];
 
     $fileName = $_FILES['directorimage']['name'];
-    print_r($fileName);
     $fileNameTmpName = $_FILES['directorimage']['tmp_name'];
     $fileNameSize = $_FILES['directorimage']['size'];
     $fileNameError = $_FILES['directorimage']['error'];
@@ -39,10 +34,8 @@ if(isset($_POST['addDirector'])) {
                 $db = Database::getDb();
                 $s = new MovieInfo();
                 $c = $s->addDirector($directorFirstName, $directorLastName, $birthDate, $birthCity, $biography, $poster, $db);
-
-
                 if ($c) {
-                    header("Location: ../list_directors.php");
+                    header('Location: ../list_directors.php');
                 } else {
                     echo "problem adding a New Director";
                 }
@@ -59,16 +52,12 @@ if(isset($_POST['addDirector'])) {
 
 }
 
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Add Actor</title>
+    <title>Add Director</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -111,7 +100,7 @@ if(isset($_POST['addDirector'])) {
             <input type="file" name="directorimage" id="directorimage">
         </div>
         <div class="form-group">
-            <a href="../list-directors.php" id="btn_back" class="btn btn-success">Back to Director List</a>
+            <a href="../list_directors.php" id="btn_back" class="btn btn-success">Back to Director List</a>
         </div>
         <button type="submit" name="addDirector" class="btn btn-primary" id="btn-submit">
             Add Director

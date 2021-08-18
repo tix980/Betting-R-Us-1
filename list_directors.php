@@ -1,11 +1,15 @@
 <?php
 use BettingRUs\Models\{Database, MovieInfo};
 
-
+require_once "Views/header.php";
 require_once "vendor/autoload.php";
-require_once "Models/Database.php";
-require_once "Models/MovieInfo.php";
+(string)$userType = $_SESSION['accounttype'];
+if($userType == 'admin') {
+    $adminBtn = "style='display:block;'";
 
+} else {
+    $adminBtn = "style='display:none;'";
+}
 $db = Database::getDb();
 
 $m = new MovieInfo();
@@ -34,8 +38,8 @@ if ($m) {
 </head>
 <body>
 <div class="container-fluid">
-	<?php require_once "Views/header.php"; ?>
-	<div id="button">
+
+	<div id="button" <?php echo $adminBtn ?>>
 		<a href="MovieDirectors/add_director.php" class="btn btn-primary">Add</a>
 	</div>
 	<main class="main">
@@ -43,7 +47,7 @@ if ($m) {
 		<section class="movie" id="movie">
 			<ul>
 				<?php foreach ($directors as $director){ ?>
-					<li class="movie_mainlist"> <img src="images/directors/<?= $director->poster ?>" alt ="director poster" height="150"  width="100"/>
+					<li class="movie_mainlist"> <img src="images/directors/<?= $director->poster ?>" alt ="director poster" height="400"  width="300"/>
 						<?php echo '<div><a name="selectDirector" href="director-info.php?id='.  $director->id . '">'. $director->director_fname . ' '. $director->director_lname . '</a></div>' ?>
 					</li>
 				<?php };?>
