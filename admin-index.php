@@ -113,7 +113,7 @@
                             <h3 class="card-header adminCardHeader">Placed Bets</h3>
                             <div class="card-body">
                                 <p class="card-text">Click here to manage the place bet feature.</p>
-                                <a class="btn betBtn" href="placeBet/list_placed_bets.php">Manage Placed Bets</a>
+                                <a class="btn betBtn" href="./PlaceBet/list_placed_bets.php">Manage Placed Bets</a>
                             </div>
                         </div>
                     </div>
