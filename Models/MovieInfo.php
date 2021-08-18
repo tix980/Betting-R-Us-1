@@ -161,7 +161,7 @@ class MovieInfo{
 		$pdostm = $db ->prepare($sql);
 		$pdostm->bindParam(':title',$movieTitle);
 		$pdostm->bindParam(':budget',$movieBudget);
-		$pdostm->bindParam(':gross',$$movieGross);
+		$pdostm->bindParam(':gross',$movieGross);
 		$pdostm->bindParam(':movieReleaseDate',$movieReleaseDate);
 		$pdostm->bindParam(':rating',$rating);
 		$pdostm->bindParam(':summary',$summary);

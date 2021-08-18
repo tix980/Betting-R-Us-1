@@ -16,7 +16,7 @@ if($userType == 'admin') {
 
 $formSentMessage = "";
 $errors = "";
-
+$timestamp = new DateTime("NOW", new DateTimeZone('America/Toronto'));
 //var_dump($_POST);
 if(isset($_POST['addContactFeedback'])) {
     $firstname = isset($_POST['firstname']) ? $_POST['firstname'] : "";
@@ -25,6 +25,7 @@ if(isset($_POST['addContactFeedback'])) {
     $contactNumber = isset($_POST['telephone']) ? $_POST['telephone'] : "";
     $enquiry = isset($_POST['enquiry']) ? $_POST['enquiry'] : "";
     $message = isset($_POST['description']) ? $_POST['description'] : "";
+    $localtimestamp = $timestamp->format('Y-m-d H:i:s');
 
     //STORE THE VALIDATE FUNCTION TO THE VARIABLE
     $errors = validateContactForm($firstname,$lastname,$email, $contactNumber, $enquiry, $message,$errors);
@@ -33,12 +34,12 @@ if(isset($_POST['addContactFeedback'])) {
     if (empty($errors)) {
         $db = Database::getDb();
         $s = new ContactFeedback();
-        $r = $s->addContactFeedback($firstname, $lastname, $email, $contactNumber, $enquiry, $message, $db);
+        $r = $s->addContactFeedback($firstname, $lastname, $email, $contactNumber, $enquiry, $message,$localtimestamp, $db);
 
         //IF  THE INFORMATION STORED TO THE DATABASE IS SUCCESSFUL, THEN SEND IT TO THE EMAIL
         if ($r) {
             require_once 'contactUs/message.php';
-            $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname, your form has been successfully submitted";
+            $formSentMessage = "Thank you for your Valuable enquiry and Feedback $firstname, your Feedback/Enquiry has been successfully received";
 
 ;        } else {
             $formSentMessage = "Problem adding your request";

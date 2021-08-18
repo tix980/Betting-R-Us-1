@@ -1,10 +1,10 @@
 <?php
 namespace BettingRUs\Models;
 class ContactFeedback {
-public function addContactFeedback($firstname, $lastname,$email,$contactNumber,$enquiry,$message, $db)
+public function addContactFeedback($firstname, $lastname,$email,$contactNumber,$enquiry,$message,$posttime, $db)
 {
-$sql = "INSERT INTO contact_feedbacks (first_name, last_name,email,contact_number,enquiry_type,message)
-VALUES (:firstname, :lastname, :email,:contactNumber,:enquiry,:message) ";
+$sql = "INSERT INTO contact_feedbacks (first_name, last_name,email,contact_number,enquiry_type,message,post_time)
+VALUES (:firstname, :lastname, :email,:contactNumber,:enquiry,:message,:posttime) ";
 $pst = $db->prepare($sql);
 
 $pst->bindParam(':firstname', $firstname);
@@ -13,6 +13,7 @@ $pst->bindParam(':email', $email);
 $pst->bindParam(':contactNumber', $contactNumber);
 $pst->bindParam(':enquiry', $enquiry);
 $pst->bindParam(':message', $message);
+$pst->bindParam(':posttime', $posttime);
 
 $count = $pst->execute();
 return $count;
