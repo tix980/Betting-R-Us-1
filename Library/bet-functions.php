@@ -9,3 +9,7 @@ function populateDropdown($movies, $select = ""){
     return $html_dropdown;
 }
 
+function checkPattern($pattern, $value){
+    return !preg_match($pattern, $value);
+}
+

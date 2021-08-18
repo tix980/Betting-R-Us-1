@@ -2,7 +2,9 @@
 use BettingRUs\Models\{Database, PlaceBet, Currency};
 
 require './Views/header.php';
+require_once  "./PlaceBet/bet_validation.php";
 require_once "./vendor/autoload.php";
+
 //if the user is not login then redirect to login page
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
@@ -12,7 +14,7 @@ if($_SESSION['accounttype'] === 'admin'){
     header('Location: PlaceBet/list_placed_bets.php');
 }
 else {
-    $id = $bet_type = "";
+    $id = $bet_type = $errors = "";
     $db = Database::getDb();
     $b = new PlaceBet();
     $currentbet = "";
@@ -35,31 +37,42 @@ else {
         $getcurrentbet = $currentbet->getCurrentBetById($id, $db);
     //when the user clicks on the place bet they can bet on the movie chosen by them
     } elseif (isset($_POST['placeBet'])) {
-        $amount = $_POST['amount'];
-        $userid = $_SESSION['userid'];
-        $currentbetid = $_POST['currentbetid'];
-        $bettype = $_POST['bettype'];
-        $id = $_SESSION['userid'];
-        $wallet="";
-        $c = new Currency();
-        $db = Database::getDb();
-         //if there are not enough tokens in the wallet then will be redirected to the converter
-        $wallet = $c->selectedWallet($id,$db);
-        if($wallet->token< $amount){
-            header('location:./currency-convert.php');
-        }else{
+        $amount = isset($_POST['amount']) ? $_POST['amount'] : "";
+        $errors = validateBetForm($amount, $errors);
+        if (empty($errors)) {
+            $amount = $_POST['amount'];
+            $userid = $_SESSION['userid'];
+            $currentbetid = $_POST['currentbetid'];
+            $bettype = $_POST['bettype'];
+            $id = $_SESSION['userid'];
+            $wallet = "";
+            $c = new Currency();
+            $db = Database::getDb();
+            //if there are not enough tokens in the wallet then will be redirected to the converter
+            $wallet = $c->selectedWallet($id, $db);
+            $token = ($wallet->token) - ($amount);
+            $cad = $wallet->canadian_dollars;
+            if ($wallet->token < $amount) {
+                header('location:./currency-convert.php');
+            } else {
 
-        $db = Database::getDb();
-        $bets = $b->addBet($currentbetid, $userid, $amount, $bettype, $db);
-        //if it is successful in placing a bet the user can see the bet in the user profile
-        if ($bets) {
-            header("Location: user_profile.php");//it should be directed to user profile
-        } else {
-            echo "Problem adding new bet";
+                $db = Database::getDb();
+
+                //update the wallet with the money and token
+                $newwallet = $c->updateWallet($id, $cad,$token, $db);
+                $bets = $b->addBet($currentbetid, $userid, $amount, $bettype, $db);
+                //if it is successful in placing a bet the user can see the bet in the user profile
+                if ($bets) {
+                    header("Location: user_profile.php");//it should be directed to user profile
+                } else {
+                    echo "Problem adding new bet";
+                }
+            }
         }
-        }
-    } else {
-        header("Location: current-bet.php");
+    }
+    else {
+            header("Location: current-bet.php");
+
     }
 }
 
@@ -94,8 +107,8 @@ else {
                 <input type="hidden" name="currentbetid" value="<?= $getcurrentbet->id; ?>" />
                 <div class="addbetform">
                 <label class="label-add" for="amount">Amount:</label>
-                <input type="text" class="select_input" name="amount" id="amount" value="" placeholder="please enter the amount in tokens">
-                <span style="color: red">
+                <input type="text" class="select_input" name="amount" id="amount" value="<?= isset($amount) ? $amount: ""; ?>" placeholder="please enter the amount in tokens">
+                <span style="color: red" > <?php //echo $err ?>
                 </span>
                 </div>
                 <div class="addbetform">
