@@ -1,12 +1,12 @@
 <?php
-use BettingRUs\Models\{Database, CurrentBet};
+use BettingRUs\Models\{Database, CurrentBets};
 
 require_once '../vendor/autoload.php';
 require_once 'currentBetMovieFunction.php';
 
-var_dump($_POST);
+//var_dump($_POST);
 $movies = $betCloseDate = $betStatus = "";
-$c2 = new CurrentBet();
+$c2 = new CurrentBets();
 $movie = $c2 ->getMovie(Database::getDb());
 
 if(isset($_POST['updateCurrentBet'])){
@@ -14,7 +14,7 @@ if(isset($_POST['updateCurrentBet'])){
 
     $db = Database::getDb();
 
-    $s = new CurrentBet();
+    $s = new CurrentBets();
     $currentBet = $s->getCurrentBetsById($id, $db);
 
     $movies = $currentBet->movie_id;
@@ -28,7 +28,7 @@ if(isset($_POST['updCurrentBet'])) {
     $betStatus = $_POST['bet-status'];
 
     $db = Database::getDb();
-    $s = new CurrentBet();
+    $s = new CurrentBets();
     $count = $s->updateCurrentBet($id,$movie, $betCloseDate,$betStatus, $db);
 
     if($count){
@@ -40,7 +40,7 @@ if(isset($_POST['updCurrentBet'])) {
 }
 
 ?>
-?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -62,7 +62,7 @@ if(isset($_POST['updCurrentBet'])) {
             <label for="movie"> Movie :</label>
             <select  name="movie" class="form-control"
                      id="movie" >
-                <?php echo  populateDropdown($movie,$movies) ?>
+                <?php echo  populateDropdownMovie($movie,$movies) ?>
             </select>
             <span style="color: red">
             </span>

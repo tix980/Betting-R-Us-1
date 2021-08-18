@@ -41,12 +41,12 @@ $db = Database::getDb();
                         <a class="nav-link" href="contactUs/list_contactus.php">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="donations/list_donation.php">Donate</a>
+                        <a class="nav-link" href="Donations/list_donation.php">Donate</a>
                     </li>
                 </ul>
                 <?php if(isset($userID)) { ?>
                     <div class="btn">
-                        <a class="username" href="user_profile.php" type="button"><?= $username ?></a>
+                        <a class="username" href="admin_profile.php" type="button"><?= $username ?></a>
                         <a class="profileBtn" href="logout.php" type="button">Logout</a>
                     </div>
                     <?php } else { ?>
