@@ -4,6 +4,7 @@
             <img class="logo" src="./images/BetsRUs_Logo.png" alt="Logo for bets r us">
         </div>
         <div class="col">
+            <?Php $username = $_SESSION['username']; ?>
             <?php if(isset($userID)){ ?>
                 <div class="btn">
                     <a class="username" href="user_profile.php" type="button"><?= $username ?></a>
@@ -21,7 +22,7 @@
                         <a href="index.php">Home</a>
                     </li>
                     <li>
-                        <a href="#">Directors</a>
+                        <a href="list_directors.php">Directors</a>
                     </li>
                     <li>
                         <a href="Rules/list_rules.php">Rules</a>
@@ -30,7 +31,7 @@
                         <a href="Users/list_users.php">Users</a>
                     </li>
                     <li>
-                        <a href="#">Actors</a>
+                        <a href="list-actors.php">Actors</a>
                     </li>
                 </ul>
             </div>

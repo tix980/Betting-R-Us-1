@@ -68,7 +68,7 @@
                             <h3 class="card-header adminCardHeader">Directors</h3>
                             <div class="card-body">
                                 <p class="card-text">Click here to manage the director feature.</p>
-                                <a class="btn betBtn" href="#">Manage Directors</a>
+                                <a class="btn betBtn" href="list_directors.php">Manage Directors</a>
                             </div>
                         </div>
                     </div>
@@ -105,6 +105,15 @@
                             <div class="card-body">
                                 <p class="card-text">Click here to manage the contact us feature.</p>
                                 <a class="btn betBtn" href="contactUs/list_contactus.php">Manage Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card adminCards">
+                            <h3 class="card-header adminCardHeader">Placed Bets</h3>
+                            <div class="card-body">
+                                <p class="card-text">Click here to manage the place bet feature.</p>
+                                <a class="btn betBtn" href="placeBet/list_placed_bets.php">Manage Placed Bets</a>
                             </div>
                         </div>
                     </div>

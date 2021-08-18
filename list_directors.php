@@ -43,7 +43,7 @@ if ($m) {
 		<section class="movie" id="movie">
 			<ul>
 				<?php foreach ($directors as $director){ ?>
-					<li class="movie_mainlist"> <img src="images/directors/<?= $director->poster ?>" alt ="director poster" height="150"  width="100"/>
+					<li class="movie_mainlist"> <img src="images/directors/<?= $director->poster ?>" alt ="director poster" height="400"  width="300"/>
 						<?php echo '<div><a name="selectDirector" href="director-info.php?id='.  $director->id . '">'. $director->director_fname . ' '. $director->director_lname . '</a></div>' ?>
 					</li>
 				<?php };?>
