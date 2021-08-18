@@ -35,7 +35,7 @@ $db = Database::getDb();
                         <a class="nav-link" href="Faqs/list_faq.php">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="rules/list_rules.php">Rules</a>
+                        <a class="nav-link" href="Rules/list_rules.php">Rules</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contactUs/list_contactus.php">Contact</a>

@@ -17,7 +17,7 @@
                         <a href="#">Directors</a>
                     </li>
                     <li>
-                        <a href="rules/list_rules.php">Rules</a>
+                        <a href="Rules/list_rules.php">Rules</a>
                     </li>
                     <li>
                         <a href="Users/list_users.php">Users</a>
