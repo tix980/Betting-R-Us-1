@@ -43,7 +43,7 @@ try {
     $mail->SMTPDebug  = 0;
 
      $mail->send();
-//     echo 'Message has been sent';
+//     echo 'Message has been sent'
 } catch (Exception $e) {
 //     echo "Message could not be sent.";
 }
