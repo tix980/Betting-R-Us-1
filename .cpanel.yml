@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/tix980/repositories/
+    - export DEPLOYPATH=/home/tix980/repositories/Betting-R-Us
     - /bin/cp * $DEPLOYPATH
